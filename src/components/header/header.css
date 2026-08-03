@@ -1,0 +1,22 @@
+@import "tailwindcss";
+:root {
+  --colorBG: #24211f;
+  --headerFsize: 14px;
+  --headerFlineHig: 20px;
+  --headerNavTxtCase: uppercase;
+}
+
+body {
+  background-color: #24211f;
+}
+
+.header-nav-txt {
+  font-size: var(--headerFsize);
+  line-height: var(--headerFlineHig);
+  text-transform: var(--headerNavTxtCase);
+  color: white;
+  background-color: black;
+}
+.header-nav-txt li {
+  margin-left: 32px;
+}
