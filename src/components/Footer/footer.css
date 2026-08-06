@@ -1,0 +1,12 @@
+@import'tailwindcss';
+
+.footer-main-h{
+    font-size: 32px;
+    line-height: 48px;
+    color: white;
+text-align: center;    
+}
+.sub-btn{
+    font-size: 18px;
+    line-height: 28px;
+}

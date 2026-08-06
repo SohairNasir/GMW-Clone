@@ -1,0 +1,57 @@
+.main-P-heading{
+    font-size: 36px;
+    line-height: 40px;
+    font-weight: bolder;
+}.main-Parah{
+    font-size: 16px;
+    line-height: 24px;
+    max-width: 82ch !important;
+    overflow-wrap:break-word ;
+    word-break: keep-all;
+    color: #4B5563;
+}
+
+.Dic-range-h{
+    font-size: 24px;
+    line-height: 36.4px;
+    color: #4B5563;
+}.gmw-offer-h{
+    font-size: 35px;
+    line-height: 53.1px;
+    font-weight: bolder;
+}
+
+.transparent-sheet:after{
+  cursor:pointer;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(16, 24, 31, 0.7); /* AAPKA COLOR #10181F opacity ke sath */
+  opacity: 0;
+  border-radius: 6px;
+  transition: opacity 0.3s ease;    
+}
+
+.animated-car-card{
+    cursor:pointer;
+}
+
+
+.card-car-hover-text{
+    font-size: 14px;
+    line-height: 20px;
+    color: white;
+    opacity: 0;
+}.animated-car-card:hover{
+       .card-car-hover-text{        
+        transition: opacity 0.3s ease-in-out;
+        opacity: 1;
+    }
+    .transparent-sheet::after{
+        opacity: 1;
+    }
+    
+}

@@ -1,4 +1,9 @@
 @import "tailwindcss";
+
+.secPadding{
+    padding: 0px 10px 0px 10px;
+}
+
 .con-ads-img{
     width: 98.90vw;
     height: 100vh;
@@ -9,4 +14,26 @@
     height: 100%;
     object-fit: cover;
     object-position: center;
+}
+
+.left-right-ad-btn{
+    width: min(60px , 60%);
+    height: 9vh;
+    border-radius: 50%;
+    background-color: #343029;
+}
+
+.Dy-car-highLight{
+    color: #FFFFFFE6;
+    font-size: 20px;
+    line-height: 28px;
+}
+
+.dots-con{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    bottom: -170px;
 }

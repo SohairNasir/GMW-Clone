@@ -6,10 +6,6 @@
   --headerNavTxtCase: uppercase;
 }
 
-body {
-  background-color: #24211f;
-}
-
 .header-nav-txt {
   font-size: var(--headerFsize);
   line-height: var(--headerFlineHig);

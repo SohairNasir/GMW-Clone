@@ -1,0 +1,16 @@
+@import'tailwindcss';
+.con-philosophy{
+    height: clamp(150px  , 45vh , 500px);
+}
+.philosophy-h{
+    font-size: 36px;
+    line-height: 40px;
+}.philosophy-parah{
+    font-size: 16px;
+    line-height: 24px;
+    color: #4B5563;
+    width: 100%;
+    max-width: 70ch;
+    word-break: keep-all;
+    text-align: center;
+}

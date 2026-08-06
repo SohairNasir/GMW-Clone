@@ -1,0 +1,43 @@
+@import'tailwindcss';
+
+.top-txt{
+    font-size: 16px;
+    line-height: 24px;
+    max-width: 22ch;
+    color: #4B5563;
+}.top-heading{
+    max-width: 20hc;
+    font-size: 48px;
+    line-height: 48px;
+}
+
+.card-con{
+    cursor: pointer;
+    overflow: hidden;
+}
+.card-con img{
+    transition: transform 0.4s ease;
+}
+
+.hover-con-show{
+    opacity: 0;
+}
+.card-con:hover img{
+    transform: scale(1.1);
+}
+.card-con:hover .hover-con-show{
+    opacity: 1;
+    transition: opacity 0.4s ease-in-out;
+
+}
+
+.card-card-type-txt{
+    font-size: 14px;
+    line-height: 20px;
+    color:#FFFFFFCC;
+}.hover-cc-parha{
+    color: white;
+    font-size: 15px;
+    line-height: 18.6px;
+    word-break: keep-all;
+}

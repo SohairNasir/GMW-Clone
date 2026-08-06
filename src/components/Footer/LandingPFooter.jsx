@@ -1,0 +1,176 @@
+import React from "react";
+import "./footer.css";
+
+const Footer = () => {
+  return (
+    <footer className="bg-black text-white px-6 md:px-16 pt-16 pb-8 font-sans">
+
+
+
+<div className="w-full mb-[50px] flex items-center justify-center flex-col w-full gap-7 ">
+  <p className="w-full max-w-[55ch] footer-main-h">SUBSCRIBE TO OUR NEWSLETTER FOR REGULAR UPDATES</p>
+
+  <div className="flex justify-between items-center w-full max-w-[890px] h-[9vh] border-2 border-white">
+    <input className="w-full h-[7vh] focus:outline-none ml-[18px] " type="text" placeholder="Your Email Address" />
+  <button className="w-full sub-btn  max-w-[160px] h-full bg-white text-black">Subscribe</button>
+  </div>
+</div>
+
+
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 mb-16">
+          <div>
+            <h3 className="text-xl font-bold mb-6 tracking-wide">
+              Quick Links
+            </h3>
+            <ul className="space-y-3 text-sm text-gray-300">
+              <li className="hover:text-white transition-colors cursor-pointer">
+                About Us
+              </li>
+              <li className="hover:text-white transition-colors cursor-pointer">
+                Book Now
+              </li>
+              <li className="hover:text-white transition-colors cursor-pointer">
+                Careers
+              </li>
+              <li className="hover:text-white transition-colors cursor-pointer">
+                News
+              </li>
+              <li className="hover:text-white transition-colors cursor-pointer">
+                Events
+              </li>
+              <li className="hover:text-white transition-colors cursor-pointer">
+                Media
+              </li>
+              <li className="hover:text-white transition-colors cursor-pointer">
+                Quality Policy
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-bold mb-6 tracking-wide">Services</h3>
+            <ul className="space-y-3 text-sm text-gray-300">
+              <li className="hover:text-white transition-colors cursor-pointer">
+                Find a Dealer
+              </li>
+              <li className="hover:text-white transition-colors cursor-pointer">
+                Book a Test Drive
+              </li>
+              <li className="hover:text-white transition-colors cursor-pointer">
+                Become a Dealer
+              </li>
+              <li className="hover:text-white transition-colors cursor-pointer">
+                Aftersales
+              </li>
+              <li className="hover:text-white transition-colors cursor-pointer">
+                Book a Service
+              </li>
+              <li className="hover:text-white transition-colors cursor-pointer">
+                Request a Part
+              </li>
+              <li className="hover:text-white transition-colors cursor-pointer">
+                Price Calculator
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-bold mb-6 tracking-wide">Models</h3>
+            <ul className="space-y-3 text-sm text-gray-300">
+              <li className="hover:text-white transition-colors cursor-pointer">
+                H6 PHEV
+              </li>
+              <li className="hover:text-white transition-colors cursor-pointer">
+                H6 (1.5/2.0)
+              </li>
+              <li className="hover:text-white transition-colors cursor-pointer">
+                H6 HEV
+              </li>
+              <li className="hover:text-white transition-colors cursor-pointer">
+                Jolion
+              </li>
+              <li className="hover:text-white transition-colors cursor-pointer">
+                JOLION HEV
+              </li>
+              <li className="hover:text-white transition-colors cursor-pointer">
+                ORA O3
+              </li>
+              <li className="hover:text-white transition-colors cursor-pointer">
+                ORA O7
+              </li>
+              <li className="hover:text-white transition-colors cursor-pointer">
+                TANK
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 4: Social Media */}
+          <div>
+            <h3 className="text-xl font-bold mb-6 tracking-wide">
+              Social Media
+            </h3>
+            <div className="flex space-x-3">
+              {/* Facebook Icon */}
+              <a
+                href="#"
+                className="w-9 h-9 rounded-full border border-gray-600 flex items-center justify-center hover:border-white transition-colors"
+              >
+                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                </svg>
+              </a>
+
+
+
+              <a
+                href="#"
+                className="w-9 h-9 rounded-full border border-gray-600 flex items-center justify-center hover:border-white transition-colors"
+              >
+                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                </svg>
+              </a>
+
+              <a
+                href="#"
+                className="w-9 h-9 rounded-full border border-gray-600 flex items-center justify-center hover:border-white transition-colors"
+              >
+                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Copyright Row */}
+        <div className="flex flex-col md:flex-row items-center justify-between text-xs text-gray-400 gap-4 pt-4">
+          {/* Privacy Links */}
+          <div className="flex space-x-6">
+            <a href="#" className="hover:text-white transition-colors">
+              privacy
+            </a>
+            <a href="#" className="hover:text-white transition-colors">
+              cookies
+            </a>
+          </div>
+
+          {/* Copyright Text */}
+          <div className="text-center">
+            © 2025 GWM Sazgar Pakistan. All rights reserved.
+          </div>
+
+          {/* Sazgar Branding */}
+          <div className="flex items-center space-x-2">
+            <span className="font-bold tracking-widest text-sm text-gray-300 uppercase">
+              SAZGAR
+            </span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
