@@ -1,63 +1,121 @@
-import React from 'react'
-import'./DynamicAd.css'
-function DynamicAd () {
-  return (
+import React, { useEffect, useState } from "react";
+import "./DynamicAd.css";
+import axios from "axios";
+function DynamicAd() {
+  let [dynamicAds, setDynamicAds] = useState([]);
+  let [index, setIndex] = useState(0);
+  let [loading, setLoading] = useState(false);
+  const getData = async () => {
+    setLoading(true);
+    try {
+      const carData = await axios.get("https://www.jsonkeeper.com/b/DBHUU");
+      setDynamicAds(carData.data);
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+      console.error(new Error(error));
+    }
+  };
 
-<section >
-        <div className='section'>
-
-            <div className='con-ads-img '>
-                <img className='ads-img' src="https://djphncgl0uau7.cloudfront.net/homepage_heroSection_imageHD_1781853565519.jpg" alt="" />
-            </div>
-
-            
-            <div className='w-full secPadding absolute bottom-[210px]'>
-
-            <div className='flex justify-center'>
-              <span className='flex gap-2 justify-between w-full max-w-[93%] text-amber-50 '>
-                <button className='left-right-ad-btn'>left</button>
-                <button  className='left-right-ad-btn'>right</button>
-               </span>
-            </div>
-
-
-             <div className='w-[923px] h-[48px] mt-5'>
-             
-               <span>
-               <img className='w-full h-full' src="https://storage.googleapis.com/havalimages/images/GWMNEWBANNERS19-06-2026/GWMLOGO19-06-2026/01-04.png" alt="" />
-               </span>
-               
-               <span className='w-full'>
-                <p className='Dy-car-highLight mt-3'>Dominate Every Terrain</p>
-               </span>
-
-               <span className=' flex justify-center items-center w-full max-w-[297px] h-[48px] mt-[32px] border-2.5 border-black bg-black'>
-                <p className=' text-white'>
-                  booking your 
-                </p>
-               </span>
-             </div>
-
-<div className='dots-con'>
-              <ul className='w-full max-w-[200px] flex gap-3'>
-                <li  className="w-full max-w-[15px] h-[12px] rounded-[50px]  bg-white"></li>
-                <li  className="w-full max-w-[15px] h-[12px] rounded-[50px] bg-white"></li>
-                <li  className="w-full max-w-[15px] h-[12px] rounded-[50px] bg-white"></li>
-                <li  className="w-full max-w-[15px] h-[12px] rounded-[50px] bg-white"></li>
-                <li  className="w-full max-w-[15px] h-[12px] rounded-[50px] bg-white"></li>
-                <li  className="w-full max-w-[15px] h-[12px] rounded-[50px] bg-white"></li>
-                <li  className="w-full max-w-[15px] h-[12px] rounded-[50px] bg-white"></li>
-                <li  className="w-full max-w-[15px] h-[12px] rounded-[50px] bg-white"></li>
-                <li  className="w-full max-w-[15px] h-[12px] rounded-[50px] bg-white"></li>
-              </ul>
-             </div>
-
-
-            </div>
-        
+  useEffect(() => {
+    getData();
+  }, []);
+  return loading ? (
+    <div className="flex h-[50vh] items-center justify-center">
+      <span class="loader"></span>
+    </div>
+  ) : (
+    
+    <section>
+      <div className="section">
+        <div className="con-ads-img ">
+          <img
+            className="ads-img"
+            src={dynamicAds[index]?.img}
+            alt=""
+          />
         </div>
+
+        <div className="w-full secPadding absolute bottom-[210px]">
+          <div className="flex justify-center">
+            <span className="flex gap-2 justify-between w-full max-w-[93%] text-amber-50 ">
+              <button onClick={() =>
+                setIndex(Math.max(0 , index - 1))}
+               className="left-right-ad-btn flex justify-center items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="size-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M15.75 19.5 8.25 12l7.5-7.5"
+                  />
+                </svg>
+              </button>
+              <button
+                onClick={() =>
+                  setIndex(dynamicAds.length > index ? ++index : 0)
+                }
+                className="left-right-ad-btn  flex justify-center items-center"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="size-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="m8.25 4.5 7.5 7.5-7.5 7.5"
+                  />
+                </svg>
+              </button>
+            </span>
+          </div>
+
+          <div className="w-[923px] h-[48px] mt-5">
+            <span>
+              <img
+                className="w-full max-w-[710px] h-fit"
+                src={dynamicAds[index]?.nameimg} 
+                               alt=""
+              />
+            </span>
+
+            <span className="w-full">
+              <p className="Dy-car-highLight mt-3">{dynamicAds[index]?.type}</p>
+            </span>
+
+            <span className=" flex justify-center items-center w-full max-w-[297px] h-[48px] mt-[32px] border-2.5 border-black bg-black">
+              <p className=" booking-btn text-white">Booking your {dynamicAds[index]?.name}</p>
+            </span>
+          </div>
+
+          <div className="dots-con">
+            <ul className="w-full max-w-[200px] flex gap-3">
+              <li className="w-full max-w-[15px] h-[12px] rounded-[50px]  bg-white"></li>
+              <li className="w-full max-w-[15px] h-[12px] rounded-[50px] bg-white"></li>
+              <li className="w-full max-w-[15px] h-[12px] rounded-[50px] bg-white"></li>
+              <li className="w-full max-w-[15px] h-[12px] rounded-[50px] bg-white"></li>
+              <li className="w-full max-w-[15px] h-[12px] rounded-[50px] bg-white"></li>
+              <li className="w-full max-w-[15px] h-[12px] rounded-[50px] bg-white"></li>
+              <li className="w-full max-w-[15px] h-[12px] rounded-[50px] bg-white"></li>
+              <li className="w-full max-w-[15px] h-[12px] rounded-[50px] bg-white"></li>
+              <li className="w-full max-w-[15px] h-[12px] rounded-[50px] bg-white"></li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </section>
-  )
+  );
 }
 
-export default DynamicAd
+export default DynamicAd;

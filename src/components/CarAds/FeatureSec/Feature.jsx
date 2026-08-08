@@ -63,11 +63,11 @@ function Feature () {
 ];
   return (
 <>
-    <main className=' bg-white w-full max-w-full' >
+    <main className='w-full max-w-full h-auto' >
 
-      <div className='max-w-[1200px] h-fit mb-4'>
-        <div className='w-full pl-[16px] pr-[16px]'>
-          <h1 className='w-full max-w-[1188px] mb-[16px] main-P-heading w-full max-w-[400px]'>Discover GWM: Innovation, Sustainability, and Quality at the Core</h1>
+      <div className='h-[250px] mb-4'>
+        <div className='w-full  pl-[16px] pr-[16px]'>
+          <h1 className='w-full mb-[16px] main-P-heading w-full'>Discover GWM: Innovation, Sustainability, and Quality at the Core</h1>
           <p className='main-Parah w-full max-w-[768px]'>
               This is a belief shared by every employee and department at GWM, both locally and globally. It's a mindset that has propelled the company since its founding in 1990, pushing the limits of what a car can achieve. It's this same unwavering belief that has led GWM to specialize in crafting vehicles designed with purpose—each model meticulously engineered to meet our customers' needs in the most inspiring and innovative way.
               </p>
@@ -95,7 +95,6 @@ function Feature () {
           {
             carData.map((car)=>{
 
-              {console.log(car)}
 return(
               <>
 
@@ -112,7 +111,7 @@ return(
             <img className='w-full object-cover rounded-[7px] h-[128px] ' src={car.image}  alt="" />
 
 </div>
-            <strong className=' absolute text-amber-50 bottom-[15px] left-1.5'>{car.name}</strong>
+            <strong className='car-name-card absolute text-amber-50 bottom-[15px] left-1.5'>{car.name}</strong>
           </div>
               </>
 )

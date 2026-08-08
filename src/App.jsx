@@ -5,6 +5,8 @@ import { Header } from './components/header/Header'
 import CarProducts from './pages/CarProducts'
 import { Route, Routes } from 'react-router-dom'
 import Cardetails from './components/CarDetails/Cardetails'
+import'@fontsource/inter'
+import Size from './components/SizeingDir/Size'
 
 
 function App (){
@@ -13,7 +15,8 @@ function App (){
     {/* <Cardetails/> */}
     {/* <Header/> */}
     <Routes>
-        <Route path='/' element={<Home/>} />
+        {/* <Route path='/' element={<Size/>} /> */}
+        <Route path='/' element={<Home />} />
         <Route path='/products' element={<CarProducts/>} />
         <Route path='/products/:id' element={<Cardetails/>} />
         {/* <Route path='*' element /> */}

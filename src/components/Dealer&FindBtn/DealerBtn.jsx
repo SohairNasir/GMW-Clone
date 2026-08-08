@@ -6,13 +6,27 @@ const DealerBtn = () => {
    
 
       <div className="w-full max-w-[600px] flex justify-center gap-10">
-        <button className="w-full max-w-[195px] cursor-pointer pt-[12px] pb-[12px] pl-[30px] pr-[30px]  border-2 bg-black text-white border-black">
-          <strong>Find a Dealer</strong>
+        <button className="w-full max-w-[195px] font-bold cursor-pointer pt-[12px] pb-[12px] pl-[30px] pr-[30px]  border-2 bg-black text-white border-black">
+          <strong className="font-style">Find a Dealer</strong>
         </button>
 
         <div className="w-full max-w-[300px]">
-          <button className="w-full max-w-[253px] cursor-pointer pt-[12px] pb-[12px] pl-[30px] pr-[30px]  border-2 text-blak border-black">
-            <strong>Book a Test Drive </strong>
+          <button className="flex items-center gap-1 w-full max-w-[218px] cursor-pointer pt-[12px] pb-[12px] pl-[30px] pr-[30px]  border-1 text-blak border-black">
+            <strong className="font-style  font-light">Book a Test Drive </strong>
+               <svg
+                  className="down-chevron"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="transparent"
+                  stroke="black"
+                  viewBox="0 0 24 24"
+                  class="size-4"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="m19.5 8.25-7.5 7.5-7.5-7.5"
+                  />
+                </svg>
           </button>
         </div>
       </div>

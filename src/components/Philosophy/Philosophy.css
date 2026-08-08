@@ -5,6 +5,9 @@
 .philosophy-h{
     font-size: 36px;
     line-height: 40px;
+    font-weight: 900;
+    font-family: 'interVariable',sans-serif ;
+
 }.philosophy-parah{
     font-size: 16px;
     line-height: 24px;
@@ -13,4 +16,6 @@
     max-width: 70ch;
     word-break: keep-all;
     text-align: center;
+    font-family: 'inter' ;
+
 }

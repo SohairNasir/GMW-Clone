@@ -3,27 +3,27 @@ import "./footer.css";
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-white px-6 md:px-16 pt-16 pb-8 font-sans">
+    <footer className="bg-black text-white  pb-8 ">
 
 
 
-<div className="w-full mb-[50px] flex items-center justify-center flex-col w-full gap-7 ">
-  <p className="w-full max-w-[55ch] footer-main-h">SUBSCRIBE TO OUR NEWSLETTER FOR REGULAR UPDATES</p>
+<div className="w-full mb-[50px] flex items-center justify-center h-[45vh] flex-col w-full gap-7 ">
+  <p className="w-full max-w-[49.8ch] footer-main-h">SUBSCRIBE TO OUR NEWSLETTER FOR REGULAR UPDATES</p>
 
-  <div className="flex justify-between items-center w-full max-w-[890px] h-[9vh] border-2 border-white">
+  <div className="flex justify-between items-center w-full max-w-[1020px] h-[9vh] border-2 border-white">
     <input className="w-full h-[7vh] focus:outline-none ml-[18px] " type="text" placeholder="Your Email Address" />
   <button className="w-full sub-btn  max-w-[160px] h-full bg-white text-black">Subscribe</button>
   </div>
 </div>
 
 
-      <div className="max-w-7xl mx-auto">
+      <div className="footer-con max-w-7xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 mb-16">
           <div>
-            <h3 className="text-xl font-bold mb-6 tracking-wide">
+            <h3 className="nav-heading text-xl font-bold mb-6 tracking-wide">
               Quick Links
             </h3>
-            <ul className="space-y-3 text-sm text-gray-300">
+            <ul className="space-y-3 all-nav text-sm text-gray-300">
               <li className="hover:text-white transition-colors cursor-pointer">
                 About Us
               </li>
@@ -49,7 +49,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="text-xl font-bold mb-6 tracking-wide">Services</h3>
+            <h3 className="nav-heading text-xl font-bold mb-6 tracking-wide">Services</h3>
             <ul className="space-y-3 text-sm text-gray-300">
               <li className="hover:text-white transition-colors cursor-pointer">
                 Find a Dealer
@@ -76,7 +76,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="text-xl font-bold mb-6 tracking-wide">Models</h3>
+            <h3 className="nav-heading text-xl font-bold mb-6 tracking-wide">Models</h3>
             <ul className="space-y-3 text-sm text-gray-300">
               <li className="hover:text-white transition-colors cursor-pointer">
                 H6 PHEV
@@ -107,7 +107,7 @@ const Footer = () => {
 
           {/* Column 4: Social Media */}
           <div>
-            <h3 className="text-xl font-bold mb-6 tracking-wide">
+            <h3 className="text-xl interFont font-bold mb-6 tracking-wide">
               Social Media
             </h3>
             <div className="flex space-x-3">
@@ -157,13 +157,13 @@ const Footer = () => {
           </div>
 
           {/* Copyright Text */}
-          <div className="text-center">
+          <div className="text-center interFont">
             © 2025 GWM Sazgar Pakistan. All rights reserved.
           </div>
 
           {/* Sazgar Branding */}
           <div className="flex items-center space-x-2">
-            <span className="font-bold tracking-widest text-sm text-gray-300 uppercase">
+            <span className="interFont font-bold tracking-widest text-sm text-gray-300 uppercase">
               SAZGAR
             </span>
           </div>

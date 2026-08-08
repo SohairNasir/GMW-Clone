@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+.section{
+    height: 700px;
+}
+
 .secPadding{
     padding: 0px 10px 0px 10px;
 }
@@ -17,8 +21,8 @@
 }
 
 .left-right-ad-btn{
-    width: min(60px , 60%);
-    height: 9vh;
+    width: min(50px , 60%);
+    height: 50px;
     border-radius: 50%;
     background-color: #343029;
 }
@@ -27,8 +31,12 @@
     color: #FFFFFFE6;
     font-size: 20px;
     line-height: 28px;
+    font-family: 'inter';
+}.booking-btn{
+    font-size: 16px;
+    line-height: 24px;
+    font-family: 'inter';
 }
-
 .dots-con{
     width: 100%;
     display: flex;
@@ -36,4 +44,25 @@
     align-items: center;
     position: relative;
     bottom: -170px;
+}
+.loader {
+  --color-1: black;
+  --size: 1px;
+  width: calc(48 * var(--size));
+  height: calc(48 * var(--size));
+  border: calc(5 * var(--size)) solid var(--color-1);
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

@@ -1,11 +1,17 @@
 .main-P-heading{
-    font-size: 36px;
+    display: block;
+    max-width: 55ch;
+    word-break: keep-all;
+    font-size: 34px;
     line-height: 40px;
-    font-weight: bolder;
+    font-weight: 900;
+    letter-spacing: -0.04rem;
+    font-family: 'interVariable',sans-serif;
 }.main-Parah{
     font-size: 16px;
     line-height: 24px;
-    max-width: 82ch !important;
+    max-width: 77.3ch !important;
+    font-family: 'inter';
     overflow-wrap:break-word ;
     word-break: keep-all;
     color: #4B5563;
@@ -14,11 +20,13 @@
 .Dic-range-h{
     font-size: 24px;
     line-height: 36.4px;
+    font-family: 'inter';
     color: #4B5563;
 }.gmw-offer-h{
     font-size: 35px;
     line-height: 53.1px;
-    font-weight: bolder;
+    font-weight: 900;
+    font-family: 'interVariable',sans-serif ;
 }
 
 .transparent-sheet:after{
@@ -43,6 +51,7 @@
 .card-car-hover-text{
     font-size: 14px;
     line-height: 20px;
+    font-family: 'inter';
     color: white;
     opacity: 0;
 }.animated-car-card:hover{
@@ -54,4 +63,10 @@
         opacity: 1;
     }
     
+}
+.car-name-card{
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 300;
+    font-family: 'inter';
 }
