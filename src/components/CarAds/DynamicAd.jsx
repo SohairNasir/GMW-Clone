@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./DynamicAd.css";
 import axios from "axios";
+
 function DynamicAd() {
+
   let [dynamicAds, setDynamicAds] = useState([]);
   let [index, setIndex] = useState(0);
   let [loading, setLoading] = useState(false);
+
   const getData = async () => {
     setLoading(true);
     try {
