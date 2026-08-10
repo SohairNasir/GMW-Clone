@@ -1,5 +1,5 @@
 import React from 'react'
-import Cardetails from '../components/CarDetails/Cardetails'
+import Cardetails from '../../components/CarDetails/Cardetails'
 
 const SingleCar = () => {
   return (

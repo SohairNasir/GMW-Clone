@@ -1,32 +1,22 @@
-import React from 'react'
-import Home from './pages/home'
-import Models from './components/CarModels/Models'
-import { Header } from './components/header/Header'
-import CarProducts from './pages/CarProducts'
-import { Route, Routes } from 'react-router-dom'
-import Cardetails from './components/CarDetails/Cardetails'
-import'@fontsource/inter'
-import Size from './components/SizeingDir/Size'
+import CarModels from "./components/CarModels/CarModels";
+import CarProducts from "./pages/CarProducts/CarProducts";
+import Cardetails from "./components/CarDetails/Cardetails";
+import { Header } from "./components/header/Header";
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/Home/Home";
+import React from "react";
+import "@fontsource/inter";
 
-
-function App (){
+function App() {
   return (
     <>
-    {/* <Cardetails/> */}
-    {/* <Header/> */}
-    <Routes>
-        {/* <Route path='/' element={<Size/>} /> */}
-        <Route path='/' element={<Home />} />
-        <Route path='/products' element={<CarProducts/>} />
-        <Route path='/products/:id' element={<Cardetails/>} />
-        {/* <Route path='*' element /> */}
-        </Routes>
-        {/* <Route path='/users/:id' element={<User/>} /> */}
-        {/* <Route path='/user-search' element={<UserSearch/>} /> */}
-  {/* <Models /> */}
-    {/* <Home/> */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/products" element={<CarProducts />} />
+        <Route path="/products/:id" element={<Cardetails />} />
+      </Routes>
     </>
-   )
+  );
 }
 
-export default App
+export default App;

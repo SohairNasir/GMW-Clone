@@ -1,7 +1,7 @@
 import React from 'react'
-import'./Feature.css'
+import'./FeatureSec.css'
 
-function Feature () {
+function FeatureSec () {
   
  const carData = [
   {
@@ -129,4 +129,4 @@ return(
   )
 }
 
-export default Feature
+export default FeatureSec

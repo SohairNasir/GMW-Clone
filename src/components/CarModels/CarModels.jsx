@@ -1,11 +1,13 @@
-import DealerBtn from "../Dealer&FindBtn/DealerBtn";
-import Footer from "../Footer/LandingPFooter";
+import DealerBtn from "../DealerBtn/DealerBtn";
+import Footer from "../Footer/Footer";
 import axios from "axios";
-import "./Model.css";
+import "./CarModels.css";
 import { useNavigate } from 'react-router-dom'
 import React, { useEffect, useState } from "react";
 
-const Models = () => {
+const CarModels = () => {
+  
+  
   const [data, setData] = useState([]);
   const navigate = useNavigate()
   const getCarData = async () => {
@@ -89,4 +91,4 @@ const Models = () => {
   );
 };
 
-export default Models;
+export default CarModels;
