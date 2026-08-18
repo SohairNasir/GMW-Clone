@@ -5,8 +5,7 @@ import { Link } from "react-router-dom";
 export const Header = () => {
   return (
     <header className="fixed top-0  z-200 w-full">
-      <div>
-        <nav className="flex items-center justify-around max-w-1125 w-full h-18 ">
+        <nav className="flex items-center justify-around w-full max-w-1125 h-18 ">
           <ul className="header-nav-txt flex justify-center gap-8 max-w-330 w-full rounded-[10px] mt-4 h-[62px]  bg-[#1F1D1B] items-center  ">
             <li>
               <img
@@ -101,8 +100,6 @@ export const Header = () => {
             </li>
           </ul>
         </nav>
-      </div>
-      \{" "}
     </header>
   );
 };

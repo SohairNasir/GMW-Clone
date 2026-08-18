@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
 .section{
+    width: 100%;
+    max-width: 100%;
     height: 700px;
 }
 
@@ -9,7 +11,8 @@
 }
 
 .con-ads-img{
-    width: 98.90vw;
+    width: 100%;
+    max-width: 100%;
     height: 100vh;
 }
 .ads-img{

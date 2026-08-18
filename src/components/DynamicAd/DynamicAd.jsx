@@ -3,13 +3,13 @@ import "./DynamicAd.css";
 import axios from "axios";
 
 function DynamicAd() {
-
   let [dynamicAds, setDynamicAds] = useState([]);
   let [index, setIndex] = useState(0);
   let [loading, setLoading] = useState(false);
 
   const getData = async () => {
     setLoading(true);
+
     try {
       const carData = await axios.get("https://www.jsonkeeper.com/b/DBHUU");
       setDynamicAds(carData.data);
@@ -28,23 +28,19 @@ function DynamicAd() {
       <span class="loader"></span>
     </div>
   ) : (
-    
-    <section>
+    <section className="w-full">
       <div className="section">
         <div className="con-ads-img ">
-          <img
-            className="ads-img"
-            src={dynamicAds[index]?.img}
-            alt=""
-          />
+          <img className="ads-img" src={dynamicAds[index]?.img} alt="" />
         </div>
 
         <div className="w-full secPadding absolute bottom-[210px]">
-          <div className="flex justify-center">
+          <div className="flex justify-center ">
             <span className="flex gap-2 justify-between w-full max-w-[93%] text-amber-50 ">
-              <button onClick={() =>
-                setIndex(Math.max(0 , index - 1))}
-               className="left-right-ad-btn flex justify-center items-center">
+              <button
+                onClick={() => setIndex(Math.max(0, index - 1))}
+                className="left-right-ad-btn flex justify-center items-center"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -62,7 +58,7 @@ function DynamicAd() {
               </button>
               <button
                 onClick={() =>
-                  setIndex(dynamicAds.length > index ? ++index : 0)
+                  setIndex( index < dynamicAds.length-1  ? ++index : 0)
                 }
                 className="left-right-ad-btn  flex justify-center items-center"
               >
@@ -84,22 +80,31 @@ function DynamicAd() {
             </span>
           </div>
 
-          <div className="w-[923px] h-[48px] mt-5">
-            <span>
-              <img
-                className="w-full max-w-[710px] h-fit"
-                src={dynamicAds[index]?.nameimg} 
-                               alt=""
-              />
-            </span>
+          <div className="w-full h-[43px] ">
+            <div className="w-full max-w-[100vw]   h-auto flex flex-col items-center ">
+              <div className=" w-full max-w[1188px] flex flex-col ">  
+                <div className="max-w-[923px] h-[48px] ">
+                  <img
+                    className="h-full w-auto max-w-[710px] object-contain "
+                    src={dynamicAds[index]?.nameimg}
+                    alt=""
+                  />
+                  
+                </div>
 
-            <span className="w-full">
-              <p className="Dy-car-highLight mt-3">{dynamicAds[index]?.type}</p>
-            </span>
+                <div className="">
+                  <p className="Dy-car-highLight mt-3">
+                    {dynamicAds[index]?.type}
+                  </p>
+                </div>
 
-            <span className=" flex justify-center items-center w-full max-w-[297px] h-[48px] mt-[32px] border-2.5 border-black bg-black">
-              <p className=" booking-btn text-white">Booking your {dynamicAds[index]?.name}</p>
-            </span>
+                <div className=" flex justify-center items-center w-full max-w-[297px] h-[48px] mt-[32px] border-2.5 border-black bg-black">
+                  <p className=" booking-btn text-white">
+                    Booking your {dynamicAds[index]?.name}
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="dots-con">

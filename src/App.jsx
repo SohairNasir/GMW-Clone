@@ -1,7 +1,7 @@
 import CarModels from "./components/CarModels/CarModels";
 import CarProducts from "./pages/CarProducts/CarProducts";
 import Cardetails from "./components/CarDetails/Cardetails";
-import { Header } from "./components/header/Header";
+import { Header } from "./components/Header/Header";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import React from "react";
