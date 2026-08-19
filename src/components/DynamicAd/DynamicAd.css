@@ -48,6 +48,15 @@
     position: relative;
     bottom: -170px;
 }
+
+.dots-con ul li{
+    background-color: #E6E2DE;
+    width: 100%;
+    max-width: 15px;
+    height: 12px;
+    border-radius: 50%;
+}
+
 .loader {
   --color-1: black;
   --size: 1px;

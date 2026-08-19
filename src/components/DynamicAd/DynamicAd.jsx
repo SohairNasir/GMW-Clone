@@ -23,6 +23,7 @@ function DynamicAd() {
   useEffect(() => {
     getData();
   }, []);
+
   return loading ? (
     <div className="flex h-[50vh] items-center justify-center">
       <span class="loader"></span>
@@ -109,15 +110,15 @@ function DynamicAd() {
 
           <div className="dots-con">
             <ul className="w-full max-w-[200px] flex gap-3">
-              <li className="w-full max-w-[15px] h-[12px] rounded-[50px]  bg-white"></li>
-              <li className="w-full max-w-[15px] h-[12px] rounded-[50px] bg-white"></li>
-              <li className="w-full max-w-[15px] h-[12px] rounded-[50px] bg-white"></li>
-              <li className="w-full max-w-[15px] h-[12px] rounded-[50px] bg-white"></li>
-              <li className="w-full max-w-[15px] h-[12px] rounded-[50px] bg-white"></li>
-              <li className="w-full max-w-[15px] h-[12px] rounded-[50px] bg-white"></li>
-              <li className="w-full max-w-[15px] h-[12px] rounded-[50px] bg-white"></li>
-              <li className="w-full max-w-[15px] h-[12px] rounded-[50px] bg-white"></li>
-              <li className="w-full max-w-[15px] h-[12px] rounded-[50px] bg-white"></li>
+              <li className={`${index == 0 && '!bg-blue-800 scale-150'}`}></li>
+              <li className={`${index == 1 && '!bg-blue-800 scale-150'}`}></li>
+              <li className={`${index == 2 && '!bg-blue-800 scale-150'}`}></li>
+              <li className={`${index == 3 && '!bg-blue-800 scale-150'}`}></li>
+              <li className={`${index == 4 && '!bg-blue-800 scale-150'}`}></li>
+              <li className={`${index == 5 && '!bg-blue-800 scale-150'}`}></li>
+              <li className={`${index == 6 && '!bg-blue-800 scale-150'}`}></li>
+              <li className={`${index == 7 && '!bg-blue-800 scale-150'}`}></li>
+              <li className={`${index == 8 && '!bg-blue-800 scale-150'   }`}></li>
             </ul>
           </div>
         </div>
