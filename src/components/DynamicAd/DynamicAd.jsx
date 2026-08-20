@@ -118,7 +118,8 @@ function DynamicAd() {
               <li className={`${index == 5 && '!bg-blue-800 scale-150'}`}></li>
               <li className={`${index == 6 && '!bg-blue-800 scale-150'}`}></li>
               <li className={`${index == 7 && '!bg-blue-800 scale-150'}`}></li>
-              <li className={`${index == 8 && '!bg-blue-800 scale-150'   }`}></li>
+              <li className={`${index == 8 && '!bg-blue-800 scale-150'}`}></li>
+              
             </ul>
           </div>
         </div>
