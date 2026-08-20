@@ -16,7 +16,6 @@ export const Header = () => {
             </li>
             <li>about us</li>
             <Link to="/products">
-              {" "}
               <li>modles</li>
             </Link>
             <li>test drive</li>
@@ -79,9 +78,11 @@ export const Header = () => {
             </li>
 
             <li>book now </li>
-            <li>
+            <li >
               <div className=" flex items-center gap-2  w-full">
+                <Link to={'/contact'}>
                 <span>contact </span>
+                </Link>
                 <svg
                   className="down-chevron"
                   xmlns="http://www.w3.org/2000/svg"
@@ -89,12 +90,12 @@ export const Header = () => {
                   stroke="#FFFFFF"
                   viewBox="0 0 24 24"
                   class="size-4"
-                >
+                  >
                   <path
                     stroke-linecap="round"
                     stroke-linejoin="round"
                     d="m19.5 8.25-7.5 7.5-7.5-7.5"
-                  />
+                    />
                 </svg>
               </div>
             </li>
