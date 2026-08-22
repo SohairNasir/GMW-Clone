@@ -61,6 +61,7 @@ function FeatureSec () {
     image: "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=600&h=338&q=80"
   }
 ];
+
   return (
 <>
     <main className='w-full max-w-full h-auto' >
@@ -96,9 +97,9 @@ function FeatureSec () {
             carData.map((car)=>{
 
 return(
-              <>
 
-              <div className='animated-car-card w-full max-w-[303.5px] relative'>
+    <div  key={car?.id}
+     className='animated-car-card w-full max-w-[303.5px] relative'>
 
       <div className='w-full transparent-sheet flex justify-center flex-col relative items-center'>
          <div className='z-40 landingP-card-txt-con absolute top-[43px] w-full'> 
@@ -113,7 +114,6 @@ return(
 </div>
             <strong className='car-name-card absolute text-amber-50 bottom-[15px] left-1.5'>{car.name}</strong>
           </div>
-              </>
 )
 
             })

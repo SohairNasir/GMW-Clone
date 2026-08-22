@@ -23,16 +23,15 @@ export const Header = () => {
               <div className=" flex items-center gap-1  w-full">
                 <span>find a dealer</span>
                 <svg
-                  className="down-chevron"
+                  className="down-chevron size-4"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="transparent"
                   stroke="#FFFFFF"
                   viewBox="0 0 24 24"
-                  class="size-4"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     d="m19.5 8.25-7.5 7.5-7.5-7.5"
                   />
                 </svg>
@@ -42,16 +41,15 @@ export const Header = () => {
               <div className=" flex items-center gap-2  w-full">
                 <span>after sales</span>
                 <svg
-                  className="down-chevron"
+                  className="down-chevron size-4"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="transparent"
                   stroke="#FFFFFF"
                   viewBox="0 0 24 24"
-                  class="size-4"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     d="m19.5 8.25-7.5 7.5-7.5-7.5"
                   />
                 </svg>
@@ -61,16 +59,15 @@ export const Header = () => {
               <div className=" flex items-center gap-2  w-full">
                 <span>news & events </span>
                 <svg
-                  className="down-chevron"
+                  className="down-chevron size-4"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="transparent"
                   stroke="#FFFFFF"
                   viewBox="0 0 24 24"
-                  class="size-4"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     d="m19.5 8.25-7.5 7.5-7.5-7.5"
                   />
                 </svg>
@@ -84,16 +81,15 @@ export const Header = () => {
                 <span>contact </span>
                 </Link>
                 <svg
-                  className="down-chevron"
+                  className="down-chevron size-4"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="transparent"
                   stroke="#FFFFFF"
                   viewBox="0 0 24 24"
-                  class="size-4"
                   >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     d="m19.5 8.25-7.5 7.5-7.5-7.5"
                     />
                 </svg>
