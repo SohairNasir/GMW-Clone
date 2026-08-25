@@ -4,12 +4,13 @@ import Cardetails from "./components/CarDetails/Cardetails";
 import { Header } from "./components/Header/Header";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home/Home";
-import React from "react";
 import "@fontsource/inter";
 import ContactUser from "./pages/ContactUser/ContactUser";
 
 function App() {
+
   return (
+
     <>
       <Routes>
         <Route path="/" element={<Home />} />

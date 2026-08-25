@@ -1,55 +1,124 @@
 import React from 'react';
-import { useForm } from "react-hook-form";
+import { set, useForm } from "react-hook-form";
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import "./Contact.css";
 
 const Contact = () => {
-  const contactSchema = yup.object({
-    FirstName: yup.string().required("First Name is required").max(30, "Max 30 characters"),
-    LastName: yup.string().required("Last Name is required").max(30, "Max 30 characters"),
-    Number: yup.number().typeError("Must be a valid number").required("Phone number is required"),
-    Email: yup.string().typeError('this coustom error').email("Invalid email format").required("Email is required"),
-    Address: yup.string().max(40, "Max 40 characters"),
-    City: yup.string().max(10, "Max 10 characters"),
-    Subject: yup.string().required("Subject is required").max(400, "Max 400 characters"),
-    Message: yup.string().required("Message is required"),
-    Vichle: yup.string(),
-    HavalLover: yup.boolean()
-  });
+
+
+const telRegex = /^((\+92)|(03))\d{9}$/; // Standard PK Number Pattern
+
+ const contactSchema = yup.object().shape({
+  // Name Fields
+  FirstName: yup
+    .string()
+    .trim()
+    .required("First Name is required")
+    .max(30, "First Name cannot exceed 30 characters"),
+
+  LastName: yup
+    .string()
+    .trim()
+    .required("Last Name is required")
+    .max(30, "Last Name cannot exceed 30 characters"),
+
+  // Contact Fields
+  Number: yup
+    .string() // string use karna best practice hai
+    .required("Phone number is required")
+    .test(
+      "NumRegex",
+      "Only valid Pakistani numbers allowed (e.g. 03001234567 or +923001234567)",
+      (value) => !value || telRegex.test(value)
+    ),
+
+  Email: yup
+    .string()
+    .trim()
+    .required("Email is required")
+    .email("Please enter a valid email address"),
+
+  // Address Details
+  Address: yup
+    .string()
+    .trim()
+    .required("Enter your current address")
+    .max(40, "Address must be under 40 characters"),
+
+  City: yup
+    .string()
+    .trim()
+    .required("Type your city name")
+    .max(10, "City name must be under 10 characters"),
+
+  // Message / Subject
+  Subject: yup
+    .string()
+    .trim()
+    .nullable()
+    .required("Subject is required")
+    .max(400, "Subject must be under 400 characters"),
+
+  Message: yup
+    .string()
+    .trim()
+    .required("Message is required"),
+
+  // Optional / Extra Fields
+  Vichle: yup
+    .string()
+    .optional(),
+
+  HavalLover: yup
+    .boolean()
+    .default(false),
+})
 
   const {
     handleSubmit,
     register,
-    formState: { errors },
+    formState: { errors , isSubmitting },
   } = useForm({
     resolver: yupResolver(contactSchema)
   });
 
-  const seeData = (data) => {
+  const onSubmit = async (data) => {
     console.log("Form Submitted Data:", data);
+
+    // Set data in Data base
+
+    // try {
+      
+    // } catch (error) {
+      
+    // }
   };
 
   return (
     <div className="gwm-contact-container">
+
       <div className="contact-header">
         <h1>Contact Us</h1>
         <p>Get in touch with our team</p>
         <div className="divider"></div>
       </div>
 
-      <form onSubmit={handleSubmit(seeData)} className="contact-form">
+      <form onSubmit={handleSubmit(onSubmit)} className="contact-form">
         {/* Row 1: Personal Info */}
         <div className="form-row">
           <div className="row-label">
             <h3>Personal Information</h3>
           </div>
+
           <div className="row-inputs">
             <div className="input-group-2">
+           
               <div className="field-container">
                 <input type="text" {...register('FirstName')} placeholder="First Name*" />
                 {errors.FirstName && <span className="error-msg">{errors.FirstName.message}</span>}
               </div>
+           
               <div className="field-container">
                 <input type="text" {...register('LastName')} placeholder="Last Name*" />
                 {errors.LastName && <span className="error-msg">{errors.LastName.message}</span>}
@@ -58,7 +127,7 @@ const Contact = () => {
 
             <div className="input-group-2">
               <div className="field-container">
-                <input type="tel" {...register('Number')} placeholder="Phone Number*" />
+                <input type="tel" className='tel-input' {...register('Number')} placeholder="Phone Number*" />
                 {errors.Number && <span className="error-msg">{errors.Number.message}</span>}
               </div>
               <div className="field-container">
@@ -97,7 +166,7 @@ const Contact = () => {
           </div>
           <div className="row-inputs">
             <div className="field-container">
-              <select {...register('Vichle')} defaultValue="Other Inquiry">
+              <select {...register('Vichle')} >
                 <option value="Other Inquiry">Other Inquiry</option>
                 <option value="Haval H6">Haval H6</option>
                 <option value="Ora 03">Ora 03</option>
@@ -109,7 +178,7 @@ const Contact = () => {
         {/* Row 3: Checkbox & Submit */}
         <div className="form-row">
           <div className="textAlign">
-            <input {...register('HavalLover')} className="mr-4" type="checkbox" />
+            <input {...register('HavalLover')} className="mr-4 no-height" type="checkbox" />
             <span>I will like Haval representative contact me for promotional stuff</span>
           </div>
           <div className="row-inputs">

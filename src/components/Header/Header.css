@@ -7,10 +7,14 @@
 }
 
 .header-nav-txt {
+  width: 100%;
+  max-width: 99%;
   font-size: var(--headerFsize);
   line-height: var(--headerFlineHig);
   text-transform: var(--headerNavTxtCase);
   color: white;
+  background-color: rgba(0, 0, 0, 0.8) ;
+  
 }
 .header-nav-txt li {
   font-family: 'inter';
@@ -23,6 +27,38 @@
 .down-chevron{
   width: 100%;
   max-width: fit-content;
-  height:17px;
+  height:15px;
   stroke: white !important ;
+}
+
+.tabHeader{
+  display: none;
+}
+
+@media screen and (max-width : 768px){
+.nav-con{
+  padding: 10px;
+}
+.header-nav-txt{
+ max-width: 752px;
+ gap: 0;
+}  
+.header-links{
+  display: none;
+}
+.tabHeader{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 95%;
+} 
+
+.menu-svg{
+  width: 100%;
+  max-width: 35%;
+  height: fit-content;
+}
+
 }
