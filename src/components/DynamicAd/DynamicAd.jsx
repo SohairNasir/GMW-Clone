@@ -31,7 +31,7 @@ function DynamicAd() {
   ) : (
     <section className="w-full">
       <div className="section">
-        <div className="con-ads-img ">
+        <div className="con-ads-img">
           <img className="ads-img" src={dynamicAds[index]?.img} alt="" />
         </div>
 

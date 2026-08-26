@@ -7,8 +7,8 @@ import { Link } from "react-router-dom";
 export const Header = () => {
 return (
     
-    <header className="fixed top-0 bg-amber-950  z-200 w-full">
-        <nav className="nav-con flex items-center bg-amber-600 justify-around w-full max-w-1125 h-18 ">
+    <header className="fixed top-0 z-200 w-full">
+        <nav className="nav-con flex items-center justify-around w-full max-w-1125 h-18 ">
           
           <ul className="header-nav-txt flex justify-center  gap-6 max-w-[1325px] w-full rounded-[10px] mt-4 h-[62px] items-center  ">
 
@@ -18,7 +18,12 @@ return (
                       <Menu className='menu-svg' />
                 </span>
               </li>
-              <li>icon</li>
+              <li>
+                <img
+                   src="https://djphncgl0uau7.cloudfront.net/images/homepage_globalsettings_navbarlogo_1770037965346.webp"
+                   className="w-35"
+                   alt=""/> 
+              </li>
             </div>
 
 

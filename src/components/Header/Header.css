@@ -1,4 +1,7 @@
 @import "tailwindcss";
+*{
+  cursor: default;
+}
 :root {
   --colorBG: #24211f;
   --headerFsize: 14px;

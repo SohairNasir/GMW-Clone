@@ -10,8 +10,8 @@ import Footer from '../../components/Footer/Footer'
 const Home = () => {
   return (
     <>
-    <Header />
-    {/* <DynamicAd/> */}
+    {/* <Header /> */}
+    <DynamicAd/>
     {/* <Feature /> */}
     {/* <Philosophy/> */}
     {/* <Ytube /> */}
