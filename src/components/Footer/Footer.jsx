@@ -1,14 +1,17 @@
 import React from "react";
 import "./Footer.css";
+import { useSelector } from "react-redux";
 
 const Footer = () => {
-  return (
-    <footer className="bg-black text-white  pb-8 ">
 
+  let Theme = useSelector((state)=>state.Theme.value)   
+console.log(Theme)
+  return (
+    <footer className={`bg-${Theme} text-${Theme=='white'?'black':'white'}  pb-8` }>
 
 
 <div className="w-full mb-[50px] flex items-center justify-center h-[45vh] flex-col w-full gap-7 ">
-  <p className="w-full max-w-[49.8ch] footer-main-h">SUBSCRIBE TO OUR NEWSLETTER FOR REGULAR UPDATES</p>
+     <p className="w-full max-w-[49.8ch] footer-main-h">SUBSCRIBE TO OUR NEWSLETTER FOR REGULAR UPDATES</p>
 
   <div className="flex justify-between items-center w-full max-w-[1020px] h-[9vh] border-2 border-white">
     <input className="w-full h-[7vh] focus:outline-none ml-[18px] " type="text" placeholder="Your Email Address" />
@@ -17,32 +20,32 @@ const Footer = () => {
 </div>
 
 
-      <div className="footer-con max-w-7xl mx-auto">
+      <div className={`footer-con max-w-7xl mx-auto`}>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 mb-16">
           <div>
             <h3 className="nav-heading text-xl font-bold mb-6 tracking-wide">
               Quick Links
             </h3>
-            <ul className="space-y-3 all-nav text-sm text-gray-300">
-              <li className="hover:text-white transition-colors cursor-pointer">
+            <ul className={`space-y-3 text-${Theme == 'white' ? 'gray-800':'white'} all-nav text-sm text-gray-300`}>
+              <li className="hover:text-gray-500 transition-colors cursor-pointer">
                 About Us
               </li>
-              <li className="hover:text-white transition-colors cursor-pointer">
+              <li className="hover:text-gray-500 transition-colors cursor-pointer">
                 Book Now
               </li>
-              <li className="hover:text-white transition-colors cursor-pointer">
+              <li className="hover:text-gray-500 transition-colors cursor-pointer">
                 Careers
               </li>
-              <li className="hover:text-white transition-colors cursor-pointer">
+              <li className="hover:text-gray-500 transition-colors cursor-pointer">
                 News
               </li>
-              <li className="hover:text-white transition-colors cursor-pointer">
+              <li className="hover:text-gray-500 transition-colors cursor-pointer">
                 Events
               </li>
-              <li className="hover:text-white transition-colors cursor-pointer">
+              <li className="hover:text-gray-500 transition-colors cursor-pointer">
                 Media
               </li>
-              <li className="hover:text-white transition-colors cursor-pointer">
+              <li className="hover:text-gray-500 transition-colors cursor-pointer">
                 Quality Policy
               </li>
             </ul>
@@ -50,26 +53,26 @@ const Footer = () => {
 
           <div>
             <h3 className="nav-heading text-xl font-bold mb-6 tracking-wide">Services</h3>
-            <ul className="space-y-3 text-sm text-gray-300">
-              <li className="hover:text-white transition-colors cursor-pointer">
+            <ul className={`space-y-3 text-${Theme == 'white' ? 'gray-800':'white'} all-nav text-sm text-gray-300`}>
+              <li className="hover:text-gray-500 transition-colors cursor-pointer">
                 Find a Dealer
               </li>
-              <li className="hover:text-white transition-colors cursor-pointer">
+              <li className="hover:text-gray-500 transition-colors cursor-pointer">
                 Book a Test Drive
               </li>
-              <li className="hover:text-white transition-colors cursor-pointer">
+              <li className="hover:text-gray-500 transition-colors cursor-pointer">
                 Become a Dealer
               </li>
-              <li className="hover:text-white transition-colors cursor-pointer">
+              <li className="hover:text-gray-500 transition-colors cursor-pointer">
                 Aftersales
               </li>
-              <li className="hover:text-white transition-colors cursor-pointer">
+              <li className="hover:text-gray-500 transition-colors cursor-pointer">
                 Book a Service
               </li>
-              <li className="hover:text-white transition-colors cursor-pointer">
+              <li className="hover:text-gray-500 transition-colors cursor-pointer">
                 Request a Part
               </li>
-              <li className="hover:text-white transition-colors cursor-pointer">
+              <li className="hover:text-gray-500 transition-colors cursor-pointer">
                 Price Calculator
               </li>
             </ul>
@@ -77,29 +80,29 @@ const Footer = () => {
 
           <div>
             <h3 className="nav-heading text-xl font-bold mb-6 tracking-wide">Models</h3>
-            <ul className="space-y-3 text-sm text-gray-300">
-              <li className="hover:text-white transition-colors cursor-pointer">
+            <ul className={`space-y-3 text-${Theme == 'white' ? 'gray-800':'white'} all-nav text-sm text-gray-300`}>
+              <li className="hover:text-gray-500 transition-colors cursor-pointer">
                 H6 PHEV
               </li>
-              <li className="hover:text-white transition-colors cursor-pointer">
+              <li className="hover:text-gray-500 transition-colors cursor-pointer">
                 H6 (1.5/2.0)
               </li>
-              <li className="hover:text-white transition-colors cursor-pointer">
+              <li className="hover:text-gray-500 transition-colors cursor-pointer">
                 H6 HEV
               </li>
-              <li className="hover:text-white transition-colors cursor-pointer">
+              <li className="hover:text-gray-500 transition-colors cursor-pointer">
                 Jolion
               </li>
-              <li className="hover:text-white transition-colors cursor-pointer">
+              <li className="hover:text-gray-500 transition-colors cursor-pointer">
                 JOLION HEV
               </li>
-              <li className="hover:text-white transition-colors cursor-pointer">
+              <li className="hover:text-gray-500 transition-colors cursor-pointer">
                 ORA O3
               </li>
-              <li className="hover:text-white transition-colors cursor-pointer">
+              <li className="hover:text-gray-500 transition-colors cursor-pointer">
                 ORA O7
               </li>
-              <li className="hover:text-white transition-colors cursor-pointer">
+              <li className="hover:text-gray-500 transition-colors cursor-pointer">
                 TANK
               </li>
             </ul>
@@ -168,6 +171,7 @@ const Footer = () => {
             </span>
           </div>
         </div>
+
       </div>
     </footer>
   );

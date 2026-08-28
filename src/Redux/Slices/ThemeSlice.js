@@ -1,16 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  value: "white",
+  value: "black",
 };
 
 const themeSlice = createSlice({
   name: "Theme",
   initialState,
   reducers: {
-    setTheme: (state, argu) => {
-      state.value = state.value == "white" ? "black" : "white";
-      console.log(argu.payload);
+    setTheme: (state, payload) => {
+      state.value = payload.payload 
     },
   },
 });

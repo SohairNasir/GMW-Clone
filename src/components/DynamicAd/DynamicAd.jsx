@@ -85,9 +85,9 @@ function DynamicAd() {
           <div className="w-full h-[43px] ">
             <div className="w-full max-w-[100vw]   h-auto flex flex-col items-center ">
               <div className=" w-full max-w[1188px] flex flex-col ">  
-                <div className="max-w-[923px] h-[48px] ">
+                <div className=" max-w-[923px] h-[48px] ">
                   <img
-                    className="h-full w-auto max-w-[710px] object-contain "
+                    className="h-fit w-auto w-full max-w-[710px] object-contain "
                     src={dynamicAds[index]?.nameimg}
                     alt=""
                   />

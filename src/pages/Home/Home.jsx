@@ -17,7 +17,7 @@ const Home = () => {
     {/* <div style={{margin:'50px',position:'relative', zIndex:'200px'}} onClick={()=> dispatch(setTheme('hello'))}>
       change theme
     </div> */}
-    {/* <Header /> */}
+    <Header />
     <DynamicAd/>
     <Feature />
     <Philosophy/>
