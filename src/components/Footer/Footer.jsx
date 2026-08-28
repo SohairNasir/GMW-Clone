@@ -5,18 +5,17 @@ import { useSelector } from "react-redux";
 const Footer = () => {
 
   let Theme = useSelector((state)=>state.Theme.value)   
-console.log(Theme)
+  
   return (
     <footer className={`bg-${Theme} text-${Theme=='white'?'black':'white'}  pb-8` }>
 
 
-<div className="w-full mb-[50px] flex items-center justify-center h-[45vh] flex-col w-full gap-7 ">
-     <p className="w-full max-w-[49.8ch] footer-main-h">SUBSCRIBE TO OUR NEWSLETTER FOR REGULAR UPDATES</p>
-
-  <div className="flex justify-between items-center w-full max-w-[1020px] h-[9vh] border-2 border-white">
-    <input className="w-full h-[7vh] focus:outline-none ml-[18px] " type="text" placeholder="Your Email Address" />
-  <button className="w-full sub-btn  max-w-[160px] h-full bg-white text-black">Subscribe</button>
-  </div>
+   <div className="w-full mb-[50px] flex items-center justify-center h-[45vh] flex-col w-full gap-7 ">
+         <p className={` ${Theme == 'white' ? '!text-black':'!text-white'}  w-full max-w-[49.8ch] footer-main-h`}>SUBSCRIBE TO OUR NEWSLETTER FOR REGULAR UPDATES</p>
+     <div className={`flex justify-between items-center w-full max-w-[1020px] h-[9vh] border-2 ${Theme == 'white' ? 'border-black' : 'border-white'} `}>
+        <input className="w-full h-[7vh] focus:outline-none ml-[18px] " type="text" placeholder="Your Email Address" />
+        <button className={`w-full sub-btn  max-w-[160px] h-full ${Theme == 'white' ? 'bg-black text-white'  : 'bg-white text-black'} `}>Subscribe</button>
+    </div>
 </div>
 
 
@@ -150,23 +149,23 @@ console.log(Theme)
         {/* Bottom Copyright Row */}
         <div className="flex flex-col md:flex-row items-center justify-between text-xs text-gray-400 gap-4 pt-4">
           {/* Privacy Links */}
-          <div className="flex space-x-6">
-            <a href="#" className="hover:text-white transition-colors">
+          <div className={`text-${Theme == 'white' ? 'gray-900':'white'} text flex space-x-6`}>
+            <a href="#" className="hover:text-gray-500 transition-colors">
               privacy
             </a>
-            <a href="#" className="hover:text-white transition-colors">
+            <a href="#" className="hover:text-gray-500 transition-colors">
               cookies
             </a>
           </div>
 
           {/* Copyright Text */}
-          <div className="text-center interFont">
+          <div className={`text-${Theme == 'white' ? 'gray-900':'white'} text-center interFont`}>
             © 2025 GWM Sazgar Pakistan. All rights reserved.
           </div>
 
           {/* Sazgar Branding */}
           <div className="flex items-center space-x-2">
-            <span className="interFont font-bold tracking-widest text-sm text-gray-300 uppercase">
+            <span className={`text-${Theme == 'white' ? 'gray-900':'white'} interFont font-bold tracking-widest text-sm text-gray-300 uppercase`}>
               SAZGAR
             </span>
           </div>
