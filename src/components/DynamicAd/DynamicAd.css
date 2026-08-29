@@ -67,6 +67,11 @@
     bottom: -170px;
 }
 
+.object-contain {
+    height: Clamp(5vh , 7.6vh , 1200px);
+    box-sizing: border-box;
+}
+
 .dots-con ul li{
     background-color: #E6E2DE;
     width: 100%;

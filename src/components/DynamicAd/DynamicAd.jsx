@@ -24,7 +24,9 @@ function DynamicAd() {
     getData();
   }, []);
 
+
   return loading ? (
+
     <div className="flex h-[50vh] items-center justify-center">
       <span className="loader"></span>
     </div>
@@ -36,9 +38,12 @@ function DynamicAd() {
           <img className="ads-img" src={dynamicAds[index]?.img} alt="" />
         </div>
 
-        <div className="w-full secPadding absolute bottom-[210px]">
-          <div className="flex justify-center ">
-            <span className="flex gap-2 justify-between w-full max-w-[93%] text-amber-50 ">
+        <div className="w-full secPadding relative bottom-[253px]">
+          
+          <div className="flex justify-center absolute bottom-22 w-full max-w-[98%]  ">
+
+            <span className="flex  justify-between w-full max-w-[93%] text-amber-50 ">
+            
               <button
                 onClick={() => setIndex(Math.max(0, index - 1))}
                 className="left-right-ad-btn flex justify-center items-center"
@@ -85,9 +90,9 @@ function DynamicAd() {
           <div className="w-full h-[43px] ">
             <div className="w-full max-w-[100vw]   h-auto flex flex-col items-center ">
               <div className=" w-full max-w[1188px] flex flex-col ">  
-                <div className=" max-w-[923px] h-[48px] ">
+                <div >
                   <img
-                    className="h-fit w-auto w-full max-w-[710px] object-contain "
+                    className=" object-contain "
                     src={dynamicAds[index]?.nameimg}
                     alt=""
                   />
