@@ -67,11 +67,11 @@ function FeatureSec () {
 
   return (
 <>
-    <main className='w-full max-w-full h-auto' >
+    <main className='w-full max-w-full h-auto mb-[60px]' >
 
-      <div className='h-[250px] mb-4'>
+      <div className={` ${Theme == 'white' ?'bg-[#F9FAFB]' : 'bg-black'} h-[250px] mb-4`}>
         <div className='w-full  pl-[16px] pr-[16px]'>
-          <h1 className={`${Theme !== 'white'&&'text-white'} w-full mb-[16px] main-P-heading w-full`}>Discover GWM: Innovation, Sustainability, and Quality at the Core</h1>
+          <h1 className={`${Theme == 'white'?'!text-black':'text-white'} w-full mb-[16px] main-P-heading w-full`}>Discover GWM: Innovation, Sustainability, and Quality at the Core</h1>
           <p className={` main-Parah w-full max-w-[768px]`}>
               This is a belief shared by every employee and department at GWM, both locally and globally. It's a mindset that has propelled the company since its founding in 1990, pushing the limits of what a car can achieve. It's this same unwavering belief that has led GWM to specialize in crafting vehicles designed with purpose—each model meticulously engineered to meet our customers' needs in the most inspiring and innovative way.
               </p>
@@ -83,7 +83,7 @@ function FeatureSec () {
 
         <div className='w-full max-w-[1188px]'>
           <h1 className={`Dic-range-h w-[full] max-w-[20ch]`}>Discover the Range</h1>
-          <h1 className={`${Theme !== 'white'&& 'text-black'} gmw-offer-h w-[full] max-w-[20ch]`} >The GWM Offerings</h1>
+          <h1 className={`${Theme == 'white' ? 'text-black' :'text-white'} gmw-offer-h w-[full] max-w-[20ch]`} >The GWM Offerings</h1>
         </div>
 
       </div>

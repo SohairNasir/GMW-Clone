@@ -6,10 +6,12 @@ import Philosophy from '../../components/Philosophy/Philosophy'
 import Ytube from '../../components/Ytube/Ytube'
 import DealerBtn from '../../components/DealerBtn/DealerBtn'
 import Footer from '../../components/Footer/Footer'
+import { useSelector } from 'react-redux'
 
 const Home = () => {
+  let Theme = useSelector((state=> state.Theme.value))
   return (
-    <>
+    <div className={`bg-${Theme}`}>
     <Header />
     <DynamicAd/>
     <Feature />
@@ -17,7 +19,7 @@ const Home = () => {
     <Ytube />
     <DealerBtn/>
     <Footer/>
-    </>
+    </div>
   )
 }
 

@@ -2,7 +2,7 @@ import React from "react";
 import "./Ytube.css";
 const Ytube = () => {
   return (
-    <section className="w-full h-autopl-[16px] pr-[16px]">
+    <section className="w-full mt-[60px] pl-[16px] pr-[16px]">
       <div className="w-full aspect-[16/9] object-cover">
         <iframe
           className="w-full h-full"
