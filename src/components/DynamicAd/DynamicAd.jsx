@@ -24,20 +24,26 @@ function DynamicAd() {
     getData();
   }, []);
 
+
   return loading ? (
+
     <div className="flex h-[50vh] items-center justify-center">
-      <span class="loader"></span>
+      <span className="loader"></span>
     </div>
   ) : (
     <section className="w-full">
       <div className="section">
-        <div className="con-ads-img ">
+        
+        <div className="con-ads-img">
           <img className="ads-img" src={dynamicAds[index]?.img} alt="" />
         </div>
 
-        <div className="w-full secPadding absolute bottom-[210px]">
-          <div className="flex justify-center ">
-            <span className="flex gap-2 justify-between w-full max-w-[93%] text-amber-50 ">
+        <div className="w-full secPadding relative bottom-[253px]">
+          
+          <div className="flex justify-center absolute bottom-22 w-full max-w-[98%]  ">
+
+            <span className="flex  justify-between w-full max-w-[93%] text-amber-50 ">
+            
               <button
                 onClick={() => setIndex(Math.max(0, index - 1))}
                 className="left-right-ad-btn flex justify-center items-center"
@@ -46,13 +52,13 @@ function DynamicAd() {
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
-                  stroke-width="1.5"
+                  strokeWidth="1.5"
                   stroke="currentColor"
-                  class="size-6"
+                  className="size-6"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     d="M15.75 19.5 8.25 12l7.5-7.5"
                   />
                 </svg>
@@ -65,15 +71,15 @@ function DynamicAd() {
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
+                  className="size-6"
                   fill="none"
                   viewBox="0 0 24 24"
-                  stroke-width="1.5"
+                  strokeWidth="1.5"
                   stroke="currentColor"
-                  class="size-6"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     d="m8.25 4.5 7.5 7.5-7.5 7.5"
                   />
                 </svg>
@@ -84,9 +90,9 @@ function DynamicAd() {
           <div className="w-full h-[43px] ">
             <div className="w-full max-w-[100vw]   h-auto flex flex-col items-center ">
               <div className=" w-full max-w[1188px] flex flex-col ">  
-                <div className="max-w-[923px] h-[48px] ">
+                <div >
                   <img
-                    className="h-full w-auto max-w-[710px] object-contain "
+                    className=" object-contain "
                     src={dynamicAds[index]?.nameimg}
                     alt=""
                   />
