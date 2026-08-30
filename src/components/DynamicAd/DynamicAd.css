@@ -22,7 +22,7 @@
     position: absolute;
     left: 0;
     top: 0;
-    /* background-color: rgba(0,0,0, 0.4); */
+    background-color: rgba(0,0,0, 0.4);
     height: 100%;
     width: 100%;
     background-image: linear-gradient(
@@ -81,7 +81,7 @@
 }
 
 .loader {
-  --color-1: black;
+  --color-1: gray;
   --size: 1px;
   width: calc(48 * var(--size));
   height: calc(48 * var(--size));
