@@ -8,7 +8,7 @@ import "@fontsource/inter";
 import ContactUser from "./pages/ContactUser/ContactUser";
 import { store } from "./reduxConfig";
 import { Provider } from "react-redux";
-import About from "./pages/about/About";
+import About from "./pages/About/About";
 
 function App() {
 
@@ -21,7 +21,7 @@ function App() {
         <Route path="/products" element={<CarProducts />} />
         <Route path="/products/:id" element={<Cardetails />} />
         <Route path="/contact" element={<ContactUser/>} />
-        <Route path="/About" element={<About />} />
+        <Route path="/about" element={<About />} />
       </Routes>
     </Provider>
     </>
