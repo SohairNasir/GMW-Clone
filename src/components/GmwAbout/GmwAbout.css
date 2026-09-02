@@ -1,1 +1,45 @@
 @import'tailwindcss';
+
+.brand-heading{
+    font-size: 40px;
+    line-height: 60.6px;
+    font-weight: 800 !important;
+    text-transform: uppercase;
+    font-family: 'interVariable',sans-serif;
+    width: 100%;
+    color: #0F0F0F;
+}
+
+.gmw-parah{
+    font-size: 19.5px;
+    line-height: 30.2px;
+    word-break: normal;
+    overflow-wrap: break-word;    
+    color: #0F0F0F;
+    margin-bottom: 16px !important;
+}
+
+.button-and-arrow{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    color: white;
+    width: 100%;
+    max-width: 162.56px;
+    height: 40px;
+    font-size: 16px;
+    line-height: 19.8px;
+    margin-top: 16px;
+}
+
+
+.gwm-img-right{    
+    background-image: url('https://djphncgl0uau7.cloudfront.net/aboutus_heroBackgroundImage_1786361389214.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+   height:  438px ;
+   width:  553px ;
+   /* background-color: red; */
+}
