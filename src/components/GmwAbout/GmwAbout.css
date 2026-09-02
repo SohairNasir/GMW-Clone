@@ -11,7 +11,7 @@
 }
 
 .gmw-parah{
-    font-size: 19.5px;
+    font-size: 19.6px;
     line-height: 30.2px;
     word-break: normal;
     overflow-wrap: break-word;    
@@ -35,11 +35,17 @@
 
 
 .gwm-img-right{    
-    background-image: url('https://djphncgl0uau7.cloudfront.net/aboutus_heroBackgroundImage_1786361389214.jpeg');
+ 
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-   height:  438px ;
-   width:  553px ;
-   /* background-color: red; */
+    height:  438px ;
+    width:  100%;
+    max-width: 523px;
+    transition: scale 250ms ease-in-out;
+    transform-origin: center center;
+}
+
+.gwm-img-right:hover{
+    scale: 1.06;
 }

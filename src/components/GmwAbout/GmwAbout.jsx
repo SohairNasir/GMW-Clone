@@ -3,24 +3,29 @@ import './GmwAbout.css'
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 
 
-const GmwAbout = () => {
+const GmwAbout = ({heading , parah , src , wrapperClass}) => {
+
   return (
-    <main className="!pt-[60px]  !pb-[60px] !pl-[99px] !pr-[99px]">
+    <main className="!pt-[60px] !pb-[60px] !pl-[99px] !pr-[99px]">
      
-      <div className="child-wrapper flex  justify-between">
+      <div className={`child-wrapper flex h-[80vh]  ${wrapperClass}`}>
          
+         <div className={`flex justify-between w-full ${wrapperClass && ' flex-row-reverse gap-[100px]'}`}>
+
         <section className="w-[100%] max-w-[527px]">
          
-          <h1 className="!mb-[65px]"><strong className="brand-heading">gwm</strong></h1>
+
+
+          <h1 className="!mb-[65px]"><strong className="brand-heading">{heading || 'gmw'}</strong></h1>
           
           <p className="gmw-parah">
-            At GWM, innovation, sustainability, and quality aren't just values —
+{ parah ||  `At GWM, innovation, sustainability, and quality aren't just values —
             they're a belief shared by every employee, in every market, every
             day. It's what has driven us since 1990, constantly pushing the
             boundaries of what a car can be. That same conviction shapes how we
             build today: every GWM vehicle is engineered with purpose, designed
             around what our customers truly need, and built to inspire from the
-            very first drive
+            very first drive`} 
           </p>
 
           <button className="button-and-arrow">Find out more < MdOutlineKeyboardArrowRight size={'25px'}/></button>
@@ -28,9 +33,12 @@ const GmwAbout = () => {
         </section>
 
         {/* left div */}
-
-        <div className="gwm-img-right">
+        <div className=" overflow-hidden relative w-full max-w-[524px] h-full">
+        <div className="gwm-img-right absolute" style={{backgroundImage:`url(${src || 'https://djphncgl0uau7.cloudfront.net/aboutus_heroBackgroundImage_1786361389214.jpeg'})`}}>
         </div>
+        </div>
+        
+         </div>
       
       </div>
     </main>
