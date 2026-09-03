@@ -4,7 +4,6 @@ import AboutImg from '../../components/AboutPagImg/AboutImg'
 import GmwAbout from '../../components/GmwAbout/GmwAbout'
 import Footer from '../../components/Footer/Footer'
 const About = () => {
-  console.log('runing')
   return (
     <>
     

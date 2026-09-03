@@ -2,7 +2,7 @@ import React from 'react'
 import './AboutImg.css'
 
 const AboutImg = () => {
-console.log('about page')
+
   return (
 
 
