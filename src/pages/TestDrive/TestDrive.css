@@ -1,0 +1,15 @@
+@import'tailwindcss';
+.test-driv-heading{
+        font-size: 40px;
+        line-height: 60.6px;
+        font-weight: 900;
+        font-family: 'interVariable',sans-serif ;
+        letter-spacing: -1px;
+}
+
+.border-line{
+    width: 100%;
+    max-width: 600px;
+    background-color: red;
+    height: 1px;
+}

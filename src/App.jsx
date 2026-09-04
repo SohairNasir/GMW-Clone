@@ -9,6 +9,7 @@ import ContactUser from "./pages/ContactUser/ContactUser";
 import { store } from "./reduxConfig";
 import { Provider } from "react-redux";
 import About from "./pages/About/About";
+import TestDrive from "./pages/TestDrive/TestDrive";
 
 function App() {
 
@@ -17,7 +18,7 @@ function App() {
     <>
     <Provider store={store}>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<TestDrive />} />
         <Route path="/products" element={<CarProducts />} />
         <Route path="/products/:id" element={<Cardetails />} />
         <Route path="/contact" element={<ContactUser/>} />
