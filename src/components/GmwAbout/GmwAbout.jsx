@@ -33,9 +33,13 @@ const GmwAbout = ({heading , parah , src , wrapperClass}) => {
         </section>
 
         {/* left div */}
-        <div className=" overflow-hidden relative w-full max-w-[524px] h-full">
-        <div className="gwm-img-right absolute" style={{backgroundImage:`url(${src || 'https://djphncgl0uau7.cloudfront.net/aboutus_heroBackgroundImage_1786361389214.jpeg'})`}}>
+        <div className=" overflow-hidden relative w-full max-w-[524px] h-[70vh]">
+        <div className="gwm-img-right absolute" style={{backgroundImage:`url(${src || 'https://djphncgl0uau7.cloudfront.net/aboutus_heroBackgroundImage_1786361389214.jpeg'})`, filter:`${src && 'brightness(1)'}`}}>
         </div>
+        <p className=" absolute left-[30px]  w-full bottom-[44px]">
+          <h6 className="szgr-img-sm-txt">Dedication</h6>
+          <h1 className="szgr-img-lr-txt">Our Future is Sustaunbility</h1>
+        </p>
         </div>
         
          </div>

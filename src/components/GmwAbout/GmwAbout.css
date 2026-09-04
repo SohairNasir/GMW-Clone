@@ -42,10 +42,26 @@
     height:  438px ;
     width:  100%;
     max-width: 523px;
-    transition: scale 250ms ease-in-out;
-    transform-origin: center center;
+    transition: transform 250ms ease-in-out;
+    filter: brightness(0.7);
 }
 
 .gwm-img-right:hover{
-    scale: 1.06;
+    transform: scale(1.06);
+}
+
+.szgr-img-sm-txt{
+    font-size: 20px;
+    line-height: 24.8px;
+    color: #FBFBFB;
+    font-family: 'inter';    
+    margin-bottom: 5px;
+}
+.szgr-img-lr-txt{
+    font-size: 24px;
+    line-height: 36.4px;
+    font-weight: 900;    
+    letter-spacing: -0.6px;
+    color: #FBFBFB;
+    font-family: 'interVaribale',sans-serif;    
 }
