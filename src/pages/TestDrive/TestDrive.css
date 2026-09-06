@@ -1,5 +1,4 @@
-@import'tailwindcss';
-
+@import "tailwindcss";
 .test-driv-heading{
         font-size: 40px;
         line-height: 60.6px;
@@ -52,10 +51,13 @@
     width: 100%;
     max-width: 10rem;
 }
-/* @layer components { */
 
-    /* .inpt{/ */
-        /* @apply text-[15px] font-thin placeholder-[#0F0F0F] */
-    /* } */
- /* } */ 
+
+.preference-con{
+     @apply   flex items-center  justify-between w-full max-w-[100%] border-1 border-black pl-2 pr-2 h-[40px]  
+}
+
+.preference-svg{
+    @apply text-[20px] text-gray-400
+}
 

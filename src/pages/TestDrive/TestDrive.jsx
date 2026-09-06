@@ -4,6 +4,8 @@ import DownSvg from'../../assets/chevronDown.svg?react'
 import { BsTelephone } from "react-icons/bs";
 import { MdOutlineMailOutline } from "react-icons/md";
 import dayjs from 'dayjs';
+import { CiCalendar } from "react-icons/ci";
+import { LuClock } from "react-icons/lu";
 import { DemoContainer, DemoItem } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
@@ -108,25 +110,37 @@ const TestDrive = () => {
 
             <div className='flex flex-col justify-between gap-[8px]  w-full max-w-[500px]'>
                 
-                <div className='flex justify-between w-full max-w-[100%] bg-amber-500'>
-                    <input type="text" />
-                    <span>svg</span>
+                <div className='preference-con'>
+                    <span className='text-[15px]'>Select Preferred Dealership</span>
+                    <span><DownSvg className='h-5' /></span>
                 </div>
 
-                <div className='flex justify-between w-full max-w-[100%] bg-amber-500'>
-                    <input type="text" />
+                <div className='preference-con'>
+                    <CiCalendar className='preference-svg'  />
+                    <span className=' w-full max-w-[95%]'>
+                        {/* <DemoItem  label="Responsive variant"> */}
+                <DatePicker
+                        slotProps={{
+                            textField: {
+                            sx: {
+                                '& fieldset': { border: 'none !important' , width:'50px !important' },
+                                '& .MuiPickersOutlinedInput-root':{width:'470px'}
+                            },
+                            },
+                        }}
+                        disablePast
+                        defaultValue={dayjs(current)}
+                        />                  
+                </span>
+                </div>
+                
+                <div className='preference-con'>
+                    <LuClock className='preference-svg' />
                     <span>svg</span>
                 </div>
                 
-                <div className='flex justify-between w-full max-w-[100%] bg-amber-500'>
-                    <input type="text" />
-                    <span>svg</span>
-                </div>
-                
 
-        <DemoItem  label="Responsive variant">
-            <DatePicker slotProps={{textField:{ size: 'small'}}} disablePast defaultValue={dayjs(current)} />
-        </DemoItem>
+        
             
 
             </div>
