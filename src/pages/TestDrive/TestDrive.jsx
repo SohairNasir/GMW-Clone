@@ -14,6 +14,8 @@ import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 import { StaticDatePicker } from '@mui/x-date-pickers/StaticDatePicker';
 import { textFieldClasses } from '@mui/material/TextField';
+import { TimePicker } from '@mui/x-date-pickers/TimePicker';
+
 
 
 
@@ -21,7 +23,7 @@ const TestDrive = () => {
 
     let current = new Date()
     console.log(current.toLocaleDateString())
- 
+
   return (
 
       <main className='flex items-center justify-center'>
@@ -121,22 +123,43 @@ const TestDrive = () => {
                         {/* <DemoItem  label="Responsive variant"> */}
                 <DatePicker
                         slotProps={{
+                            field:{size:'small'},
                             textField: {
                             sx: {
-                                '& fieldset': { border: 'none !important' , width:'50px !important' },
-                                '& .MuiPickersOutlinedInput-root':{width:'470px'}
+                                '& fieldset': { border: 'none !important'},
+                                '& .MuiPickersOutlinedInput-root':{width:'470px', color:'black !important',textTransform:'lowercase !important'},
+                                '& .MuiSvgIcon-root':{color:'black'},
+                                '& .MuiPickersSectionList-root':{opacity:'1'}
                             },
                             },
                         }}
                         disablePast
-                        defaultValue={dayjs(current)}
                         />                  
                 </span>
                 </div>
                 
                 <div className='preference-con'>
                     <LuClock className='preference-svg' />
-                    <span>svg</span>
+                    
+                    <span className=' w-full max-w-[95%]'>
+
+                        
+                        <TimePicker format='--:-- --' slotProps={{
+                            field:{size:'small'},
+                            textField:{
+                                sx:{
+                                    '& fieldset':{border:'none' },
+                                    '& .MuiPickersOutlinedInput-root':{width:'470px !important',color:'black',},
+                                    '& .MuiSvgIcon-root':{color:'black'},
+                                    '& .MuiPickersSectionList-root':{opacity:'1'},
+                                    '& .MuiPickersInputBase-root :hover':{background:' red ! important'}
+                                }
+                            }
+                        }}
+                        
+                        //  label="--:-- --"
+                          />
+                    </span>
                 </div>
                 
 
