@@ -13,7 +13,7 @@ export const Header = () => {
 
   return (
     
-    <header className="fixed top-0 z-200 w-full">
+    <header className="sticky top-0 z-200 w-full">
         
         <nav className="nav-con flex items-center justify-around w-full max-w-1125 h-18 ">
           

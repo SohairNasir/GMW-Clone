@@ -18,7 +18,7 @@
 .border-line{
     width: 100%;
     max-width: 600px;
-    background-color: red;
+    background-color: rgba(128, 128, 128, 0.692);
     height: 1px;
     margin-bottom: 30px;
 
@@ -57,7 +57,42 @@
      @apply   flex items-center  justify-between w-full max-w-[100%] border-1 border-black pl-2 pr-2 h-[40px]  
 }
 
+.inpt-plac-txt{
+    @apply text-[15px] font-thin placeholder-[#0F0F0F]
+}
+
 .preference-svg{
     @apply text-[20px] text-gray-400
 }
 
+.Own-txt{
+    @apply text-[16px] leading-[24.3px]
+}
+
+.heading-norml-txt{
+    @apply text-[16px] leading-[24.3px]
+}
+
+.radio-btn-txt{
+    font-size: 14px;
+    line-height: 21.2px;
+}
+
+.test-Driv-btn{
+    box-sizing: border-box;
+    padding: 0px 15px;
+    height: 44px;
+    width:180px;
+    background-color: black;
+    font-weight: 700;
+    font-family: 'interVariable',sans-serif ! important ;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 4px;
+}
+
+.svgIcon{
+    transform: rotate(272deg);
+}

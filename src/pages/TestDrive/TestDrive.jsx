@@ -15,6 +15,10 @@ import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 import { StaticDatePicker } from '@mui/x-date-pickers/StaticDatePicker';
 import { textFieldClasses } from '@mui/material/TextField';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
+import { MdOutlineKeyboardArrowRight } from "react-icons/md";
+import {Header} from'../../components/Header/Header'
+import Footer from'../../components/Footer/Footer'
+
 
 
 
@@ -26,12 +30,15 @@ const TestDrive = () => {
 
   return (
 
-      <main className='flex items-center justify-center'>
+    <> 
+    <Header/> 
+
+      <main className='flex h-[150vh] items-center justify-center'>
         <div className='w-full  max-w-[800px]'>
 
             <div className='flex items-center flex-col gap-4'>
                 <h1 className='test-driv-heading'>Book a Test Drive</h1>
-                <h6 className='text-[16px] leading-[24.3px] text-[#0F0F0F]'>Experience the thrill of driving a Haval vehicle</h6>
+                <h6 className='heading-norml-txt'>Experience the thrill of driving a Haval vehicle</h6>
                 <p className='border-line'></p>
             </div>
 
@@ -81,7 +88,7 @@ const TestDrive = () => {
                         </svg>
                     </span>
 
-                    <input className='inpt' type="text" placeholder='First Name*' />
+                    <input className='inpt inpt-plac-txt' type="text" placeholder='First Name*' />
                 </div>
 
                 <div className="info-inpt-con">
@@ -91,11 +98,11 @@ const TestDrive = () => {
                         <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" /><circle cx={12} cy={7} r={4} /></svg>
                     </span>
 
-                    <input className='inpt' type="text" placeholder='Last Name*' />
+                    <input className='inpt inpt-plac-txt' type="text" placeholder='Last Name*' />
                 </div>
                 
-                    <div className="info-inpt-con"><span><BsTelephone className='text-gray-400' /></span><input className='text-[15px] font-thin placeholder-[#0F0F0F]' type="text" placeholder='Phone Number*' /></div>
-                    <div className="info-inpt-con"><span><MdOutlineMailOutline className='text-gray-400'/></span><input className='inpt' type="text" placeholder='Email Address*' /></div>
+                    <div className="info-inpt-con"><span><BsTelephone className='text-gray-400' /></span><input className='inpt-plac-txt' type="text" placeholder='Phone Number*' /></div>
+                    <div className="info-inpt-con"><span><MdOutlineMailOutline className='text-gray-400'/></span><input className='inpt inpt-plac-txt' type="text" placeholder='Email Address*' /></div>
 
                 </div>
 
@@ -144,15 +151,14 @@ const TestDrive = () => {
                     <span className=' w-full max-w-[95%]'>
 
                         
-                        <TimePicker format='--:-- --' slotProps={{
+                        <TimePicker  slotProps={{
                             field:{size:'small'},
                             textField:{
                                 sx:{
-                                    '& fieldset':{border:'none' },
-                                    '& .MuiPickersOutlinedInput-root':{width:'470px !important',color:'black',},
+                                    '& .MuiPickersOutlinedInput-root':{width:'470px !important',color:'black',outline:'none'},
                                     '& .MuiSvgIcon-root':{color:'black'},
                                     '& .MuiPickersSectionList-root':{opacity:'1'},
-                                    '& .MuiPickersInputBase-root :hover':{background:' red ! important'}
+                                    '& fieldset':{border:' none ! important'},
                                 }
                             }
                         }}
@@ -161,17 +167,55 @@ const TestDrive = () => {
                           />
                     </span>
                 </div>
-                
 
-        
+                <div className='flex flex-col !mt-[10px] gap-3'>
+                    <span className='Own-txt'>
+                        Do you own a vehicle?                        
+                    </span>
+
+                        <form className='flex gap-3'>
+                            <input id='yes' type="radio" name='own-check' />
+                            <label className='radio-btn-txt' for='yes'>Yes</label>
+                            <input id='no' name='own-check' type="radio" />
+                            <label className='radio-btn-txt' for='no'>No</label>
+                        </form>
+
+                    <div>
+                        <form className='flex flex-col gap-3'>
+                            
+                            <label className='radio-btn-txt '>
+                                <input className='!mr-[13px]' type="checkbox" value="" />
+                                I hold a valid driving license and agree to the terms and conditions.
+                            </label>
+
+                            <label className='radio-btn-txt '>
+                                <input className='!mr-[13px]' type="checkbox" value="" />
+                                I take responsibility of any damage to vehicle during test drive.
+                            </label>
+
+
+                        </form>
+                    </div>
+
+                </div>
             
 
             </div>
 
         </div>
-
+        <div className='heading-norml-txt w-full max-w-full flex justify-center !mt-[10vh]'>
+            <button type="button" className='test-Driv-btn'>
+              Book Test Drive
+              <MdOutlineKeyboardArrowRight  className='text-[25px]'/>
+            </button>
+        </div>
+        
         </div>
     </main>
+
+        <Footer/> 
+
+        </>
   )
 }
 
