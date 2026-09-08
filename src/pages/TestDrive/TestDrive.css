@@ -73,6 +73,15 @@
     @apply text-[16px] leading-[24.3px]
 }
 
+.vehicle-optin-img{
+    @apply w-full max-w-[52px] h-[28px] 
+}
+.vehicle-optin-txt{
+    @apply  text-[18px] leading-[28px];
+    text-transform: uppercase;
+}
+
+
 .radio-btn-txt{
     font-size: 14px;
     line-height: 21.2px;

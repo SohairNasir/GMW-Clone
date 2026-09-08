@@ -3,6 +3,6 @@ import themeSlice from './Redux/Slices/ThemeSlice'
 
 export const store = configureStore({
     reducer:{
-        Theme : themeSlice
+        Theme : themeSlice,
     }
 })

@@ -26,15 +26,19 @@ import Footer from'../../components/Footer/Footer'
 const TestDrive = () => {
 
     let current = new Date()
-    console.log(current.toLocaleDateString())
+    // console.log(current.toLocaleDateString())
+
+    const { data, isLoading, isError } = useGetCarModelsQuery()
+
+    console.log(data)
 
   return (
 
     <> 
     <Header/> 
 
-      <main className='flex h-[150vh] items-center justify-center'>
-        <div className='w-full  max-w-[800px]'>
+      <main className='flex h-[140vh] items-center justify-center'>
+        <div className='w-full max-w-[800px]'>
 
             <div className='flex items-center flex-col gap-4'>
                 <h1 className='test-driv-heading'>Book a Test Drive</h1>
@@ -42,13 +46,14 @@ const TestDrive = () => {
                 <p className='border-line'></p>
             </div>
 
-            <div className='flex gap-5 w-full justify-between'>
-                
+            <div className=' flex gap-5 w-full justify-between'>
+               
                 <span className='inpt-title'>
                     Select a Vehicle
                 </span>
 
-                <div className='vehicle-select-con !p-[12px] flex justify-between'>
+                <div className='relative flex flex-col w-full max-w-[500px] gap-2'>
+                <div className=' vehicle-select-con !p-[12px] flex justify-between'>
                     
                     <div className='flex gap-[15px] items-center'>
                     
@@ -56,15 +61,24 @@ const TestDrive = () => {
                         {/* <img src="" alt="" /> */}
                         Select Vehicle
                        </div>
-                     <h6>Select Vehicle</h6>
-                    
+                       <h6>Select Vehicle</h6>
                     </div>
 
                     {/* down chevron */}
-
                     <DownSvg className='w-[20px]'/>
                 </div>
-                
+
+                <div className='absolute h-[35vh] overflow-y-auto !top-[14vh] flex flex-col !w-full border-[1px] border-black  bg-white'>
+                                                      
+                  <div className='flex items-center h-[48px] !pt-[8px] !pl-[12px] !pr-[12px] !pb-[8px] '>
+                       <span className='vehicle-optin-img'>
+                         img
+                       </span>
+                       <h1 className='vehicle-optin-txt'>haval</h1>
+                  </div>
+
+                </div>
+              </div>
             </div>
 
             <div className='flex justify-center !mb-[8px] !mt-[25px]'>
