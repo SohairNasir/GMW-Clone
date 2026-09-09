@@ -1,0 +1,110 @@
+@import "tailwindcss";
+.test-driv-heading{
+        font-size: 40px;
+        line-height: 60.6px;
+        font-weight: 900;
+        font-family: 'interVariable',sans-serif ;
+        letter-spacing: -1px;
+}
+
+.inpt-title{
+    font-size: 20px;
+    line-height: 30px;
+    color: #333333;
+    font-family: 'inter';
+    font-weight: 100;
+}
+
+.border-line{
+    width: 100%;
+    max-width: 600px;
+    background-color: rgba(128, 128, 128, 0.692);
+    height: 1px;
+    margin-bottom: 30px;
+
+}
+
+.vehicle-select-con{
+    border: 1px solid black;
+    width: 100%;
+    max-width: 500px;    
+}
+
+.image-con{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 54px;
+    background-color: #E5E7EB;
+    border-radius: 5px;
+}
+
+.info-inpt-con{
+    display: flex;
+    gap: 10px;
+    padding: 5px;
+    align-items: center;
+    border: 1px solid gray;
+    width: 100%;
+    max-width:245px;
+}
+.info-inpt-con input:focus{
+    outline: none;
+    width: 100%;
+    max-width: 10rem;
+}
+
+
+.preference-con{
+     @apply   flex items-center  justify-between w-full max-w-[100%] border-1 border-black pl-2 pr-2 h-[40px]  
+}
+
+.inpt-plac-txt{
+    @apply text-[15px] font-thin placeholder-[#0F0F0F]
+}
+
+.preference-svg{
+    @apply text-[20px] text-gray-400
+}
+
+.Own-txt{
+    @apply text-[16px] leading-[24.3px]
+}
+
+.heading-norml-txt{
+    @apply text-[16px] leading-[24.3px]
+}
+
+.vehicle-optin-img{
+    @apply w-full max-w-[52px] h-[28px] 
+}
+.vehicle-optin-txt{
+    @apply  text-[18px] leading-[28px];
+    text-transform: uppercase;
+}
+
+
+.radio-btn-txt{
+    font-size: 14px;
+    line-height: 21.2px;
+}
+
+.test-Driv-btn{
+    box-sizing: border-box;
+    padding: 0px 15px;
+    height: 44px;
+    width:180px;
+    background-color: black;
+    font-weight: 700;
+    font-family: 'interVariable',sans-serif ! important ;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 4px;
+}
+
+.svgIcon{
+    transform: rotate(272deg);
+}

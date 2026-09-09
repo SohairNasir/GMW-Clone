@@ -1,0 +1,67 @@
+@import'tailwindcss';
+
+.brand-heading{
+    font-size: 40px;
+    line-height: 60.6px;
+    font-weight: 800 !important;
+    text-transform: uppercase;
+    font-family: 'interVariable',sans-serif;
+    width: 100%;
+    color: #0F0F0F;
+}
+
+.gmw-parah{
+    font-size: 19.6px;
+    line-height: 30.2px;
+    word-break: normal;
+    overflow-wrap: break-word;    
+    color: #0F0F0F;
+    margin-bottom: 16px !important;
+}
+
+.button-and-arrow{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    color: white;
+    width: 100%;
+    max-width: 162.56px;
+    height: 40px;
+    font-size: 16px;
+    line-height: 19.8px;
+    margin-top: 16px;
+}
+
+
+.gwm-img-right{    
+ 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height:  438px ;
+    width:  100%;
+    max-width: 523px;
+    transition: transform 250ms ease-in-out;
+    filter: brightness(0.7);
+}
+
+.gwm-img-right:hover{
+    transform: scale(1.06);
+}
+
+.szgr-img-sm-txt{
+    font-size: 20px;
+    line-height: 24.8px;
+    color: #FBFBFB;
+    font-family: 'inter';    
+    margin-bottom: 5px;
+}
+.szgr-img-lr-txt{
+    font-size: 24px;
+    line-height: 36.4px;
+    font-weight: 900;    
+    letter-spacing: -0.6px;
+    color: #FBFBFB;
+    font-family: 'interVaribale',sans-serif;    
+}

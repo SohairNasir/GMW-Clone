@@ -2,12 +2,15 @@ import React, { useEffect, useState } from "react";
 import "./DynamicAd.css";
 import axios from "axios";
 
-function DynamicAd() {
+function DynamicAd({imgSrc}) {
+  console.log(imgSrc)
+
   let [dynamicAds, setDynamicAds] = useState([]);
   let [index, setIndex] = useState(0);
   let [loading, setLoading] = useState(false);
 
   const getData = async () => {
+  
     setLoading(true);
 
     try {
@@ -35,7 +38,7 @@ function DynamicAd() {
       <div className="section">
         
         <div className="con-ads-img">
-          <img className="ads-img" src={dynamicAds[index]?.img} alt="" />
+          <img className="ads-img" src={imgSrc || dynamicAds[index]?.img} alt="" />
         </div>
 
         <div className="w-full secPadding relative bottom-[253px]">
