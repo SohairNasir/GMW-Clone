@@ -18,10 +18,11 @@ function App() {
     <>
     <Provider store={store}>
       <Routes>
-        <Route path="/" element={<TestDrive />} />
+        <Route path="/" element={<Home />} />
         <Route path="/products" element={<CarProducts />} />
         <Route path="/products/:id" element={<Cardetails />} />
         <Route path="/contact" element={<ContactUser/>} />
+        <Route path="/test-drive" element={<TestDrive/>} />
         <Route path="/about" element={<About />} />
       </Routes>
     </Provider>

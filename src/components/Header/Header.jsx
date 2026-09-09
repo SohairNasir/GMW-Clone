@@ -35,10 +35,10 @@ export const Header = () => {
 
 
           <Link to={'/'}>
-              <li className="header-links cursor-pointer">
-                <img
+              <li className="header-links">
+                <img 
                    src="https://djphncgl0uau7.cloudfront.net/images/homepage_globalsettings_navbarlogo_1770037965346.webp"
-                   className="w-40"
+                   className="w-40 !cursor-pointer"
                    alt=""/> 
               </li>
           </Link>
@@ -47,8 +47,9 @@ export const Header = () => {
             <Link to="/products">
               <li className="header-links"  >modles</li >
             </Link>
-          
+          <Link to='/test-drive'>
             <li className="header-links"  >test drive</li>
+          </Link>
           
             <li className="header-links"  >
               <div className=" flex items-center gap-1  w-full">
