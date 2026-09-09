@@ -31,6 +31,9 @@
 }
 
 .image-con{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 120px;
     height: 54px;
     background-color: #E5E7EB;

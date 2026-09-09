@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import'./TestDrive.css'
 import DownSvg from'../../assets/chevronDown.svg?react'
 import { BsTelephone } from "react-icons/bs";
@@ -18,6 +18,7 @@ import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import {Header} from'../../components/Header/Header'
 import Footer from'../../components/Footer/Footer'
+import axios from 'axios';
 
 
 
@@ -25,12 +26,23 @@ import Footer from'../../components/Footer/Footer'
 
 const TestDrive = () => {
 
+    const [CarModel , setCarModel] = useState([])
+    const [SelectCar , setSelectCar] = useState(null)
+    const [showVehicle , setShowVehicle]  =useState(false)
     let current = new Date()
     // console.log(current.toLocaleDateString())
 
-    const { data, isLoading, isError } = useGetCarModelsQuery()
+useEffect(()=>{ 
 
-    console.log(data)
+   let fetchData = async ()=>{
+    try {
+        setCarModel((await axios.get('https://6aa0f74f2703577aa1e32ae0.mockapi.io/CarModelSml')).data)
+   } catch (error) {
+    console.error(new Error(error))
+   }}
+   fetchData()
+},[])
+
 
   return (
 
@@ -53,31 +65,42 @@ const TestDrive = () => {
                 </span>
 
                 <div className='relative flex flex-col w-full max-w-[500px] gap-2'>
-                <div className=' vehicle-select-con !p-[12px] flex justify-between'>
-                    
+                
+                <div onClick={()=> setShowVehicle(!showVehicle)} className='vehicle-select-con !p-[12px] flex justify-between'>
                     <div className='flex gap-[15px] items-center'>
                     
-                       <div className='image-con grid text-gray-500 place-items-center'>
-                        {/* <img src="" alt="" /> */}
-                        Select Vehicle
+                       <div className='image-con text-gray-500 '>
+                        {
+                         SelectCar?.image ? <img className='h-full w-full object-cover' src={SelectCar?.image} alt="" /> : 'Select Vehicle' 
+                        }
+                        
                        </div>
-                       <h6>Select Vehicle</h6>
+                       <h6>{SelectCar?.name || 'Select Vehicle' }</h6>
                     </div>
 
                     {/* down chevron */}
                     <DownSvg className='w-[20px]'/>
                 </div>
 
-                <div className='absolute h-[35vh] overflow-y-auto !top-[14vh] flex flex-col !w-full border-[1px] border-black  bg-white'>
-                                                      
-                  <div className='flex items-center h-[48px] !pt-[8px] !pl-[12px] !pr-[12px] !pb-[8px] '>
-                       <span className='vehicle-optin-img'>
-                         img
-                       </span>
-                       <h1 className='vehicle-optin-txt'>haval</h1>
-                  </div>
+                  
+          {
 
-                </div>
+              (showVehicle && <div className='absolute h-[35vh] overflow-y-auto !top-[14vh] flex flex-col !w-full border-[1px] border-black  bg-white'>
+            
+
+          {
+              CarModel.map(({name , image , id})=>{
+                  
+                  return ( <div key={id} onClick={()=> (setSelectCar({name , image}),setShowVehicle(false)) } id={id} className='flex items-center h-[48px] !pt-[8px] !pl-[12px] !pr-[12px] !pb-[8px] '>
+                       <span className='vehicle-optin-img'>
+                         <img className=' object-cover' src={image} alt="" />
+                       </span>
+                       <h1 className='vehicle-optin-txt'>{name}</h1>
+                  </div>
+                    ) })}
+                </div>)
+                }
+
               </div>
             </div>
 
@@ -189,9 +212,9 @@ const TestDrive = () => {
 
                         <form className='flex gap-3'>
                             <input id='yes' type="radio" name='own-check' />
-                            <label className='radio-btn-txt' for='yes'>Yes</label>
+                            <label className='radio-btn-txt' htmlFor='yes'>Yes</label>
                             <input id='no' name='own-check' type="radio" />
-                            <label className='radio-btn-txt' for='no'>No</label>
+                            <label className='radio-btn-txt' htmlFor='no'>No</label>
                         </form>
 
                     <div>
@@ -226,8 +249,9 @@ const TestDrive = () => {
         
         </div>
     </main>
+<Footer/> 
 
-        <Footer/> 
+
 
         </>
   )
