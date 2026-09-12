@@ -3,7 +3,6 @@ import "./DynamicAd.css";
 import axios from "axios";
 
 function DynamicAd({imgSrc}) {
-  console.log(imgSrc)
 
   let [dynamicAds, setDynamicAds] = useState([]);
   let [index, setIndex] = useState(0);
