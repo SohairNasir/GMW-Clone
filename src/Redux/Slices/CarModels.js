@@ -24,6 +24,7 @@ const carSlice = createSlice({
     extraReducers:(builder)=>{
     builder
     .addCase(fetchCar.pending , (state)=>{
+        
         state.loading = true
     })
     .addCase(fetchCar.fulfilled,(state , action)=>{

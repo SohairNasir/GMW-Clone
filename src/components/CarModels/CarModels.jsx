@@ -25,9 +25,10 @@ const CarModels = () => {
 
   return data ? (
     <>
-      <main className=" w-full p-[16px]">
-        <div className="">
-          <div className="flex flex-col gap-1">
+      <main className=" w-full !p-[16px]">
+        <div>
+          
+          <div className="flex flex-col  !h-[7rem] gap-1">
             <p className="top-txt">We've got you covered</p>
             <h1 className="top-heading">Discover GWM's Fleet</h1>
           </div>
@@ -49,11 +50,11 @@ const CarModels = () => {
                     alt=""
                   />
 
-                  <section className="absolute flex flex-col gap-9 text-white items-center w-full top-[10px] p-[24px]">
+                  <section className="absolute gap-9 flex flex-col text-white items-center w-full top-[0px] !p-[20px]">
                     <div className="w-full">
                       <div className="flex items-center justify-between w-full">
                         <p className="card-card-type-txt w-full max-w-[218px]">
-                          {doc.type}
+                        {doc.type}
                         </p>
                         <img
                           src="https://1000logos.net/wp-content/uploads/2020/10/Haval-Logo.png"
@@ -67,7 +68,7 @@ const CarModels = () => {
                     </div>
 
                     <div className="hover-con-show w-full flex flex-col gap-10">
-                      <p className="hover-cc-parha w-full max-w-[37.5ch]">
+                      <p className="hover-cc-parha w-full max-w-[35.5ch]">
                         {doc.description}
                       </p>
 
