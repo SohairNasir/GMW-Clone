@@ -6,13 +6,13 @@ import { useSelector , useDispatch } from "react-redux";
 import { setTheme } from "../../Redux/Slices/ThemeSlice";
 
 
-export const Header = ({headerHeight}) => {
+export const Header = ({headerHeight=true}) => {
 
   let Theme = useSelector((state)=>state.Theme.value)
   let dispatch = useDispatch()
   
   return (
-    <header className={`${!headerHeight && "!h-[4.3rem]"} w-full`}>
+    <header className={`${headerHeight && "!h-[4.3rem]"} w-full`}>
         
         <nav className="nav-con fixed top-2 z-10 flex items-center justify-around w-full max-w-1125 h-18 ">
           
@@ -41,8 +41,10 @@ export const Header = ({headerHeight}) => {
                    alt=""/> 
               </li>
           </Link>
-
+          <Link to={'/about'}>
               <li className="header-links"  >about us</li>
+          </Link>
+            
             <Link to="/products">
               <li className="header-links"  >modles</li >
             </Link>

@@ -14,7 +14,7 @@ const Home = () => {
 
   return (
     <div className={`bg-${Theme}`}>
-    <Header headerHeight='null' />
+    <Header headerHeight={false} />
     <DynamicAd/>
     <Feature />
     <Philosophy/>

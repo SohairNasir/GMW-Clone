@@ -19,17 +19,17 @@ import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import {Header} from'../../components/Header/Header'
 import Footer from'../../components/Footer/Footer'
 import axios from 'axios';
-
-
-
-
+import usethemeStyle from '../../Hooks/themeStyle'
 
 const TestDrive = () => {
 
     const [CarModel , setCarModel] = useState([])
     const [SelectCar , setSelectCar] = useState(null)
     const [showVehicle , setShowVehicle]  =useState(false)
+    const {bodyBg , bodyTxt , btnBg ,btnTxt} = usethemeStyle()
+    console.log(bodyBg)
     let current = new Date()
+        
     // console.log(current.toLocaleDateString())
 
 useEffect(()=>{ 
@@ -47,9 +47,10 @@ useEffect(()=>{
   return (
 
     <> 
-    <Header/> 
+    <Header /> 
 
-      <main className='flex h-[140vh] items-center justify-center'>
+      <main className={`!bg-${bodyBg} flex h-[140vh] items-center justify-center`}>
+        {console.log(bodyBg)}
         <div className='w-full max-w-[800px]'>
 
             <div className='flex items-center flex-col gap-4'>

@@ -1,6 +1,7 @@
 @import'tailwindcss';
 
 .brand-heading{
+    color: inherit !important;
     font-size: 40px;
     line-height: 60.6px;
     font-weight: 800 !important;
@@ -23,8 +24,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: black;
-    color: white;
+    /* background-color: black; */
+    color: inherit;
     width: 100%;
     max-width: 162.56px;
     height: 40px;
