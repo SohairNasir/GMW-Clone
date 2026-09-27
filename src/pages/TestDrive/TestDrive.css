@@ -18,14 +18,13 @@
 .border-line{
     width: 100%;
     max-width: 600px;
-    background-color: rgba(128, 128, 128, 0.692);
+    /* background-color: rgba(128, 128, 128, 0.692); */
     height: 1px;
     margin-bottom: 30px;
 
 }
 
 .vehicle-select-con{
-    border: 1px solid black;
     width: 100%;
     max-width: 500px;    
 }
@@ -57,7 +56,7 @@
 
 
 .preference-con{
-     @apply   flex items-center  justify-between w-full max-w-[100%] border-1 border-black pl-2 pr-2 h-[40px]  
+     @apply   flex items-center  justify-between w-full max-w-[100%] border-1  pl-2 pr-2 h-[40px]  
 }
 
 .inpt-plac-txt{
