@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { memo, useContext } from "react";
 import Menu from '../../assets/menu.svg?react'
 import "./Header.css";
 import { Link } from "react-router-dom";
@@ -6,18 +6,17 @@ import { useSelector , useDispatch } from "react-redux";
 import { setTheme } from "../../Redux/Slices/ThemeSlice";
 
 
-export const Header = () => {
+export const Header = memo(({headerHeight=true}) => {
 
   let Theme = useSelector((state)=>state.Theme.value)
   let dispatch = useDispatch()
-
+  
   return (
-    
-    <header className="sticky top-0 z-200 w-full">
+    <header className={`${headerHeight && "!h-[4.3rem]"} w-full`}>
         
-        <nav className="nav-con flex items-center justify-around w-full max-w-1125 h-18 ">
+        <nav className="nav-con fixed top-2 z-10 flex items-center justify-around w-full max-w-1125 h-18 ">
           
-          <ul style={{background : Theme , color :(Theme == 'white'? 'black' : 'white')}} className="header-nav-txt flex justify-center  gap-6 max-w-[1325px] w-full rounded-[10px] mt-4 h-[62px] items-center  ">
+          <ul style={{backgroundColor : Theme == 'black' ? 'rgba(15, 15, 15, 0.85)' : 'white' , color :(Theme == 'white'? 'black' : 'white')}} className="header-nav-txt  flex justify-center  gap-6 max-w-[1325px] w-full rounded-[10px] mt-4 h-[62px] items-center  ">
 
             <div className="tabHeader">
               <li>
@@ -42,8 +41,10 @@ export const Header = () => {
                    alt=""/> 
               </li>
           </Link>
-
+          <Link to={'/about'}>
               <li className="header-links"  >about us</li>
+          </Link>
+            
             <Link to="/products">
               <li className="header-links"  >modles</li >
             </Link>
@@ -148,4 +149,4 @@ export const Header = () => {
         </nav>
     </header>
   );
-};
+});

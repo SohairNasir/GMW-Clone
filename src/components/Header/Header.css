@@ -16,8 +16,6 @@
   line-height: var(--headerFlineHig);
   text-transform: var(--headerNavTxtCase);
   color: white;
-  background-color: rgba(0, 0, 0, 0.8) ;
-    
 }
 .header-nav-txt li {
   font-family: 'inter';

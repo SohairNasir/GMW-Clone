@@ -1,5 +1,7 @@
 @import'tailwindcss';
 
+
+
 .interFont{
     font-family: 'inter';
 }
@@ -12,8 +14,13 @@
 text-align: center;    
 }
 
+.footer-con{
+    padding: 64px 16px;
+}
+
 .footer-con li{
     height: fit-content;
+    width: fit-content;
     font-size: 16px;
     line-height: 24px;
     font-family: 'inter';
@@ -31,4 +38,17 @@ text-align: center;
     line-height: 32px;
     font-weight: 900;
     font-family: 'interVaribale',sans-serif;
+}
+
+.socialMedia-iconstxt{
+    font-weight: 900;
+    font-family: 'interVariable',sans-serif;
+    font-size: 24px;
+    line-height: 32px;
+    margin-bottom: 24px;
+}
+
+.footer-bottom-txt{
+    font-size: 14px;
+    line-height: 20px;
 }

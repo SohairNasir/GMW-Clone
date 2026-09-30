@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./DynamicAd.css";
 import axios from "axios";
+import { IoChevronForward } from "react-icons/io5";
+
 
 function DynamicAd({imgSrc}) {
-  console.log(imgSrc)
 
   let [dynamicAds, setDynamicAds] = useState([]);
   let [index, setIndex] = useState(0);
@@ -37,15 +38,17 @@ function DynamicAd({imgSrc}) {
     <section className="w-full">
       <div className="section">
         
-        <div className="con-ads-img">
+        <div className=" con-ads-img">
           <img className="ads-img" src={imgSrc || dynamicAds[index]?.img} alt="" />
         </div>
 
-        <div className="w-full secPadding relative bottom-[253px]">
+        
+        
+        <div className="w-full secPadding relative bottom-[267px]">
           
-          <div className="flex justify-center absolute bottom-22 w-full max-w-[98%]  ">
+          <div className="flex justify-center absolute bottom-53 w-full max-w-[99%]  ">
 
-            <span className="flex  justify-between w-full max-w-[93%] text-amber-50 ">
+            <span className="flex justify-between w-full max-w-[96%] text-amber-50 ">
             
               <button
                 onClick={() => setIndex(Math.max(0, index - 1))}
@@ -90,16 +93,16 @@ function DynamicAd({imgSrc}) {
             </span>
           </div>
 
-          <div className="w-full h-[43px] ">
-            <div className="w-full max-w-[100vw]   h-auto flex flex-col items-center ">
-              <div className=" w-full max-w[1188px] flex flex-col ">  
+          <div className="w-full flex h-fit ">
+
+            <div className="w-full max-w-[100vw]  flex flex-col gap-[30px] ">
+              <div className=" w-full max-w[1188px] flex flex-col gap-[20px] ">  
                 <div >
                   <img
                     className=" object-contain "
                     src={dynamicAds[index]?.nameimg}
                     alt=""
                   />
-                  
                 </div>
 
                 <div className="">
@@ -107,16 +110,19 @@ function DynamicAd({imgSrc}) {
                     {dynamicAds[index]?.type}
                   </p>
                 </div>
-
-                <div className=" flex justify-center items-center w-full max-w-[297px] h-[48px] mt-[32px] border-2.5 border-black bg-black">
-                  <p className=" booking-btn text-white">
-                    Booking your {dynamicAds[index]?.name}
-                  </p>
-                </div>
               </div>
+
+                <div className=" flex justify-center gap-2 items-center w-full max-w-[297px] h-[48px] mt-[32px] border-2.5 border-black bg-black">
+                  <p className=" booking-btn text-white">
+                    Book your <span className="uppercase">{dynamicAds[index]?.name}</span>
+                  </p>
+                  <span>
+                    <IoChevronForward color="white" size={22} />
+                  </span>
+                </div>
             </div>
           </div>
-
+          
           <div className="dots-con">
             <ul className="w-full max-w-[200px] flex gap-3">
               <li className={`${index == 0 && '!bg-blue-800 scale-150'}`}></li>
@@ -131,6 +137,7 @@ function DynamicAd({imgSrc}) {
               
             </ul>
           </div>
+
         </div>
       </div>
     </section>

@@ -7,10 +7,10 @@ const Footer = () => {
   let Theme = useSelector((state)=>state.Theme.value)   
   
   return (
-    <footer className={`bg-${Theme} text-${Theme=='white'?'black':'white'}  pb-8` }>
 
-
-   <div className="w-full mb-[50px] flex items-center justify-center h-[45vh] flex-col w-full gap-7 ">
+    <footer className={`bg-${Theme} text-${Theme=='white'?'black':'white'} !pb-8` }>
+   
+   <div className="w-full mb-[50px] flex items-center justify-center h-[30vh] flex-col w-full gap-7 ">
          <p className={` ${Theme == 'white' ? '!text-black':'!text-white'}  w-full max-w-[49.8ch] footer-main-h`}>SUBSCRIBE TO OUR NEWSLETTER FOR REGULAR UPDATES</p>
      <div className={`flex justify-between items-center w-full max-w-[1020px] h-[9vh] border-2 ${Theme == 'white' ? 'border-black' : 'border-white'} `}>
         <input className="w-full h-[7vh] focus:outline-none ml-[18px] " type="text" placeholder="Your Email Address" />
@@ -22,10 +22,10 @@ const Footer = () => {
       <div className={`footer-con max-w-7xl mx-auto`}>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 mb-16">
           <div>
-            <h3 className="nav-heading text-xl font-bold mb-6 tracking-wide">
+            <h3 className="nav-heading text-xl !mb-[24px] font-bold mb-6 tracking-wide">
               Quick Links
             </h3>
-            <ul className={`space-y-3 text-${Theme == 'white' ? 'gray-800':'white'} all-nav text-sm text-gray-300`}>
+            <ul className={`space-y-3 text-${Theme == 'white' ? 'gray-800':'white'} flex flex-col gap-[12px] all-nav text-sm text-gray-300`}>
               <li className="hover:text-gray-500 transition-colors cursor-pointer">
                 About Us
               </li>
@@ -51,8 +51,8 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="nav-heading text-xl font-bold mb-6 tracking-wide">Services</h3>
-            <ul className={`space-y-3 text-${Theme == 'white' ? 'gray-800':'white'} all-nav text-sm text-gray-300`}>
+            <h3 className="nav-heading text-xl !mb-[24px] font-bold mb-6 tracking-wide">Services</h3>
+            <ul className={`space-y-3 text-${Theme == 'white' ? 'gray-800':'white'} flex flex-col gap-[12px] all-nav text-sm text-gray-300`}>
               <li className="hover:text-gray-500 transition-colors cursor-pointer">
                 Find a Dealer
               </li>
@@ -78,9 +78,9 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="nav-heading text-xl font-bold mb-6 tracking-wide">Models</h3>
-            <ul className={`space-y-3 text-${Theme == 'white' ? 'gray-800':'white'} all-nav text-sm text-gray-300`}>
-              <li className="hover:text-gray-500 transition-colors cursor-pointer">
+            <h3 className="nav-heading text-xl !mb-[24px] font-bold mb-6 tracking-wide">Models</h3>
+            <ul className={`space-y-3 text-${Theme == 'white' ? 'gray-800':'white'} flex flex-col  gap-[12px] all-nav text-sm text-gray-300`}>
+              <li className="hover:text-gray-500 transition-colors  cursor-pointer">
                 H6 PHEV
               </li>
               <li className="hover:text-gray-500 transition-colors cursor-pointer">
@@ -109,10 +109,10 @@ const Footer = () => {
 
           {/* Column 4: Social Media */}
           <div>
-            <h3 className="text-xl interFont font-bold mb-6 tracking-wide">
+            <h3 className="socialMedia-iconstxt">
               Social Media
             </h3>
-            <div className="flex space-x-3">
+            <div className="flex gap-[1.5rem]">
               {/* Facebook Icon */}
               <a
                 href="#"
@@ -122,9 +122,6 @@ const Footer = () => {
                   <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                 </svg>
               </a>
-
-
-
               <a
                 href="#"
                 className="w-9 h-9 rounded-full border border-gray-600 flex items-center justify-center hover:border-white transition-colors"
@@ -133,7 +130,6 @@ const Footer = () => {
                   <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
                 </svg>
               </a>
-
               <a
                 href="#"
                 className="w-9 h-9 rounded-full border border-gray-600 flex items-center justify-center hover:border-white transition-colors"
@@ -147,31 +143,33 @@ const Footer = () => {
         </div>
 
         {/* Bottom Copyright Row */}
-        <div className="flex flex-col md:flex-row items-center justify-between text-xs text-gray-400 gap-4 pt-4">
+      </div>
+
+   <div className="flex flex-col md:flex-row items-center justify-between text-xs text-gray-400 gap-4 !pl-[16px] !pr-[16px]">
           {/* Privacy Links */}
-          <div className={`text-${Theme == 'white' ? 'gray-900':'white'} text flex space-x-6`}>
-            <a href="#" className="hover:text-gray-500 transition-colors">
+          <div className={`text-${Theme == 'white' ? 'gray-900':'white'} text flex !space-x-6`}>
+            
+            <a href="#" className="hover:text-gray-500 footer-bottom-txt transition-colors">
               privacy
             </a>
-            <a href="#" className="hover:text-gray-500 transition-colors">
+            <a href="#"  className="hover:text-gray-500 footer-bottom-txt transition-colors">
               cookies
             </a>
           </div>
 
           {/* Copyright Text */}
-          <div className={`text-${Theme == 'white' ? 'gray-900':'white'} text-center interFont`}>
+          <div className={`text-${Theme == 'white' ? 'gray-900':'white'} footer-bottom-txt text-center interFont`}>
             © 2025 GWM Sazgar Pakistan. All rights reserved.
           </div>
 
           {/* Sazgar Branding */}
           <div className="flex items-center space-x-2">
-            <span className={`text-${Theme == 'white' ? 'gray-900':'white'} interFont font-bold tracking-widest text-sm text-gray-300 uppercase`}>
-              SAZGAR
-            </span>
+          
+            <img className="max-w-[108px] h-[24px]" src="https://inspirovix.s3.us-east-2.amazonaws.com/sazgar+footer+logo.png" alt="SAZGAR LOGO" />
+          
           </div>
         </div>
 
-      </div>
     </footer>
   );
 };
