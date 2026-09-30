@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { memo, useContext } from "react";
 import Menu from '../../assets/menu.svg?react'
 import "./Header.css";
 import { Link } from "react-router-dom";
@@ -6,7 +6,7 @@ import { useSelector , useDispatch } from "react-redux";
 import { setTheme } from "../../Redux/Slices/ThemeSlice";
 
 
-export const Header = ({headerHeight=true}) => {
+export const Header = memo(({headerHeight=true}) => {
 
   let Theme = useSelector((state)=>state.Theme.value)
   let dispatch = useDispatch()
@@ -149,4 +149,4 @@ export const Header = ({headerHeight=true}) => {
         </nav>
     </header>
   );
-};
+});
