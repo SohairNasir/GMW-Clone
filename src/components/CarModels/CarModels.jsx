@@ -3,13 +3,15 @@ import Footer from "../Footer/Footer";
 import axios from "axios";
 import "./CarModels.css";
 import { useNavigate } from 'react-router-dom'
-import React, { useEffect, useState } from "react";
+import React, { memo, useEffect, useState } from "react";
+import usethemeStyle from "../../Hooks/themeStyle";
 
-const CarModels = () => {
+const CarModels = memo( () => {
   
   
   const [data, setData] = useState([]);
   const navigate = useNavigate()
+  let {bodyBg , bodyTxt , btnBg , btnTxt} = usethemeStyle()
   const getCarData = async () => {
     try {
       const carData = await axios.get("https://www.jsonkeeper.com/b/ZK3BM");
@@ -25,19 +27,16 @@ const CarModels = () => {
 
   return data ? (
     <>
-      <main className=" w-full !p-[16px]">
+      <main className={`bg-${bodyBg} w-full !p-[16px]`}>
         <div>
           
           <div className="flex flex-col  !h-[7rem] gap-1">
-            <p className="top-txt">We've got you covered</p>
-            <h1 className="top-heading">Discover GWM's Fleet</h1>
+            <p className={`${bodyBg == 'black' && '!text-white'} top-txt`}>We've got you covered</p>
+            <h1 className={`text-${bodyTxt} top-heading`}>Discover GWM's Fleet</h1>
           </div>
 
           <nav className="mt-[30px flex items-center flex-wrap w-full gap-8 ">
             {data.map((doc) => {
-              {
-                console.log(doc);
-              }
               return (
                 <div
                 onClick={()=>navigate(`/products/${doc.id}`)}
@@ -85,11 +84,10 @@ const CarModels = () => {
       </main>
 
       <DealerBtn />
-      <Footer />
     </>
   ) : (
     <h1>show 404 page</h1>
   );
-};
+});
 
 export default CarModels;

@@ -1,15 +1,17 @@
-import React from "react";
+import React, { memo } from "react";
 import "./DealerBtn.css";
 import setTheme from '../../Redux/Slices/ThemeSlice'
 import { useSelector } from "react-redux";
-const DealerBtn = () => {
+
+const DealerBtn = memo( () => {
 
   let theme = useSelector(({Theme})=>Theme.value)
   let btnBGcolor = theme == 'black' ? 'white' : 'black'
   let txtColor = theme == 'black' ? 'black' : 'white'
+
   return (
    
-   <nav className="w-full max-w-[fill] min-h-[45vh] h-fit flex justify-center items-center">
+   <nav className={`bg-${theme} w-full max-w-[fill] min-h-[45vh] h-fit flex justify-center items-center`}>
    
       <div className="w-full max-w-[600px] flex justify-center gap-10">
         
@@ -49,6 +51,6 @@ const DealerBtn = () => {
    
     </nav>
   );
-};
+});
 
 export default DealerBtn;

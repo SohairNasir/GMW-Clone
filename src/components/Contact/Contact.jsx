@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { set, useForm } from "react-hook-form";
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import "./Contact.css";
+import usethemeStyle from '../../Hooks/themeStyle';
 
-const Contact = () => {
+const Contact = memo (() => {
 
-
+const {bodyBg , bodyTxt , btnBg , btnTxt} = usethemeStyle()
+console.log(bodyBg , bodyTxt , btnBg , btnTxt)
 const telRegex = /^((\+92)|(03))\d{9}$/; // Standard PK Number Pattern
 
  const contactSchema = yup.object().shape({
@@ -192,6 +194,6 @@ const telRegex = /^((\+92)|(03))\d{9}$/; // Standard PK Number Pattern
       </form>
     </div>
   );
-};
+});
 
 export default Contact;

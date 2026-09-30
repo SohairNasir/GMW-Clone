@@ -1,19 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 import "./DynamicAd.css";
 import axios from "axios";
 import { IoChevronForward } from "react-icons/io5";
 
 
-function DynamicAd({imgSrc}) {
+function DynamicAd() {
 
   let [dynamicAds, setDynamicAds] = useState([]);
   let [index, setIndex] = useState(0);
   let [loading, setLoading] = useState(false);
 
   const getData = async () => {
-  
-    setLoading(true);
 
+    setLoading(true);
+    
     try {
       const carData = await axios.get("https://www.jsonkeeper.com/b/DBHUU");
       setDynamicAds(carData.data);
@@ -35,11 +35,11 @@ function DynamicAd({imgSrc}) {
       <span className="loader"></span>
     </div>
   ) : (
-    <section className="w-full">
+    <section className="w-full"> 
       <div className="section">
         
         <div className=" con-ads-img">
-          <img className="ads-img" src={imgSrc || dynamicAds[index]?.img} alt="" />
+          <img className="ads-img" loading="eager" decoding="async" src={dynamicAds[index]?.img} alt="" />
         </div>
 
         
@@ -144,4 +144,4 @@ function DynamicAd({imgSrc}) {
   );
 }
 
-export default DynamicAd;
+export default memo (DynamicAd);

@@ -1,15 +1,15 @@
-import React, { useEffect } from "react";
+import React, { memo, useEffect, useMemo } from "react";
 import './GmwAbout.css'
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import usethemeStyle  from "../../Hooks/themeStyle";
 
 
-const GmwAbout = ({heading , parah , src , wrapperClass}) => {
+const GmwAbout = memo(({heading , parah , src , wrapperClass}) => {
   
   let { bodyBg , bodyTxt , btnBg , btnTxt} = usethemeStyle()
   
   return (
-
+    
     <main className={`bg-${bodyBg} !pt-[60px] !pb-[60px] !pl-[99px] !pr-[99px]`}>
      
       <div className={`child-wrapper flex h-[80vh]  ${wrapperClass}`}>
@@ -50,6 +50,6 @@ const GmwAbout = ({heading , parah , src , wrapperClass}) => {
       </div>
     </main>
   );
-};
+});
 
 export default GmwAbout;

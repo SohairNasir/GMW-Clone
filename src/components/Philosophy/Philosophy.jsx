@@ -1,7 +1,8 @@
 import React from 'react'
 import'./Philosophy.css'
 import { useSelector } from 'react-redux'
-const Philosophy = () => {
+import { memo } from 'react'
+const Philosophy =memo (() => {
 
     let Theme = useSelector((state)=> state.Theme.value)
 
@@ -21,6 +22,6 @@ const Philosophy = () => {
         </div>
     </div>
   )
-}
+})
 
 export default Philosophy

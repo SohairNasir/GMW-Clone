@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { memo } from 'react'
 import'./FeatureSec.css'
 import { useSelector } from 'react-redux';
 
-function FeatureSec () {
+let  FeatureSec = memo (() => {
   
   let Theme = useSelector((state)=>state.Theme.value)
 
@@ -134,6 +134,6 @@ return(
   
 </>
   )
-}
+})
 
 export default FeatureSec

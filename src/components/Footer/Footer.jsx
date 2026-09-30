@@ -1,8 +1,8 @@
-import React from "react";
+import React, { memo } from "react";
 import "./Footer.css";
 import { useSelector } from "react-redux";
 
-const Footer = () => {
+const Footer = memo (() => {
 
   let Theme = useSelector((state)=>state.Theme.value)   
   
@@ -172,6 +172,6 @@ const Footer = () => {
 
     </footer>
   );
-};
+});
 
 export default Footer;

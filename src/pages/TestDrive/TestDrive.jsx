@@ -23,6 +23,7 @@ import usethemeStyle from "../../Hooks/themeStyle";
 import TestPToggle from "../../Hooks/testDrvToggle";
 
 const TestDrive = () => {
+
   const [CarModel, setCarModel] = useState([]);
   const [SelectCar, setSelectCar] = useState(null);
   const [showVehicle, setShowVehicle] = useState(false);
@@ -233,7 +234,7 @@ const TestDrive = () => {
               </div>
 
               <div className={`preference-con border-${bodyTxt}`}>
-                <CiCalendar className={`preference-svg`} />
+                <CiCalendar className={`preference-svg !text-${bodyTxt} stroke-1`} />
                 <span className={`w-full max-w-[95%]`}>
                   {/* <DemoItem  label="Responsive variant"> */}
                   <DatePicker
@@ -244,21 +245,22 @@ const TestDrive = () => {
                           "& fieldset": { border: "none !important" },
                           "& .MuiPickersOutlinedInput-root": {
                             width: "470px",
-                            color: "black !important",
+                            color: `${bodyTxt} !important`,
                             textTransform: "lowercase !important",
                           },
-                          "& .MuiSvgIcon-root": { color: "black" },
+                          "& .MuiSvgIcon-root": { color: `${bodyTxt} !important` },
                           "& .MuiPickersSectionList-root": { opacity: "1" },
                         },
                       },
                     }}
                     disablePast
                   />
+                  {console.log(bodyTxt)}
                 </span>
               </div>
 
-              <div className="preference-con">
-                <LuClock className="preference-svg" />
+              <div className={`preference-con border-${bodyTxt}`}>
+                <LuClock className={`preference-svg !text-${bodyTxt}`} />
 
                 <span className=" w-full max-w-[95%]">
                   <TimePicker
@@ -268,10 +270,10 @@ const TestDrive = () => {
                         sx: {
                           "& .MuiPickersOutlinedInput-root": {
                             width: "470px !important",
-                            color: "black",
+                            color: `${bodyTxt}`,
                             outline: "none",
                           },
-                          "& .MuiSvgIcon-root": { color: "black" },
+                          "& .MuiSvgIcon-root": { color: bodyTxt },
                           "& .MuiPickersSectionList-root": { opacity: "1" },
                           "& fieldset": { border: " none ! important" },
                         },
@@ -284,28 +286,28 @@ const TestDrive = () => {
               </div>
 
               <div className="flex flex-col !mt-[10px] gap-3">
-                <span className="Own-txt">Do you own a vehicle?</span>
+                <span className={`text-${bodyTxt} Own-txt`}>Do you own a vehicle?</span>
 
                 <form className="flex gap-3">
                   <input id="yes" type="radio" name="own-check" />
-                  <label className="radio-btn-txt" htmlFor="yes">
+                  <label className={`text-${bodyTxt} radio-btn-txt`} htmlFor="yes">
                     Yes
                   </label>
                   <input id="no" name="own-check" type="radio" />
-                  <label className="radio-btn-txt" htmlFor="no">
+                  <label className={`text-${bodyTxt} radio-btn-txt`} htmlFor="no">
                     No
                   </label>
                 </form>
 
                 <div>
                   <form className="flex flex-col gap-3">
-                    <label className="radio-btn-txt ">
+                    <label className={`text-${bodyTxt} radio-btn-txt`}>
                       <input className="!mr-[13px]" type="checkbox" value="" />I
                       hold a valid driving license and agree to the terms and
                       conditions.
                     </label>
 
-                    <label className="radio-btn-txt ">
+                    <label className={`text-${bodyTxt} radio-btn-txt`}>
                       <input className="!mr-[13px]" type="checkbox" value="" />I
                       take responsibility of any damage to vehicle during test
                       drive.
