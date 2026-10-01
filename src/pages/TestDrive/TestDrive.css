@@ -94,10 +94,10 @@
     padding: 0px 15px;
     height: 44px;
     width:180px;
-    background-color: black;
+    /* background-color: black; */
     font-weight: 700;
     font-family: 'interVariable',sans-serif ! important ;
-    color: white;
+    /* color: white; */
     display: flex;
     justify-content: space-between;
     align-items: center;

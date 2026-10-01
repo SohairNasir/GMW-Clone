@@ -57,7 +57,6 @@ const TestDrive = () => {
       <main
         className={`bg-${bodyBg} flex h-[140vh] items-center justify-center`}
       >
-        {console.log(bodyBg)}
         <div className="w-full max-w-[800px]">
           <div className={`flex text-${bodyTxt} items-center flex-col gap-4`}>
             <h1 className="test-driv-heading">Book a Test Drive</h1>
@@ -255,7 +254,6 @@ const TestDrive = () => {
                     }}
                     disablePast
                   />
-                  {console.log(bodyTxt)}
                 </span>
               </div>
 
@@ -318,7 +316,7 @@ const TestDrive = () => {
             </div>
           </div>
           <div className="heading-norml-txt w-full max-w-full flex justify-center !mt-[10vh]">
-            <button type="button" className="test-Driv-btn">
+            <button type="button" className={`bg-${bodyTxt} text-${bodyBg} test-Driv-btn`}>
               Book Test Drive
               <MdOutlineKeyboardArrowRight className="text-[25px]" />
             </button>
