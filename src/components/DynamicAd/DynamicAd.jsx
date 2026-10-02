@@ -9,6 +9,11 @@ function DynamicAd() {
   let [dynamicAds, setDynamicAds] = useState([]);
   let [index, setIndex] = useState(0);
   let [loading, setLoading] = useState(false);
+  let indexClamp = Math.min(Math.max(index , dynamicAds.length) , index)
+  let nextIndex = indexClamp + 1         
+  let prevIndex =Math.max(indexClamp - 1 , -1)
+
+  console.log(nextIndex) 
 
   const getData = async () => {
 
@@ -28,6 +33,8 @@ function DynamicAd() {
     getData();
   }, []);
 
+  
+
 
   return loading ? (
 
@@ -36,20 +43,17 @@ function DynamicAd() {
     </div>
   ) : (
     <section className="w-full"> 
-      <div className="section">
-        
+      
+      <div className="section">  
         <div className=" con-ads-img">
           <img className="ads-img" loading="eager" decoding="async" src={dynamicAds[index]?.img} alt="" />
         </div>
 
-        
-        
-        <div className="w-full secPadding relative bottom-[267px]">
+        {/* image upper layer this layer in btn carName type etc */}
+        <div className="w-full secPadding relative bottom-[267px]">          
           
-          <div className="flex justify-center absolute bottom-53 w-full max-w-[99%]  ">
-
+          <div className="flex justify-center absolute bottom-53 w-full max-w-[99%]">
             <span className="flex justify-between w-full max-w-[96%] text-amber-50 ">
-            
               <button
                 onClick={() => setIndex(Math.max(0, index - 1))}
                 className="left-right-ad-btn flex justify-center items-center"
@@ -68,10 +72,10 @@ function DynamicAd() {
                     d="M15.75 19.5 8.25 12l7.5-7.5"
                   />
                 </svg>
-              </button>
+              </button>{/*Left Button  */}
               <button
                 onClick={() =>
-                  setIndex( index < dynamicAds.length-1  ? ++index : 0)
+                  setIndex( index < dynamicAds.length-1  ? index + 1  : 0)
                 }
                 className="left-right-ad-btn  flex justify-center items-center"
               >
@@ -89,27 +93,32 @@ function DynamicAd() {
                     d="m8.25 4.5 7.5 7.5-7.5 7.5"
                   />
                 </svg>
-              </button>
+              </button>{/* Right Button */}
             </span>
-          </div>
-
+          </div> {/* Image Changer Buttons */} 
+          
           <div className="w-full flex h-fit ">
 
             <div className="w-full max-w-[100vw]  flex flex-col gap-[30px] ">
-              <div className=" w-full max-w[1188px] flex flex-col gap-[20px] ">  
-                <div >
+              
+              <div className=" w-full max-w[1188px] flex flex-col gap-[20px] ">    
+                
+                <div>
                   <img
                     className=" object-contain "
                     src={dynamicAds[index]?.nameimg}
-                    alt=""
+                    alt="Car Name"
+                    loading="eager"
+                    decoding="async"
                   />
                 </div>
 
-                <div className="">
+                <div>
                   <p className="Dy-car-highLight mt-3">
                     {dynamicAds[index]?.type}
                   </p>
                 </div>
+
               </div>
 
                 <div className=" flex justify-center gap-2 items-center w-full max-w-[297px] h-[48px] mt-[32px] border-2.5 border-black bg-black">
@@ -120,6 +129,7 @@ function DynamicAd() {
                     <IoChevronForward color="white" size={22} />
                   </span>
                 </div>
+
             </div>
           </div>
           
@@ -136,7 +146,7 @@ function DynamicAd() {
               <li className={`${index == 8 && '!bg-blue-800 scale-150'}`}></li>
               
             </ul>
-          </div>
+          </div> {/*Ads Dots*/}
 
         </div>
       </div>

@@ -42,7 +42,8 @@ export const Header = memo(({headerHeight=true}) => {
 
           <Link to={'/'}>
               <li className="header-links">
-                <img src={bodyBg == 'white' ?'https://images.seeklogo.com/logo-png/53/2/gwm-logo-png_seeklogo-536810.png' : "https://djphncgl0uau7.cloudfront.net/images/homepage_globalsettings_navbarlogo_1770037965346.webp"}
+                <img src={bodyBg == 'white' ?'https://images.seeklogo.com/logo-png/53/2/gwm-logo-png_seeklogo-536810.png'
+                 : "https://djphncgl0uau7.cloudfront.net/images/homepage_globalsettings_navbarlogo_1770037965346.webp"}
                    className="w-40 !cursor-pointer"
                    alt=""/> 
               </li>
@@ -119,7 +120,7 @@ export const Header = memo(({headerHeight=true}) => {
             </li  >
 
             <li className="header-links">book now </li >
-            <li className="header-links"   >
+            <li className="header-links">
               <div className="navAndsvgAling">
                 <Link to={'/contact'}>
                 <span>contact </span>
