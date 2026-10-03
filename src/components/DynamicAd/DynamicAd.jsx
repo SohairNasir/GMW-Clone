@@ -9,16 +9,6 @@ function DynamicAd() {
   let [dynamicAds, setDynamicAds] = useState([]);
   let [index, setIndex] = useState(0);
   let [loading, setLoading] = useState(false);
-  let srcRef = useRef(null)
-  let indexClamp = Math.min(Math.max(index , dynamicAds.length) , index)
-  let AdImg;
-  let nextImage;
-  let prevImage;
-  
-  const imgChanger = (nextImg) => {
-    // srcRef.current.src = nextImage
-    console.log(nextImage)
-  }
   
   const getData = async () => {
     
@@ -34,16 +24,6 @@ function DynamicAd() {
     }
   };
 
-  useEffect(()=>{
-     AdImg = new Image()
-     nextImage = AdImg.src = dynamicAds[Math.min(indexClamp + 1 , 8)]
-     prevImage = AdImg.src = dynamicAds[(Math.max(indexClamp - 1 , 0))]?.img
-    // console.log(nextImage)
-  },[ dynamicAds , index ])
-  
-  useEffect(() => {
-    getData();
-  }, []);
 
   
 
