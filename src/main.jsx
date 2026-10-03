@@ -11,7 +11,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 
 createRoot(document.getElementById('root')).render(
    
-  <StrictMode>
+  // <StrictMode>
     <BrowserRouter>
         <ThemePorvider>
           < LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -19,6 +19,6 @@ createRoot(document.getElementById('root')).render(
           </ LocalizationProvider>
         </ThemePorvider>
     </BrowserRouter>
-   </StrictMode>,
+  //  </StrictMode>,
 
 )

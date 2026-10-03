@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useState } from "react";
+import React, { memo, useEffect, useRef, useState } from "react";
 import "./DynamicAd.css";
 import axios from "axios";
 import { IoChevronForward } from "react-icons/io5";
@@ -9,14 +9,19 @@ function DynamicAd() {
   let [dynamicAds, setDynamicAds] = useState([]);
   let [index, setIndex] = useState(0);
   let [loading, setLoading] = useState(false);
+  let srcRef = useRef(null)
   let indexClamp = Math.min(Math.max(index , dynamicAds.length) , index)
-  let nextIndex = indexClamp + 1         
-  let prevIndex =Math.max(indexClamp - 1 , -1)
-
-  console.log(nextIndex) 
-
+  let AdImg;
+  let nextImage;
+  let prevImage;
+  
+  const imgChanger = (nextImg) => {
+    // srcRef.current.src = nextImage
+    console.log(nextImage)
+  }
+  
   const getData = async () => {
-
+    
     setLoading(true);
     
     try {
@@ -29,6 +34,13 @@ function DynamicAd() {
     }
   };
 
+  useEffect(()=>{
+     AdImg = new Image()
+     nextImage = AdImg.src = dynamicAds[Math.min(indexClamp + 1 , 8)]
+     prevImage = AdImg.src = dynamicAds[(Math.max(indexClamp - 1 , 0))]?.img
+    // console.log(nextImage)
+  },[ dynamicAds , index ])
+  
   useEffect(() => {
     getData();
   }, []);
@@ -45,8 +57,9 @@ function DynamicAd() {
     <section className="w-full"> 
       
       <div className="section">  
+        
         <div className=" con-ads-img">
-          <img className="ads-img" loading="eager" decoding="async" src={dynamicAds[index]?.img} alt="" />
+          <img className="ads-img" loading="eager" decoding="async" src={dynamicAds[index]?.img}  alt="image not find" />
         </div>
 
         {/* image upper layer this layer in btn carName type etc */}
@@ -55,9 +68,9 @@ function DynamicAd() {
           <div className="flex justify-center absolute bottom-53 w-full max-w-[99%]">
             <span className="flex justify-between w-full max-w-[96%] text-amber-50 ">
               <button
-                onClick={() => setIndex(Math.max(0, index - 1))}
+                onClick={() => (setIndex(Math.max(0, index - 1)), imgChanger(prevImage))}
                 className="left-right-ad-btn flex justify-center items-center"
-              >
+                >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -75,7 +88,7 @@ function DynamicAd() {
               </button>{/*Left Button  */}
               <button
                 onClick={() =>
-                  setIndex( index < dynamicAds.length-1  ? index + 1  : 0)
+                  setIndex( (index < dynamicAds.length-1  ? index + 1  : 0) , imgChanger(nextImage))
                 }
                 className="left-right-ad-btn  flex justify-center items-center"
               >
