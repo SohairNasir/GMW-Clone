@@ -1,10 +1,12 @@
 import React, { memo } from 'react'
 import'./FeatureSec.css'
 import { useSelector } from 'react-redux';
+import usethemeStyle from '../../Hooks/themeStyle';
 
 let  FeatureSec = memo (() => {
   
   let Theme = useSelector((state)=>state.Theme.value)
+  let {bodyBg , bodyTxt} = usethemeStyle()
 
  const carData = [
   {
@@ -69,14 +71,14 @@ let  FeatureSec = memo (() => {
 <>
     <main className='w-full max-w-full !pr-[1rem] !pl-[1rem] h-auto' >
 
-      <div className={` ${Theme == 'white' ?'bg-[#F9FAFB]' : 'bg-black'} h-[250px]`}>
+      <div className={` bg-${bodyBg} h-[250px]`}>
         <div className='w-full  pl-[16px] pr-[16px]'>
           
-          <h1 className={`${Theme == 'white'?'!text-black':'text-white'} w-full !mb-[16px] main-P-heading w-full`}>
+          <h1 className={`text-${bodyTxt} w-full !mb-[16px] main-P-heading w-full`}>
               Discover GWM: Innovation, Sustainability, and Quality at the Core
           </h1>
           
-          <p className={` main-Parah w-full max-w-[768px]`}>
+          <p className={`main-Parah w-full max-w-[768px]`}>
               This is a belief shared by every employee and department at GWM, both locally and globally. It's a mindset that has propelled the company since its founding in 1990, pushing the limits of what a car can achieve. It's this same unwavering belief that has led GWM to specialize in crafting vehicles designed with purpose—each model meticulously engineered to meet our customers' needs in the most inspiring and innovative way.
           </p>
         </div>
@@ -87,7 +89,7 @@ let  FeatureSec = memo (() => {
 
         <div className='w-full max-w-[1188px]'>
           <h1 className={`Dic-range-h w-[full] max-w-[20ch] !pl-[16px] !pr-[16px]`}>Discover the Range</h1>
-          <h1 className={`${Theme == 'white' ? 'text-black' :'text-white'} !pl-[16px] !pr-[16px] gmw-offer-h w-[full] max-w-[20ch]`} >The GWM Offerings</h1>
+          <h1 className={`text-${bodyTxt} !pl-[16px] !pr-[16px] gmw-offer-h w-[full] max-w-[20ch]`} >The GWM Offerings</h1>
         </div>
 
       </div>
@@ -109,17 +111,20 @@ return(
      className='animated-car-card w-full max-w-[303.5px] relative'>
 
       <div className='w-full transparent-sheet flex justify-center flex-col relative items-center'>
+         
          <div className='z-40 landingP-card-txt-con absolute top-[43px] w-full'> 
             <div className=' w-full max-w-[300px] card-car-hover-text  flex flex-col items-center '>
               <p className='h-fit w-fit'>Ex-Factory Price</p>
-              <p className='h-fit  w-fit'>Contact for Price</p>
+              <p className='h-fit w-fit'>Contact for Price</p>
             </div>
           </div>
 
             <img className='w-full object-cover rounded-[7px] h-[128px] ' src={car.image}  alt="" />
-
-</div>
+      
+      </div>
+      
             <strong className='car-name-card absolute text-amber-50 bottom-[15px] left-1.5'>{car.name}</strong>
+      
           </div>
 )
 

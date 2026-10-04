@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
  
 export const fetchCar = createAsyncThunk('carData', async ()=>{
+    
     try {
         let data = await axios.get('https://dummyjson.com/products')
        return data.data
@@ -9,6 +10,7 @@ export const fetchCar = createAsyncThunk('carData', async ()=>{
     } catch (error) {
         console.error(new Error(error))        
     }
+    
 })
 
 let initialState = {

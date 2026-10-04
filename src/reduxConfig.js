@@ -1,10 +1,10 @@
 import {configureStore} from'@reduxjs/toolkit'
 import themeSlice from './Redux/Slices/ThemeSlice'
-import carSlice from './Redux/Slices/CarModels'
+import carAds from './Redux/Slices/CarAds'
 
 export const store = configureStore({
     reducer:{
         Theme : themeSlice,
-        Cars : carSlice
+        carModels : carAds
     }
 })

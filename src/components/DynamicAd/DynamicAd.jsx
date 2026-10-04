@@ -2,7 +2,7 @@ import React, { memo, useEffect, useRef, useState } from "react";
 import "./DynamicAd.css";
 import axios from "axios";
 import { IoChevronForward } from "react-icons/io5";
-
+import usethemeStyle from'../../Hooks/themeStyle'
 
 function DynamicAd() {
 
@@ -10,6 +10,7 @@ function DynamicAd() {
   let [index, setIndex] = useState(0);
   let [loading, setLoading] = useState(false);
   
+  let {btnBg , btnTxt} = usethemeStyle()
   const getData = async () => {
     
     setLoading(true);
@@ -23,10 +24,11 @@ function DynamicAd() {
       console.error(new Error(error));
     }
   };
-
-
   
-
+  useEffect(() =>{
+    let fetchData = async ()=>getData()
+    fetchData()
+  },[])
 
   return loading ? (
 
@@ -39,16 +41,18 @@ function DynamicAd() {
       <div className="section">  
         
         <div className=" con-ads-img">
-          <img className="ads-img" loading="eager" decoding="async" src={dynamicAds[index]?.img}  alt="image not find" />
+          <img className="ads-img" loading="eager"
+          decoding="async" src={dynamicAds[index]?.img}
+          alt="image not find" />
         </div>
 
         {/* image upper layer this layer in btn carName type etc */}
         <div className="w-full secPadding relative bottom-[267px]">          
           
-          <div className="flex justify-center absolute bottom-53 w-full max-w-[99%]">
+          <div className="flex justify-center absolute bottom-53 w-full max-w-[99%]">  
             <span className="flex justify-between w-full max-w-[96%] text-amber-50 ">
               <button
-                onClick={() => (setIndex(Math.max(0, index - 1)), imgChanger(prevImage))}
+                onClick={() => setIndex(Math.max(0, index - 1)) }
                 className="left-right-ad-btn flex justify-center items-center"
                 >
                 <svg
@@ -68,7 +72,7 @@ function DynamicAd() {
               </button>{/*Left Button  */}
               <button
                 onClick={() =>
-                  setIndex( (index < dynamicAds.length-1  ? index + 1  : 0) , imgChanger(nextImage))
+                  setIndex( index < dynamicAds.length-1  ? index + 1  : 0)
                 }
                 className="left-right-ad-btn  flex justify-center items-center"
               >
@@ -93,7 +97,6 @@ function DynamicAd() {
           <div className="w-full flex h-fit ">
 
             <div className="w-full max-w-[100vw]  flex flex-col gap-[30px] ">
-              
               <div className=" w-full max-w[1188px] flex flex-col gap-[20px] ">    
                 
                 <div>
@@ -114,12 +117,12 @@ function DynamicAd() {
 
               </div>
 
-                <div className=" flex justify-center gap-2 items-center w-full max-w-[297px] h-[48px] mt-[32px] border-2.5 border-black bg-black">
-                  <p className=" booking-btn text-white">
+                <div className={`flex justify-center gap-2 items-center w-full max-w-[297px] h-[48px] mt-[32px] border-2.5 border-${btnBg} bg-${btnBg}`}>
+                  <p className={`booking-btn text-${btnTxt}`}>
                     Book your <span className="uppercase">{dynamicAds[index]?.name}</span>
                   </p>
                   <span>
-                    <IoChevronForward color="white" size={22} />
+                    <IoChevronForward color={btnTxt} size={21} />
                   </span>
                 </div>
 

@@ -6,6 +6,7 @@ function usethemeStyle() {
     let Theme = useSelector(({Theme}) => Theme.value)
     
 return useMemo(()=>{
+
     return ({
           bodyBg : Theme,
           bodyTxt : Theme == 'black' ? 'white' : 'black',
@@ -13,6 +14,7 @@ return useMemo(()=>{
           btnTxt : Theme})
         
         },[Theme])
+        
 }
 
 export default usethemeStyle
