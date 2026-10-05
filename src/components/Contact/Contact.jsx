@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { set, useForm } from "react-hook-form";
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import "./Contact.css";
+import usethemeStyle from '../../Hooks/themeStyle';
+import TestPToggle from '../../Hooks/testDrvToggle';
 
-const Contact = () => {
+const Contact = memo (() => {
 
-
+const {bodyBg , bodyTxt , btnBg , btnTxt} = usethemeStyle()
+const {placeholderTxt} =TestPToggle()
+console.log(bodyBg , bodyTxt , btnBg , btnTxt)
 const telRegex = /^((\+92)|(03))\d{9}$/; // Standard PK Number Pattern
 
  const contactSchema = yup.object().shape({
@@ -96,9 +100,11 @@ const telRegex = /^((\+92)|(03))\d{9}$/; // Standard PK Number Pattern
   };
 
   return (
-    <div className="gwm-contact-container">
+<div className={`bg-${bodyBg} w-full h-[65rem] flex justify-center items-center `}>
 
-      <div className="contact-header">
+    <div className={`bg-${bodyBg} gwm-contact-container`}>
+
+      <div className={`text-${bodyTxt} contact-header`}>
         <h1>Contact Us</h1>
         <p>Get in touch with our team</p>
         <div className="divider"></div>
@@ -107,7 +113,7 @@ const telRegex = /^((\+92)|(03))\d{9}$/; // Standard PK Number Pattern
       <form onSubmit={handleSubmit(onSubmit)} className="contact-form">
         {/* Row 1: Personal Info */}
         <div className="form-row">
-          <div className="row-label">
+          <div className={`row-label !text-${bodyTxt}`}>
             <h3>Personal Information</h3>
           </div>
 
@@ -115,45 +121,45 @@ const telRegex = /^((\+92)|(03))\d{9}$/; // Standard PK Number Pattern
             <div className="input-group-2">
            
               <div className="field-container">
-                <input type="text" {...register('FirstName')} placeholder="First Name*" />
+                <input className={`${placeholderTxt}`} type="text" {...register('FirstName')} placeholder="First Name*" />
                 {errors.FirstName && <span className="error-msg">{errors.FirstName.message}</span>}
               </div>
            
               <div className="field-container">
-                <input type="text" {...register('LastName')} placeholder="Last Name*" />
+                <input className={`${placeholderTxt}`} type="text" {...register('LastName')} placeholder="Last Name*" />
                 {errors.LastName && <span className="error-msg">{errors.LastName.message}</span>}
               </div>
             </div>
 
             <div className="input-group-2">
               <div className="field-container">
-                <input type="tel" className='tel-input' {...register('Number')} placeholder="Phone Number*" />
+                <input className={`${placeholderTxt} tel-input `} type="tel" {...register('Number')} placeholder="Phone Number*" />
                 {errors.Number && <span className="error-msg">{errors.Number.message}</span>}
               </div>
               <div className="field-container">
-                <input type="email" {...register('Email')} placeholder="Email Address*" />
+                <input className={`${placeholderTxt}`} type="email" {...register('Email')} placeholder="Email Address*" />
                 {errors.Email && <span className="error-msg">{errors.Email.message}</span>}
               </div>
             </div>
 
             <div className="input-group-2">
               <div className="field-container">
-                <input type="text" {...register('Address')} placeholder="Address" />
+                <input className={`${placeholderTxt}`} type="text" {...register('Address')} placeholder="Address" />
                 {errors.Address && <span className="error-msg">{errors.Address.message}</span>}
               </div>
               <div className="field-container">
-                <input type="text" {...register('City')} placeholder="City" />
+                <input className={`${placeholderTxt}`} type="text" {...register('City')} placeholder="City" />
                 {errors.City && <span className="error-msg">{errors.City.message}</span>}
               </div>
             </div>
 
             <div className="field-container">
-              <input type="text" {...register('Subject')} placeholder="Subject*" />
+              <input className={`${placeholderTxt}`} type="text" {...register('Subject')} placeholder="Subject*" />
               {errors.Subject && <span className="error-msg">{errors.Subject.message}</span>}
             </div>
 
             <div className="field-container">
-              <textarea {...register('Message')} placeholder="Your Message*" rows="4"></textarea>
+              <textarea {...register('Message')} className={`${placeholderTxt}`} placeholder="Your Message*" rows="4"></textarea>
               {errors.Message && <span className="error-msg">{errors.Message.message}</span>}
             </div>
           </div>
@@ -161,15 +167,15 @@ const telRegex = /^((\+92)|(03))\d{9}$/; // Standard PK Number Pattern
 
         {/* Row 2: Select Vehicle */}
         <div className="form-row">
-          <div className="row-label">
+          <div className={`text-${bodyTxt} row-label`}>
             <h3>Select a Vehicle</h3>
           </div>
           <div className="row-inputs">
             <div className="field-container">
-              <select {...register('Vichle')} >
-                <option value="Other Inquiry">Other Inquiry</option>
-                <option value="Haval H6">Haval H6</option>
-                <option value="Ora 03">Ora 03</option>
+              <select className={`text-${bodyTxt} bg-${bodyBg} border-1 !border-${bodyTxt}`}  {...register('Vichle')} >
+                <option className={`text-${bodyTxt}`} value="Other Inquiry">Other Inquiry</option>
+                <option className={`text-${bodyTxt}`} value="Haval H6">Haval H6</option>
+                <option className={`text-${bodyTxt}`} value="Ora 03">Ora 03</option>
               </select>
             </div>
           </div>
@@ -178,12 +184,14 @@ const telRegex = /^((\+92)|(03))\d{9}$/; // Standard PK Number Pattern
         {/* Row 3: Checkbox & Submit */}
         <div className="form-row">
           <div className="textAlign">
-            <input {...register('HavalLover')} className="mr-4 no-height" type="checkbox" />
-            <span>I will like Haval representative contact me for promotional stuff</span>
+            <label htmlFor="loveGwm">
+            <input {...register('HavalLover')} id='loveGwm' className="mr-4 no-height" type="checkbox" />
+            <span className={`text-${bodyTxt} !pl-[7px]`}>I will like Haval representative contact me for promotional stuff</span>
+            </label>
           </div>
           <div className="row-inputs">
             <div className="btn-wrapper flex justify-center">
-              <button type="submit" className="submit-btn">
+              <button type="submit" className={`bg-${bodyTxt} text-${bodyBg} submit-btn`}>
                 Send Message &gt;
               </button>
             </div>
@@ -191,7 +199,8 @@ const telRegex = /^((\+92)|(03))\d{9}$/; // Standard PK Number Pattern
         </div>
       </form>
     </div>
+</div>
   );
-};
+});
 
 export default Contact;

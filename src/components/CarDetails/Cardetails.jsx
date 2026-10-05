@@ -1,8 +1,8 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-const Cardetails = () => {
+const Cardetails = memo( () => {
   const [carData, setCarData] = useState({});
   const { id } = useParams();
   let [loading, setLoading] = useState(false);
@@ -152,6 +152,6 @@ console.log(carData)
       </section>
     </main>
     );
-};
+});
 
 export default Cardetails;

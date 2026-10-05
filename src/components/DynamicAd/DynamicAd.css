@@ -7,7 +7,9 @@
 }
 
 .secPadding{
-    padding: 0px 10px 0px 10px;
+    box-sizing: border-box !important;
+    max-width: 98%;
+    padding: 0px 16px 0px 16px;
 }
 
 .con-ads-img{

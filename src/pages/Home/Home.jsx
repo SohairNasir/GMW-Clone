@@ -9,9 +9,8 @@ import Footer from '../../components/Footer/Footer'
 import {useSelector} from 'react-redux'
 
 const Home = () => {
+
   let Theme = useSelector((state=> state.Theme.value))
-
-
   return (
     <div className={`bg-${Theme}`}>
     <Header headerHeight={false} />

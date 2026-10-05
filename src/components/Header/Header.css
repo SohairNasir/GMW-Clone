@@ -10,12 +10,10 @@
 }
 
 .header-nav-txt {
-  width: 100%;
-  max-width: 99%;
   font-size: var(--headerFsize);
   line-height: var(--headerFlineHig);
   text-transform: var(--headerNavTxtCase);
-  color: white;
+  @apply flex justify-center items-center gap-6 w-full rounded-[10px] h-[62px] max-w-[1314px]
 }
 .header-nav-txt li {
   font-family: 'inter';
@@ -35,6 +33,10 @@
 
 .tabHeader{
   display: none;
+}
+
+.navAndsvgAling{
+  @apply flex items-center gap-1 
 }
 
 @media screen and (max-width : 768px){
@@ -172,4 +174,8 @@
 
 .input:checked + .slider:before {
   transform: translateX(30px);
+}
+
+.blockLink{
+  @apply text-[#b3b3b3]
 }

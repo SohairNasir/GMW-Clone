@@ -1,33 +1,38 @@
-import React, { useEffect, useState } from "react";
+import React, { memo, useEffect, useRef, useState } from "react";
 import "./DynamicAd.css";
 import axios from "axios";
 import { IoChevronForward } from "react-icons/io5";
+import usethemeStyle from'../../Hooks/themeStyle'
+import { useDispatch, useSelector } from "react-redux";
+import { carAds } from "../../Redux/Slices/CarAds";
 
+function DynamicAd() {
 
-function DynamicAd({imgSrc}) {
-
-  let [dynamicAds, setDynamicAds] = useState([]);
   let [index, setIndex] = useState(0);
-  let [loading, setLoading] = useState(false);
+  let dispatch = useDispatch()
+  let {btnBg , btnTxt} = usethemeStyle()
+  let {data:dynamicAds ,  loading} = useSelector((state) => state.carModels)
 
-  const getData = async () => {
-  
-    setLoading(true);
+  // const getData = async () => {
 
-    try {
-      const carData = await axios.get("https://www.jsonkeeper.com/b/DBHUU");
-      setDynamicAds(carData.data);
-      setLoading(false);
-    } catch (error) {
-      setLoading(false);
-      console.error(new Error(error));
+    //   setLoading(true);
+    
+    //   try {
+      //     const carData = await axios.get("https://www.jsonkeeper.com/b/DBHUU");
+      //     setDynamicAds(carData.data);
+      //     setLoading(false);
+      //   } catch (error) {
+        //     setLoading(false);
+        //     console.error(new Error(error));
+  //   }
+  // };
+ 
+  useEffect(() =>{
+    if (!dynamicAds || dynamicAds.length === 0) {
+      
+      dispatch(carAds())    
     }
-  };
-
-  useEffect(() => {
-    getData();
-  }, []);
-
+  },[dispatch])
 
   return loading ? (
 
@@ -35,25 +40,26 @@ function DynamicAd({imgSrc}) {
       <span className="loader"></span>
     </div>
   ) : (
-    <section className="w-full">
-      <div className="section">
+    // <div></div>
+    <section className="w-full"> 
+      
+      <div className="section">  
         
         <div className=" con-ads-img">
-          <img className="ads-img" src={imgSrc || dynamicAds[index]?.img} alt="" />
+          <img className="ads-img" loading="eager"
+          decoding="async" src={dynamicAds[index]?.img}
+          alt="image not find" />
         </div>
 
-        
-        
-        <div className="w-full secPadding relative bottom-[267px]">
+        {/* image upper layer this layer in btn carName type etc */}
+        <div className="w-full secPadding relative bottom-[267px]">          
           
-          <div className="flex justify-center absolute bottom-53 w-full max-w-[99%]  ">
-
+          <div className="flex justify-center absolute bottom-53 w-full max-w-[99%]">  
             <span className="flex justify-between w-full max-w-[96%] text-amber-50 ">
-            
               <button
-                onClick={() => setIndex(Math.max(0, index - 1))}
+                onClick={() => setIndex(Math.max(0, index - 1)) }
                 className="left-right-ad-btn flex justify-center items-center"
-              >
+                >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -68,10 +74,10 @@ function DynamicAd({imgSrc}) {
                     d="M15.75 19.5 8.25 12l7.5-7.5"
                   />
                 </svg>
-              </button>
+              </button>{/*Left Button  */}
               <button
                 onClick={() =>
-                  setIndex( index < dynamicAds.length-1  ? ++index : 0)
+                  setIndex( index < dynamicAds.length-1  ? index + 1  : 0)
                 }
                 className="left-right-ad-btn  flex justify-center items-center"
               >
@@ -89,37 +95,42 @@ function DynamicAd({imgSrc}) {
                     d="m8.25 4.5 7.5 7.5-7.5 7.5"
                   />
                 </svg>
-              </button>
+              </button>{/* Right Button */}
             </span>
-          </div>
-
+          </div> {/* Image Changer Buttons */} 
+          
           <div className="w-full flex h-fit ">
 
             <div className="w-full max-w-[100vw]  flex flex-col gap-[30px] ">
-              <div className=" w-full max-w[1188px] flex flex-col gap-[20px] ">  
-                <div >
+              <div className=" w-full max-w[1188px] flex flex-col gap-[20px] ">    
+                
+                <div>
                   <img
                     className=" object-contain "
                     src={dynamicAds[index]?.nameimg}
-                    alt=""
+                    alt="Car Name"
+                    loading="eager"
+                    decoding="async"
                   />
                 </div>
 
-                <div className="">
+                <div>
                   <p className="Dy-car-highLight mt-3">
                     {dynamicAds[index]?.type}
                   </p>
                 </div>
+
               </div>
 
-                <div className=" flex justify-center gap-2 items-center w-full max-w-[297px] h-[48px] mt-[32px] border-2.5 border-black bg-black">
-                  <p className=" booking-btn text-white">
+                <div className={`flex justify-center gap-2 items-center w-full max-w-[297px] h-[48px] mt-[32px] border-2.5 border-${btnBg} bg-${btnBg}`}>
+                  <p className={`booking-btn text-${btnTxt}`}>
                     Book your <span className="uppercase">{dynamicAds[index]?.name}</span>
                   </p>
                   <span>
-                    <IoChevronForward color="white" size={22} />
+                    <IoChevronForward color={btnTxt} size={21} />
                   </span>
                 </div>
+
             </div>
           </div>
           
@@ -136,7 +147,7 @@ function DynamicAd({imgSrc}) {
               <li className={`${index == 8 && '!bg-blue-800 scale-150'}`}></li>
               
             </ul>
-          </div>
+          </div> {/*Ads Dots*/}
 
         </div>
       </div>
@@ -144,4 +155,4 @@ function DynamicAd({imgSrc}) {
   );
 }
 
-export default DynamicAd;
+export default memo (DynamicAd);

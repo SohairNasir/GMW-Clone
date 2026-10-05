@@ -1,23 +1,22 @@
-import React from "react";
+import React, { memo } from "react";
 import "./DealerBtn.css";
-import setTheme from '../../Redux/Slices/ThemeSlice'
-import { useSelector } from "react-redux";
-const DealerBtn = () => {
+import usethemeStyle from '../../Hooks/themeStyle'
 
-  let theme = useSelector(({Theme})=>Theme.value)
-  let btnBGcolor = theme == 'black' ? 'white' : 'black'
-  let txtColor = theme == 'black' ? 'black' : 'white'
+const DealerBtn = memo( () => {
+
+  let {bodyBg , btnBg , btnTxt} = usethemeStyle()
+
   return (
    
-   <nav className="w-full max-w-[fill] min-h-[45vh] h-fit flex justify-center items-center">
+   <nav className={`bg-${bodyBg} w-full max-w-[fill] min-h-[45vh] h-fit flex justify-center items-center`}>
    
       <div className="w-full max-w-[600px] flex justify-center gap-10">
         
         <button className={`flex items-center gap-3 w-full max-w-[195px] font-bold cursor-pointer
-        !pt-[12px] !pb-[12px] !pl-[30px] !pr-[30px]  border-2 bg-${btnBGcolor} text-${txtColor} border-black`}>
+        !pt-[12px] !pb-[12px] !pl-[30px] !pr-[30px]  border-2 bg-${btnBg} text-${btnTxt} border-black`}>
           <strong className="font-style">Find a Dealer</strong>
           <svg
-                  className={`down-chevro size-4 !stroke-${txtColor}`}
+                  className={`down-chevro size-4 !stroke-${btnTxt}`}
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                 >
@@ -30,10 +29,11 @@ const DealerBtn = () => {
         </button>
 
         <div className="w-full max-w-[300px]">
-          <button className={`flex items-center gap-1 w-full max-w-[218px] cursor-pointer !pt-[12px] !pb-[12px] !pl-[30px] !pr-[30px]  border-1 text-blak border-${btnBGcolor}`}>
-            <strong className={`font-style text-${btnBGcolor} font-light`}>Book a Test Drive </strong>
+          <button className={`flex items-center gap-1 w-full max-w-[218px] cursor-pointer !pt-[12px] !pb-[12px]
+             !pl-[30px] !pr-[30px]  border-1 text-blak border-${btnBg}`}>
+            <strong className={`font-style text-${btnBg} font-light`}>Book a Test Drive </strong>
                <svg
-                  className={`down-chevro size-4 !stroke-${btnBGcolor}`}
+                  className={`down-chevro size-4 !stroke-${btnBg}`}
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                 >
@@ -49,6 +49,6 @@ const DealerBtn = () => {
    
     </nav>
   );
-};
+});
 
 export default DealerBtn;

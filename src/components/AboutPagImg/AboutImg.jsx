@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { memo } from 'react'
 import './AboutImg.css'
 
-const AboutImg = () => {
+const AboutImg = memo( () => {
 
   return (
 
@@ -30,6 +30,6 @@ const AboutImg = () => {
     </main>
 
   )
-}
+})
 
 export default AboutImg
