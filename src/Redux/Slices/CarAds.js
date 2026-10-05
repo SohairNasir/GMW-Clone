@@ -1,15 +1,18 @@
 import { createAsyncThunk, createSlice, isFulfilled } from "@reduxjs/toolkit";
 import axios from "axios";
 
-let carAds = createAsyncThunk('carData' , async () => {
-    console.log('countinue api fetching')
+let carAds = createAsyncThunk('carData' , async (_, {rejectWithValue}) => {
     try {
-        let carData = await axios.get('https://dummyjson.com/products')
-        return carData.data 
+        let carData = await axios.get('https://dummyjson.com/produc')
+        
+        if (!carData.data) {
+           throw new Error("Data not found");      
+        } 
+        return carData.data
     } catch (error) {
-        console.error(new Error(error))
-        return rejectWithValue(error.response?.data?.message || "Failed to fetch data"); // ✅ Prevents returning undefined
-    }
+        return rejectWithValue(error.response?.data?.message || error.message || "Request failed");   
+ }
+
 })
 
 let initialState ={
@@ -32,14 +35,18 @@ const CarAdsSlice = createSlice({
             state.status = 200
             state.message ='data pending'
         }).addCase(carAds.rejected,(state , action)=>{
-            state.data = action.payload
+            state.error=action.payload
             state.status = 404
-            state.message ='invalid data fetching'
+            state.message ='data not and i set default data'
+            if (action.payload) {
+                state.data = { // send defalut data 
+                    car:'nisaan'
+                }
+            }
         })
     }
     
 })
-carAds()
 
 export {carAds}
 export default CarAdsSlice.reducer
