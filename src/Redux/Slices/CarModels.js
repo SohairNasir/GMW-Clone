@@ -15,7 +15,7 @@ export const fetchCar = createAsyncThunk('carData', async ()=>{
 
 let initialState = {
     carList : [],
-    loading : false,
+    loading : true,
     error : null
 }
 

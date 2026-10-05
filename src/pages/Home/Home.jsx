@@ -6,29 +6,11 @@ import Philosophy from '../../components/Philosophy/Philosophy'
 import Ytube from '../../components/Ytube/Ytube'
 import DealerBtn from '../../components/DealerBtn/DealerBtn'
 import Footer from '../../components/Footer/Footer'
-import {useDispatch, useSelector} from 'react-redux'
-import { carAds } from '../../Redux/Slices/CarAds'
+import {useSelector} from 'react-redux'
 
 const Home = () => {
-  let dispatch = useDispatch()
 
   let Theme = useSelector((state=> state.Theme.value))
-  let carModels = useSelector((state)=>state.carModels)
-  
-  useEffect(() => {
-    dispatch(carAds())
-  },[])
-console.log(carModels)  
-  // let testApi = async () => {
-    //     try {
-      // let data =  await dispatch(carAds()).unwrap()
-      //       console.log(data)
-      //     } catch (error) {
-        //       console.log(error)
-        //     }
-      // }
-      // testApi()
-
   return (
     <div className={`bg-${Theme}`}>
     <Header headerHeight={false} />

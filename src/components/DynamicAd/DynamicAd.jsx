@@ -3,32 +3,36 @@ import "./DynamicAd.css";
 import axios from "axios";
 import { IoChevronForward } from "react-icons/io5";
 import usethemeStyle from'../../Hooks/themeStyle'
+import { useDispatch, useSelector } from "react-redux";
+import { carAds } from "../../Redux/Slices/CarAds";
 
 function DynamicAd() {
 
-  let [dynamicAds, setDynamicAds] = useState([]);
   let [index, setIndex] = useState(0);
-  let [loading, setLoading] = useState(false);
-  
+  let dispatch = useDispatch()
   let {btnBg , btnTxt} = usethemeStyle()
-  const getData = async () => {
+  let {data:dynamicAds ,  loading} = useSelector((state) => state.carModels)
+
+  // const getData = async () => {
+
+    //   setLoading(true);
     
-    setLoading(true);
-    
-    try {
-      const carData = await axios.get("https://www.jsonkeeper.com/b/DBHUU");
-      setDynamicAds(carData.data);
-      setLoading(false);
-    } catch (error) {
-      setLoading(false);
-      console.error(new Error(error));
-    }
-  };
-  
+    //   try {
+      //     const carData = await axios.get("https://www.jsonkeeper.com/b/DBHUU");
+      //     setDynamicAds(carData.data);
+      //     setLoading(false);
+      //   } catch (error) {
+        //     setLoading(false);
+        //     console.error(new Error(error));
+  //   }
+  // };
+ 
   useEffect(() =>{
-    let fetchData = async ()=>getData()
-    fetchData()
-  },[])
+    if (!dynamicAds || dynamicAds.length === 0) {
+      
+      dispatch(carAds())    
+    }
+  },[dispatch])
 
   return loading ? (
 
@@ -36,6 +40,7 @@ function DynamicAd() {
       <span className="loader"></span>
     </div>
   ) : (
+    // <div></div>
     <section className="w-full"> 
       
       <div className="section">  
