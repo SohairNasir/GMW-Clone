@@ -10,6 +10,7 @@ import { store } from "./reduxConfig";
 import { Provider } from "react-redux";
 import About from "./pages/About/About";
 import TestDrive from "./pages/TestDrive/TestDrive";
+import SignUpPage from "./pages/SignUp/SignUpPage";
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
         <Route path="/contact" element={<ContactUser/>} />
         <Route path="/test-drive" element={<TestDrive/>} />
         <Route path="/about" element={<About />} />
+        <Route path="/signup" element={<SignUpPage />}/>
       </Routes>
     </Provider>
     </>

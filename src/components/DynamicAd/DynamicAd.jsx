@@ -16,7 +16,6 @@ function DynamicAd() {
   let [prevIndex , setPrevIndex] = useState(0)
   let [integater , setInegater] = useState(true)
   let ImgRef = useRef(null)
-
   function imgSrc(nextIndex) {
       let updatedImage = new Image()
       updatedImage.src= dynamicAds[nextIndex]?.img

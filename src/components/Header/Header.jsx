@@ -53,16 +53,17 @@ export const Header = memo(({headerHeight=true}) => {
           </Link>
             
             <Link to="/products">
-              <li className="header-links"  >modles</li >
+              <li className="header-links">modles</li >
             </Link>
           <Link to='/test-drive'>
-            <li className="header-links"  >test drive</li>
+            <li className="header-links">test drive</li>
           </Link>
           
-            <li className="header-links"  >
-              <div className="blockLink navAndsvgAling">
-                <span>find a dealer</span>
-                <svg 
+          <Link to={'/signup'}>
+            <li className="header-links">
+              <div className="navAndsvgAling">
+                <span>Ower of Delaer</span>
+                {/* <svg 
                   className="down-chevron size-4"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"                  
@@ -75,10 +76,11 @@ export const Header = memo(({headerHeight=true}) => {
                     strokeLinejoin="round"
                     d="m19.5 8.25-7.5 7.5-7.5-7.5"
                   />
-                </svg>
+                </svg> */}
               </div>
             </li>
-          
+          </Link>
+
             <li className="header-links"  >
               <div className="blockLink navAndsvgAling">
                 <span>after sales</span>
