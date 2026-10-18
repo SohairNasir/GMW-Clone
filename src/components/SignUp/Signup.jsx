@@ -1,4 +1,7 @@
 import { useState } from "react";
+import usethemeStyle from "../../Hooks/themeStyle";
+
+
 
 const VEHICLES = [
   "Other Inquiry",
@@ -8,20 +11,24 @@ const VEHICLES = [
   "Haval Dargo",
 ];
 
-const inputClass =
-  "w-full h-[40px] bg-black text-white placeholder-white border border-white rounded-[3px] !px-4 !py-3 !text-sm " +
+
+export default function SignUp() {
+  const {bodyBg , bodyTxt , btnBg , btnTxt} = usethemeStyle()
+
+  const inputClass =
+  `w-full bg-${bodyBg} text-${bodyTxt} placeholder-${bodyTxt} border-1 border-${bodyTxt} rounded-[3px] !px-4 !py-3 !text-sm ` +
   "outline-none transition-all duration-200 hover:bg-white/5 focus:border-white focus:ring-2 focus:ring-white/40";
 
+  
 function Row({ label, children }) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-3 md:gap-8 items-start">
-      <h3 className="text-white font-bold text-base md:pt-3">{label}</h3>
+      <h3 className={`text-${bodyTxt} font-bold text-base md:pt-3`}>{label}</h3>
       <div className="flex flex-col gap-5">{children}</div>
     </div>
   );
 }
-
-export default function SignUp() {
+  
   const [form, setForm] = useState({
     firstName: "",
     lastName: "",
@@ -68,15 +75,16 @@ export default function SignUp() {
 
   return (
 
-    <main className="min-h-screen flex justify-center items-center bg-black text-white pt-40 pb-24 px-5">
+    <main className={`min-h-screen flex justify-center items-center bg-${bodyBg} text-${bodyTxt} !pt-10 !pb-23 px-5`}>
       <div className="w-full max-w-[900px] mx-auto">
         {/* Title */}
-        <div className="flex flex-col items-center gap-1 !mb-14">
+{console.log(bodyBg , bodyTxt ,btnBg ,btnTxt)}
+        <div className="contact-header">
           <h1 className="text-4xl md:text-5xl font-extrabold uppercase tracking-wide">
             Sign Up
           </h1>
-          <p className="text-white/60 mt-2">Create your Haval account</p>
-          <div className="w-[320px] max-w-full h-px bg-white mx-auto mt-5" />
+          <p>Create your Haval account</p>
+          <div className="divider" />
         </div>
 
         {done ? (
@@ -143,9 +151,10 @@ export default function SignUp() {
             </Row>
 
             <Row label="Select a Vehicle">
-              <select className={inputClass} name="vehicle" value={form.vehicle} onChange={onChange}>
+              
+              <select className={`${inputClass} pr-10 appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2024%2024%22%20stroke%3D%22white%22%3E%3Cpath%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20d%3D%22m6%209%206%206%206-6%22%2F%3E%3C%2Fsvg%3E')] bg-[length:1.25rem] bg-[right_1rem_center] bg-no-repeat`} name="vehicle" value={form.vehicle} onChange={onChange}>
                 {VEHICLES.map((v) => (
-                  <option key={v} className="bg-black">{v}</option>
+                  <option key={v} className="bg-black text-sm">{v}</option>
                 ))}
               </select>
             </Row>
@@ -164,15 +173,15 @@ export default function SignUp() {
             <div className="text-center">
               <button
                 type="submit"
-                className=" bg-white text-black font-semibold text-sm !px-8 !py-3 rounded-[3px] cursor-pointer
+                className={`bg-${btnBg} text-${btnTxt} font-semibold text-sm !px-8 !py-3 rounded-[3px] cursor-pointer
                            transition-all duration-200 hover:bg-black hover:text-white hover:ring-1 hover:ring-white
-                           active:scale-95"
+                           active:scale-95`}
               >
                 Create Account &gt;
               </button>
-              <p className="text-white/60 text-sm !mt-5">
+              <p className={`text-${bodyTxt} text-sm !mt-5`}>
                 Already have an account?{" "}
-                <a href="/login" className="text-white underline hover:no-underline">Log in</a>
+                <a href="/login" className={`text-${bodyTxt} underline hover:no-underline`}>Log in</a>
               </p>
             </div>
           </form>
