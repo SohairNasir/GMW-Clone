@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form"
 import usethemeStyle from "../../Hooks/themeStyle";
-
+import { zodResolver } from '@hookform/resolvers/zod';
+import * as z from 'zod'
 
  // vehicles Models
 const VEHICLES = [
@@ -23,6 +24,20 @@ let userData = {
     vehicle: VEHICLES[0],
     promo: false,
   }
+
+  
+let userSchema  = z.object ({
+    firstName: z.string().min(6).max(30).nonempty().trim(),
+    lastName: z.string().min(6).max(30).trim().nonempty(),
+    phone:z.string().min(12),
+    email:z.string().email(),
+    city:z.string().min(4).max(10).nonempty().trim(),
+    password: z.string().trim().min(6).max(30),
+    confirm: z.string().trim().min(6).max(30),
+    vehicle: z.string(),
+    promo: z.boolean(),
+  })
+
 
 export default function SignUp() {
 
@@ -57,12 +72,21 @@ function Row({ label, children }) {
   const [showPass, setShowPass] = useState(false);
   const [done , setDone] = useState(false)
 
-  const {register , handleSubmit , watch , formState :{errors},} = useForm()
-  console.log(errors.firstName)
+  const {register , handleSubmit , watch , formState :{errors},} = useForm({
+    resolver:zodResolver(userSchema , undefined,{mode:"async"})
+  })
+
+  
+  console.log(errors)
+  
   const onSubmit = (ev) => {
     // ev.preventDefault();
     console.log(ev)
-  };
+    // let userDataValidate = userSchema.safeParse(ev)
+    // console.log(userDataValidate.error.issues)
+};
+
+
   
   return (
 
