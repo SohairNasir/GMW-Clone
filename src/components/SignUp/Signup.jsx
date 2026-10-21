@@ -1,8 +1,12 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form"
 import usethemeStyle from "../../Hooks/themeStyle";
-import { zodResolver } from '@hookform/resolvers/zod';
-import * as z from 'zod'
+import * as y from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
+
+
+// import { zodResolver } from '@hookform/resolvers/zod';
+// import * as z from 'zod'
 
  // vehicles Models
 const VEHICLES = [
@@ -12,38 +16,41 @@ const VEHICLES = [
   "Haval H6 HEV",
   "Haval Dargo",
 ];
-
-let userData = {
-    firstName: "",
-    lastName: "",
-    phone: "",
-    email: "",
-    city: "",
-    password: "",
-    confirm: "",
-    vehicle: VEHICLES[0],
-    promo: false,
-  }
-
   
-let userSchema  = z.object ({
-    firstName: z.string().min(6).max(30).nonempty().trim(),
-    lastName: z.string().min(6).max(30).trim().nonempty(),
-    phone:z.string().min(12),
-    email:z.string().email(),
-    city:z.string().min(4).max(10).nonempty().trim(),
-    password: z.string().trim().min(6).max(30),
-    confirm: z.string().trim().min(6).max(30),
-    vehicle: z.string(),
-    promo: z.boolean(),
+let userSchema  = y.object ({
+    firstName: y.string().min(6).max(30).trim().required(),
+    lastName: y.string().min(6).max(30).trim().required(),
+    phone:y.string().min(12).required(),
+    email:y.string().email().required(),
+    city:y.string().min(4).max(10).trim().required(),
+    password: y.string().trim().min(6).max(30).required(),
+    confirm: y.string().trim().min(6).max(30).required(),
+    vehicle: y.string(),
+    promo: y.boolean().required(),
   })
 
 
 export default function SignUp() {
 
   const {bodyBg , bodyTxt , btnBg , btnTxt} = usethemeStyle()
+  const [showPass, setShowPass] = useState(false);
+  const [done , setDone] = useState(false)
 
-  const inputClass =
+
+  const {register , handleSubmit , watch , formState :{errors},} = useForm({
+    resolver:yupResolver(userSchema)
+  })
+    
+    if (errors) {
+      console.log('find error your input validation' , errors)
+
+    }
+
+  const onSubmit = (ev) => {
+    console.log('user form submit success fully ',ev)
+};
+
+const inputClass =
   `w-full bg-${bodyBg} text-${bodyTxt} placeholder-${bodyTxt} border-1 border-${bodyTxt} rounded-[3px] !px-4 !py-3 !text-sm ` +
   "outline-none transition-all duration-200 hover:bg-white/5 focus:border-white focus:ring-2 focus:ring-white/40";
 
@@ -56,37 +63,11 @@ function Row({ label, children }) {
     </div>
   );
 }
-  
-  const [form, setForm] = useState({
-    firstName: "",
-    lastName: "",
-    phone: "",
-    email: "",
-    city: "",
-    password: "",
-    confirm: "",
-    vehicle: VEHICLES[0],
-    promo: false,
-  });
 
-  const [showPass, setShowPass] = useState(false);
-  const [done , setDone] = useState(false)
-
-  const {register , handleSubmit , watch , formState :{errors},} = useForm({
-    resolver:zodResolver(userSchema , undefined,{mode:"async"})
-  })
-
-  
-  console.log(errors)
-  
-  const onSubmit = (ev) => {
-    // ev.preventDefault();
-    console.log(ev)
-    // let userDataValidate = userSchema.safeParse(ev)
-    // console.log(userDataValidate.error.issues)
-};
-
-
+function ErrorMsg(name , errors) {
+  console.log('error in show error box' , name)
+  return errors?.[name] && (<p className="bg-red-900">errors?.[name]?.message </p>)
+}
   
   return (
 
@@ -112,9 +93,12 @@ function Row({ label, children }) {
           <form onSubmit={handleSubmit(onSubmit)} noValidate className="flex flex-col gap-12">
             <Row label="Personal Information">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                
                 <div>
                   <input className={inputClass} name="firstName" {...register('firstName', {required:true})} placeholder="First Name*" />
+                  <ErrorMsg name='firstName' errors={errors} />
                 </div>
+                
                 <div>
                   <input className={inputClass} name="lastName" {...register('lastName')} placeholder="Last Name*"  />
                   
@@ -165,9 +149,9 @@ function Row({ label, children }) {
 
             <Row label="Select a Vehicle">
               
-              <select className={`${inputClass} pr-10 appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2024%2024%22%20stroke%3D%22white%22%3E%3Cpath%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20d%3D%22m6%209%206%206%206-6%22%2F%3E%3C%2Fsvg%3E')] bg-[length:1.25rem] bg-[right_1rem_center] bg-no-repeat`} name="vehicle">
+              <select {...register('vehicle')} className={`${inputClass} pr-10 appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2024%2024%22%20stroke%3D%22white%22%3E%3Cpath%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20d%3D%22m6%209%206%206%206-6%22%2F%3E%3C%2Fsvg%3E')] bg-[length:1.25rem] bg-[right_1rem_center] bg-no-repeat`} name="vehicle">
                 {VEHICLES.map((v) => (
-                  <option key={v} className="bg-black text-sm">{v}</option>
+                  <option key={v} value={v} className="bg-black text-sm">{v}</option>
                 ))}
               </select>
             </Row>
