@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form"
 import usethemeStyle from "../../Hooks/themeStyle";
 import * as y from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
+import axios from "axios";
 
 
 // import { zodResolver } from '@hookform/resolvers/zod';
@@ -38,16 +39,24 @@ export default function SignUp() {
 
 
   const {register , handleSubmit , watch , formState :{errors},} = useForm({
-    resolver:yupResolver(userSchema)
+    resolver:yupResolver(userSchema),
+    mode:'onSubmit',
+    reValidateMode:'onSubmit'
   })
     
-    if (errors) {
-      console.log('find error your input validation' , errors)
+  const onSubmit = (ev) => {
+    console.log('user form submit success fully ', ev)
 
+   async function setData() {
+     
+    try {
+      let saveUserInDb = await axios.post(`${process.env.BACKENDURL}/auth/signup`)
+      console.log('user save success fully',saveUserInDb)
+    } catch (error) {
+      console.log(error)
+    }
     }
 
-  const onSubmit = (ev) => {
-    console.log('user form submit success fully ',ev)
 };
 
 const inputClass =
@@ -55,18 +64,20 @@ const inputClass =
   "outline-none transition-all duration-200 hover:bg-white/5 focus:border-white focus:ring-2 focus:ring-white/40";
 
   
-function Row({ label, children }) {
+function Row({ label, children , error }) {
+ 
   return (
     <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-3 md:gap-8 items-start">
       <h3 className={`text-${bodyTxt} font-bold text-base md:pt-3`}>{label}</h3>
-      <div className="flex flex-col gap-5">{children}</div>
+      <div className="flex flex-col gap-5 not-[errorBox]:gap-2">{children}{error && (<p className="errorBox text-center text-red-700" role="alert">{error}</p>)} </div>
     </div>
   );
 }
 
-function ErrorMsg(name , errors) {
-  console.log('error in show error box' , name)
-  return errors?.[name] && (<p className="bg-red-900">errors?.[name]?.message </p>)
+function ErrorMsg({name , errors}) {
+  if(!errors?.[name]) return null;
+  console.log('error in show error box' , errors?.[name]?.ref?.value)
+  return errors?.[name] && (<p className="bg-red-900">{errors?.[name]?.message}ss </p>)
 }
   
   return (
@@ -91,28 +102,30 @@ function ErrorMsg(name , errors) {
           </div>
         ) : (
           <form onSubmit={handleSubmit(onSubmit)} noValidate className="flex flex-col gap-12">
+            
             <Row label="Personal Information">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 
                 <div>
-                  <input className={inputClass} name="firstName" {...register('firstName', {required:true})} placeholder="First Name*" />
+                  <input className={inputClass} name="firstName" {...register('firstName')} placeholder="First Name*" />
                   <ErrorMsg name='firstName' errors={errors} />
                 </div>
                 
                 <div>
                   <input className={inputClass} name="lastName" {...register('lastName')} placeholder="Last Name*"  />
-                  
+                  <ErrorMsg name='lastName' errors={errors} />
                 </div>
                 <div>
-                  <input className={inputClass} name="phone" {...register('phone')} placeholder="Phone Number*" onChange={onchange}/>
-                  
+                  <input className={inputClass} name="phone" {...register('phone')} placeholder="Phone Number*" />
+                  <ErrorMsg name='phone' errors={errors} />
                 </div>
                 <div>
-                  <input className={inputClass} type="email" name="email" {...register('email')} placeholder="Email Address*" onChange={onchange}/>
-                  
+                  <input className={inputClass} type="email" name="email" {...register('email')} placeholder="Email Address*" />
+                  <ErrorMsg name='email' errors={errors} />
                 </div>
               </div>
-              <input className={inputClass} name="city" {...register('city')} placeholder="City" onChange={onchange} />
+              <input className={inputClass} name="city" {...register('city')} placeholder="City"  />
+              <ErrorMsg name='city' errors={errors} />
             </Row>
 
             <Row label="Account Security">
@@ -123,8 +136,9 @@ function ErrorMsg(name , errors) {
                   name="password"
                   {...register('password')}
                   placeholder="Password*"
-                  onChange={onchange}
+                  
                 />
+                <ErrorMsg name='password' errors={errors} />
                 <button
                   type="button"
                   onClick={() => setShowPass((s) => !s)}
@@ -140,20 +154,24 @@ function ErrorMsg(name , errors) {
                   type={showPass ? "text" : "password"}
                   name="confirm"
                   {...register('confirm')}
-                  onChange={onchange}
+                  
                   placeholder="Confirm Password*"
                 />
+
+                <ErrorMsg name='confirm' errors={errors} />
                 
               </div>
             </Row>
 
-            <Row label="Select a Vehicle">
+            <Row label="Select a Vehicle" error={errors?.['vehicle']?.message}>
               
-              <select {...register('vehicle')} className={`${inputClass} pr-10 appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2024%2024%22%20stroke%3D%22white%22%3E%3Cpath%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20d%3D%22m6%209%206%206%206-6%22%2F%3E%3C%2Fsvg%3E')] bg-[length:1.25rem] bg-[right_1rem_center] bg-no-repeat`} name="vehicle">
+              <select  {...register('vehicle')} className={`${inputClass} pr-10 appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2024%2024%22%20stroke%3D%22white%22%3E%3Cpath%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20d%3D%22m6%209%206%206%206-6%22%2F%3E%3C%2Fsvg%3E')] bg-[length:1.25rem] bg-[right_1rem_center] bg-no-repeat`}
+              name="vehicle">
                 {VEHICLES.map((v) => (
                   <option key={v} value={v} className="bg-black text-sm">{v}</option>
                 ))}
               </select>
+              {/* <ErrorMsg className='bg-red-700 w-full max-w-[400px] h-30' name='vehicle' errors={errors} /> */}
             </Row>
 
             <label className="flex items-center gap-3 cursor-pointer select-none">
