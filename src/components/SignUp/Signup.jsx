@@ -6,12 +6,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import axios from "axios";
 
 
-// import { zodResolver } from '@hookform/resolvers/zod';
-// import * as z from 'zod'
-
  // vehicles Models
 const VEHICLES = [
-  "Other Inquiry",
   "Haval H6",
   "Haval Jolion",
   "Haval H6 HEV",
@@ -24,10 +20,10 @@ let userSchema  = y.object ({
     phone:y.string().min(12).required(),
     email:y.string().email().required(),
     city:y.string().min(4).max(10).trim().required(),
-    password: y.string().trim().min(6).max(30).required(),
-    confirm: y.string().trim().min(6).max(30).required(),
-    vehicle: y.string(),
-    promo: y.boolean().required(),
+    password: y.string().min(6).max(30).required(),
+    confirm: y.string().oneOf([y.ref('password')] , "Passwords must match").required(),
+    vehicle: y.string().length(2).required(),
+    promo: y.boolean(),
   })
 
 
@@ -48,15 +44,15 @@ export default function SignUp() {
     console.log('user form submit success fully ', ev)
 
    async function setData() {
-     
+     console.log(import.meta.env.BACKENDURL)
     try {
-      let saveUserInDb = await axios.post(`${process.env.BACKENDURL}/auth/signup`)
+      // let saveUserInDb = await axios.post(`${import.meta.env.BACKENDURL}/auth/signup`)
       console.log('user save success fully',saveUserInDb)
     } catch (error) {
       console.log(error)
     }
     }
-
+setData()
 };
 
 const inputClass =
@@ -64,20 +60,26 @@ const inputClass =
   "outline-none transition-all duration-200 hover:bg-white/5 focus:border-white focus:ring-2 focus:ring-white/40";
 
   
-function Row({ label, children , error }) {
+function Row({ label, children}) {
  
   return (
     <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-3 md:gap-8 items-start">
       <h3 className={`text-${bodyTxt} font-bold text-base md:pt-3`}>{label}</h3>
-      <div className="flex flex-col gap-5 not-[errorBox]:gap-2">{children}{error && (<p className="errorBox text-center text-red-700" role="alert">{error}</p>)} </div>
+      <div className="flex flex-col gap-5 not-[errorBox]:gap-2">{children}
+        {/* {error && (<p className="errorBox" role="alert">{error}</p>)}  */}
+      </div>
     </div>
   );
 }
 
 function ErrorMsg({name , errors}) {
+
   if(!errors?.[name]) return null;
-  console.log('error in show error box' , errors?.[name]?.ref?.value)
-  return errors?.[name] && (<p className="bg-red-900">{errors?.[name]?.message}ss </p>)
+
+  console.log('error in show error box' , name)
+
+  return errors?.[name] && (<p className="!text-rose-400 text-sm capitalize !mt-1 font-medium leading-tight break-words">{errors?.[name]?.message}</p>)
+
 }
   
   return (
@@ -101,9 +103,9 @@ function ErrorMsg({name , errors}) {
             </p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit(onSubmit)} noValidate className="flex flex-col gap-12">
+          <form onSubmit={handleSubmit(onSubmit)} noValidate className="flex flex-col gap-12 ">
             
-            <Row label="Personal Information">
+            <Row label="Personal Information" >
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 
                 <div>
@@ -165,13 +167,14 @@ function ErrorMsg({name , errors}) {
 
             <Row label="Select a Vehicle" error={errors?.['vehicle']?.message}>
               
-              <select  {...register('vehicle')} className={`${inputClass} pr-10 appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2024%2024%22%20stroke%3D%22white%22%3E%3Cpath%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20d%3D%22m6%209%206%206%206-6%22%2F%3E%3C%2Fsvg%3E')] bg-[length:1.25rem] bg-[right_1rem_center] bg-no-repeat`}
+              <select  {...register('vehicle')} defaultValue=''  className={`${inputClass} pr-10 appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2024%2024%22%20stroke%3D%22white%22%3E%3Cpath%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20d%3D%22m6%209%206%206%206-6%22%2F%3E%3C%2Fsvg%3E')] bg-[length:1.25rem] bg-[right_1rem_center] bg-no-repeat`}
               name="vehicle">
+                <option className="bg-black text-sm" disabled value={''}>Other Inquiry</option>
                 {VEHICLES.map((v) => (
                   <option key={v} value={v} className="bg-black text-sm">{v}</option>
                 ))}
               </select>
-              {/* <ErrorMsg className='bg-red-700 w-full max-w-[400px] h-30' name='vehicle' errors={errors} /> */}
+              <ErrorMsg className='bg-red-600' name='vehicle' errors={errors} />
             </Row>
 
             <label className="flex items-center gap-3 cursor-pointer select-none">
