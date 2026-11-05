@@ -12,50 +12,44 @@ function DynamicAd() {
   let dispatch = useDispatch()
   let {btnBg , btnTxt} = usethemeStyle()
   let {data:dynamicAds ,  loading} = useSelector((state) => state.carModels)
-  let [nextIndex , setNextIndex] = useState(0)
-  let [prevIndex , setPrevIndex] = useState(0)
-  let [integater , setInegater] = useState(true)
   let ImgRef = useRef(null)
-  function imgSrc(nextIndex) {
-      let updatedImage = new Image()
-      updatedImage.src= dynamicAds[nextIndex]?.img
-      ImgRef.current.src = updatedImage.src
-  }
+  let [imageSrc , setImageSrc] = useState([])
+
+
   
+  // cache browser in all images
   useEffect(()=>{
 
-      if (dynamicAds) {
-        integater ? (imgSrc(nextIndex),setNextIndex(index >= 8 ? 0 : index + 1))
-        : ( imgSrc(index ))
+  if (dynamicAds || !imageSrc.length == 0) { 
+    let preLoadImg = []     
+    let updatedImage = new Image()
+
+    dynamicAds.forEach((element , index) => {
+
+      if (element.img){
+          preLoadImg.push(element.img)
+          element.img && imageSrc.push(element.img) 
+          updatedImage.src = element?.img
+          // console.log('image load sucess fully',setAllSrc)   
+      }
+ });
+
+ setImageSrc(preLoadImg)
+
+}
+
+},[dynamicAds])
+    
+useEffect(() =>{
+    dispatch(carAds())    
+},[dispatch])
+  
+useEffect(()=>{
+      if (imageSrc.length) {
+        ImgRef.current.src = imageSrc?.[index]
       }
       
   },[dynamicAds , index])
-    
-  // useEffect(()=>{
-  //   if (dynamicAds) {
-  //     preLoad(index + 1)
-  //   }
-  // },[prevIndex , dynamicAds])
-
-  // const getData = async () => {
-
-    //   setLoading(true);
-    
-    //   try {
-      //     const carData = await axios.get("https://www.jsonkeeper.com/b/DBHUU");
-      //     setDynamicAds(carData.data);
-      //     setLoading(false);
-      //   } catch (error) {
-        //     setLoading(false);
-        //     console.error(new Error(error));
-  //   }
-  // };
- 
-  useEffect(() =>{
-    if (!dynamicAds || dynamicAds.length === 0) { 
-      dispatch(carAds())    
-    }
-  },[dispatch])
 
   return loading ? (
 
@@ -77,7 +71,7 @@ function DynamicAd() {
           <div className="flex justify-center absolute bottom-53 w-full max-w-[99%]">  
             <span className="flex justify-between w-full max-w-[96%] text-amber-50 ">
               <button
-                onClick={() => (setIndex(Math.max(0, index - 1)) , setInegater(false)) }
+                onClick={() => setIndex( index == 0 ? imageSrc.length-1 : index - 1 )}
                 className="left-right-ad-btn flex justify-center items-center"
                 >
                 <svg
@@ -97,7 +91,7 @@ function DynamicAd() {
               </button>{/*Left Button  */}
               <button
                 onClick={() =>      
-                  (setIndex( index < dynamicAds.length-1  ? index + 1  : 0) , setInegater(true)) 
+                  setIndex( index < dynamicAds.length-1  ? index + 1  : 0)  
                 }
                 className="left-right-ad-btn  flex justify-center items-center"
               >
