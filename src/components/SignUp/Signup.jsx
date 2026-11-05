@@ -15,19 +15,62 @@ const VEHICLES = [
 ];
   
 let userSchema  = y.object ({
-    firstName: y.string().min(6).max(30).trim().required(),
-    lastName: y.string().min(6).max(30).trim().required(),
-    phone:y.string().min(12).required(),
-    email:y.string().email().required(),
-    city:y.string().min(4).max(10).trim().required(),
-    password: y.string().min(6).max(30).required(),
-    confirm: y.string().oneOf([y.ref('password')] , "Passwords must match").required(),
-    vehicle: y.string().length(2).required(),
-    promo: y.boolean(),
+    firstName: y
+    .string()
+    .trim()
+    .min(6, "First name must be at least 6 characters")
+    .max(30, "First name cannot exceed 30 characters")
+    .required("First name is required"),
+
+  lastName: y
+    .string()
+    .trim()
+    .min(6, "Last name must be at least 6 characters")
+    .max(30, "Last name cannot exceed 30 characters")
+    .required("Last name is required"),
+
+  phone: y
+    .string()
+    .min(12, "Phone number must be at least 12 digits")
+    .required("Phone number is required"),
+
+  email: y
+    .string()
+    .email("Please enter a valid email address")
+    .required("Email address is required"),
+
+  city: y
+    .string()
+    .trim()
+    .min(4, "City name must be at least 4 characters")
+    .max(10, "City name cannot exceed 10 characters")
+    .required("City is required"),
+
+  password: y
+    .string()
+    .min(6, "Password must be at least 6 characters")
+    .max(30, "Password cannot exceed 30 characters")
+    .required("Password is required"),
+
+  confirm: y
+    .string()
+    .oneOf([y.ref("password")], "Passwords must match")
+    .required("Please confirm your password"),
+
+  vehicle: y
+    .string()
+    .min(2, "Vehicle name must be at least 2 characters")
+    .required("Please select or enter your vehicle"),
+
+  promo: y
+    .boolean()
+    .oneOf([true], "You must accept the promo terms")
+    .required("Promo agreement is required"),
   })
 
 
-export default function SignUp() {
+
+  export default function SignUp() {
 
   const {bodyBg , bodyTxt , btnBg , btnTxt} = usethemeStyle()
   const [showPass, setShowPass] = useState(false);
@@ -44,7 +87,7 @@ export default function SignUp() {
     console.log('user form submit success fully ', ev)
 
    async function setData() {
-     console.log(import.meta.env.BACKENDURL)
+     console.log(import.meta.env.VITE_BACKENDURL)
     try {
       // let saveUserInDb = await axios.post(`${import.meta.env.BACKENDURL}/auth/signup`)
       console.log('user save success fully',saveUserInDb)
@@ -78,7 +121,7 @@ function ErrorMsg({name , errors}) {
 
   console.log('error in show error box' , name)
 
-  return errors?.[name] && (<p className="!text-rose-400 text-sm capitalize !mt-1 font-medium leading-tight break-words">{errors?.[name]?.message}</p>)
+  return errors?.[name] && (<p className="!text-rose-400  text-sm capitalize !mt-3 font-medium leading-tight break-words">{errors?.[name]?.message}</p>)
 
 }
   

@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice, isFulfilled } from "@reduxjs/toolkit";
 import axios from "axios";
-import { useMemo } from "react";
 
 let carAds = createAsyncThunk('carData' , async (_, {rejectWithValue}) => {
     try {
@@ -81,6 +80,5 @@ const CarAdsSlice = createSlice({
 })
 
 
-carAds()
 export {carAds}
 export default CarAdsSlice.reducer

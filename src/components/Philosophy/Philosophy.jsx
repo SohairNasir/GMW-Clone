@@ -25,6 +25,8 @@ const Philosophy = memo (() => {
             </span>
 
         </div>
+
+
     </div>
   )
 })
