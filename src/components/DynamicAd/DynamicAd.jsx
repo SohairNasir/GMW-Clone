@@ -22,15 +22,16 @@ function DynamicAd() {
 
   if (dynamicAds || !imageSrc.length == 0) { 
     let preLoadImg = []     
-    let updatedImage = new Image()
 
     dynamicAds.forEach((element , index) => {
+
+      let updatedImage = new Image()
 
       if (element.img){
           preLoadImg.push(element.img)
           element.img && imageSrc.push(element.img) 
           updatedImage.src = element?.img
-          // console.log('image load sucess fully',setAllSrc)   
+          console.log('image load sucess fully',element.img)   
       }
  });
 
