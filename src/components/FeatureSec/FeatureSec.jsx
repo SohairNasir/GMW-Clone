@@ -69,9 +69,9 @@ let  FeatureSec = memo (() => {
 
   return (
 <>
-    <main className='w-full max-w-full !pr-[1rem] !pl-[1rem] h-auto' >
+    <main className={`w-full max-w-full !pr-[1rem] !pl-[1rem] h-auto bg-${bodyBg} `} >
 
-      <div className={` bg-${bodyBg} h-[250px]`}>
+      <div className='h-[250px]'>
         <div className='w-full  pl-[16px] pr-[16px]'>
           
           <h1 className={`text-${bodyTxt} w-full !mb-[16px] main-P-heading w-full`}>

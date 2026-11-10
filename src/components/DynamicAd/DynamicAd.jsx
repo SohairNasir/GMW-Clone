@@ -10,11 +10,10 @@ function DynamicAd() {
 
   let [index, setIndex] = useState(0);
   let dispatch = useDispatch()
-  let {btnBg , btnTxt} = usethemeStyle()
+  let {btnBg , btnTxt , bodyBg} = usethemeStyle()
   let {data:dynamicAds ,  loading} = useSelector((state) => state.carModels)
   let ImgRef = useRef(null)
   let [imageSrc , setImageSrc] = useState([])
-
 
   
   // cache browser in all images
@@ -31,7 +30,7 @@ function DynamicAd() {
           preLoadImg.push(element.img)
           element.img && imageSrc.push(element.img) 
           updatedImage.src = element?.img
-          console.log('image load sucess fully',element.img)   
+          // console.log('image load sucess fully',element.img)   
       }
  });
 
@@ -58,12 +57,12 @@ useEffect(()=>{
       <span className="loader"></span>
     </div>
   ) : (
-    // <div></div>
-    <section className="w-full">    
+    <section className={`w-full bg-${bodyBg}`}>    
       <div className="section">  
-        <div className=" con-ads-img">
-          <img ref={ImgRef} className="ads-img" loading="eager"
-          decoding="async"
+        <div className="con-ads-img bg-black">
+          <img ref={ImgRef} className="ads-img"
+          // loading="eager"
+          // decoding="async"
           alt="image not find" />
         </div>
         {/* image upper layer this layer in btn carName type etc */}

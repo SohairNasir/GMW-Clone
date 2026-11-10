@@ -39,33 +39,6 @@
   @apply flex items-center gap-1 
 }
 
-@media screen and (max-width : 768px){
-.nav-con{
-  padding: 10px;
-}
-.header-nav-txt{
- max-width: 752px;
- gap: 0;
-}  
-.header-links{
-  display: none;
-}
-.tabHeader{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  max-width: 95%;
-} 
-
-.menu-svg{
-  width: 100%;
-  max-width: 35%;
-  height: fit-content;
-}
-
-}
 
 /* From Uiverse.io by andrew-demchenk0 */ 
 .switch {
@@ -179,3 +152,32 @@
 .blockLink{
   @apply text-[#b3b3b3]
 }
+
+
+@media screen and (max-width : 768px){
+.nav-con{
+  padding: 10px;
+}
+
+.header-nav-txt{
+  gap: 0px;
+  padding:6px 16px;
+}  
+.header-links{
+  display: none;
+}
+.tabHeader{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+} 
+
+.menu-svg{
+  width: 34px;
+  height: fit-content;
+}
+
+} 

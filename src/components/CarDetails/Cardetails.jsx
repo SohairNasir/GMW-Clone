@@ -8,29 +8,36 @@ const Cardetails = memo( () => {
   let [loading, setLoading] = useState(false);
 
   const dataFetch = async () => {
+  // model fetch And id to set model
     try {
       const data = await axios.get("https://www.jsonkeeper.com/b/P2EGZ");
       const renderData = data.data?.find((item) => item.id == Number(id));
-      setCarData(renderData || {});
-            setLoading(false);
-
-    } catch (error) {
-            setLoading(false);
-      console.error(error);
+      setCarData(renderData || {})
+      setLoading(false);
     }
+    catch (error) {
+        setLoading(false);
+        console.error(error);
+    }
+  
   };
 
+// calling data fetch function  
   useEffect(() => {
     dataFetch();
   }, [id]);
 
-  const specs = carData?.specifications || {};
-console.log(carData)
-  return (loading) ? (
+  let specs = carData?.specifications || {};
+
+  return (loading)
+  ? (
+// Show Loader
     <div className="flex h-[50vh] items-center justify-center">
       <span class="loader"></span>
     </div>
-  ) :(
+  )
+
+   :( // ui for car model 
     <main className="w-full bg-white text-gray-900 font-sans">
       <section className="max-w-7xl mx-auto px-6 py-12">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
