@@ -23,17 +23,18 @@ export const Header = memo(({headerHeight=true}) => {
           <ul style={{backgroundColor : Theme == 'black' ?
            'rgba(15, 15, 15, 0.85)' : 'white' , color : bodyTxt }}
            className="header-nav-txt">
-            
+
             <div className="tabHeader">
               <li>                
                       <Menu className='menu-svg'/>
               </li>
 
               <li> 
-                <img src='../../public/download.png'
+                <img src='https://djphncgl0uau7.cloudfront.net/images/homepage_globalsettings_navbarlogo_1770037965346.webp'
                 // {bodyBg == 'black' ?'https://www.gwm.com.my/content/dam/gwm/pages/my/en/mediacenter/logos/logo-4.png' : "https://djphncgl0uau7.cloudfront.net/images/homepage_globalsettings_navbarlogo_1770037965346.webp"}
-                   width={74}
-                   className="rounded-[20px]"
+                   width={142}
+                   height={24}
+                   className="header-img-res rounded-[20px]"
                    alt=""/> 
               </li>
             </div>

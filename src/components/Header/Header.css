@@ -153,8 +153,37 @@
   @apply text-[#b3b3b3]
 }
 
+/* small screen media query */
 
-@media screen and (max-width : 768px){
+@media screen and (max-width : 480px) {
+  
+  .header-links{
+    display: none;
+  }
+
+  .header-nav-txt{
+    gap:0px;
+    padding:4px 10px;
+  }
+
+  .tabHeader{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .menu-svg{
+    width: 20px ;
+    height: 20px;
+  }
+
+  
+}
+
+
+/* @media screen and (max-width : 768px){
 .nav-con{
   padding: 10px;
 }
@@ -180,4 +209,6 @@
   height: fit-content;
 }
 
-} 
+}  */
+
+
