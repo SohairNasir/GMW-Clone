@@ -64,7 +64,8 @@ function DynamicAd() {
         {/* image upper layer this layer in btn carName type etc */}
         <div className="w-full secPadding relative bottom-[267px]">
           <div className="flex justify-center absolute bottom-53 w-full max-w-[99%]">
-            <span className="flex justify-between w-full bg-amber-900  max-w-[96%] text-amber-50 ">
+            <div className="flex items-center justify-between w-full aspect-[12/2] max-h-[3.7rem] max-w-[96%] text-amber-50 ">
+              
               <button
                 onClick={() =>
                   setIndex(index == 0 ? imageSrc.length - 1 : index - 1)
@@ -77,7 +78,7 @@ function DynamicAd() {
                   viewBox="0 0 24 24"
                   strokeWidth="1.5"
                   stroke="currentColor"
-                  className="size-6"
+                  className="ls-rs-svg"
                 >
                   <path
                     strokeLinecap="round"
@@ -109,7 +110,7 @@ function DynamicAd() {
                 </svg>
               </button>
               {/* Right Button */}
-            </span>
+            </div>
           </div>{" "}
           {/* Image Changer Buttons */}
           <div className="w-full flex h-fit ">
