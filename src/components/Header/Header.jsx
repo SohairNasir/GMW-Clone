@@ -15,14 +15,14 @@ export const Header = memo(({headerHeight=true}) => {
   
   return (
 
-    <header className={`${headerHeight && "!h-[4.3rem]"} bg-${bodyBg} w-full`}>
+    <header className={`${headerHeight && "!h-[4.3rem]"} bg-${bodyBg}`}>
 
         <nav className="fixed top-2 z-10 flex items-center
-         justify-around w-full max-w-1125 h-18 ">
+         justify-center bg-red-900 w-dvw max-w-[99dvw]">
           
           <ul style={{backgroundColor : Theme == 'black' ?
            'rgba(15, 15, 15, 0.85)' : 'white' , color : bodyTxt }}
-           className="header-nav-txt">
+           className="header-nav-txt !max-w-[98%]">
 
             <div className="tabHeader">
               <li>                
@@ -37,6 +37,7 @@ export const Header = memo(({headerHeight=true}) => {
                    className="header-img-res rounded-[20px]"
                    alt=""/> 
               </li>
+
             </div>
 
 

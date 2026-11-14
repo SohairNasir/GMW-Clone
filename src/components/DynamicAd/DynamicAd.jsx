@@ -92,11 +92,11 @@ function DynamicAd() {
                 onClick={() =>
                   setIndex(index < dynamicAds.length - 1 ? index + 1 : 0)
                 }
-                className="left-right-ad-btn  flex justify-center items-center"
+                className="left-right-ad-btn !flex !justify-center !items-center"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="size-6"
+                  className="ls-rs-svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   strokeWidth="1.5"
@@ -134,16 +134,18 @@ function DynamicAd() {
               </div>
 
               <div
-                className={`flex justify-center gap-2 items-center w-full max-w-[297px] h-[48px] mt-[32px] border-2.5 border-${btnBg} bg-${btnBg}`}
-              >
+                className={`booking-btn-con flex justify-center gap-2 items-center  h-[48px] mt-[32px] border-2.5 border-${btnBg} bg-${btnBg}`}>
                 <p className={`booking-btn text-${btnTxt}`}>
                   Book your{" "}
                   <span className="uppercase">{dynamicAds[index]?.name}</span>
                 </p>
+              
                 <span>
-                  <IoChevronForward color={btnTxt} size={21} />
+                  <IoChevronForward color={btnTxt} className="booking-btn-svg" />
                 </span>
+              
               </div>
+
             </div>
           </div>
           <div className="dots-con">

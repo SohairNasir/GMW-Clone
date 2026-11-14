@@ -40,19 +40,18 @@
    object-position: center;
 } 
 
-/* /////////////////////////////////////////////// */  break work
-/* 
 .left-right-ad-btn{
-    width: clamp( 30px ,8vw,50px);
-    height:clamp( 30px ,8vw,50px);
+    width: clamp(30px , 8vw , 50px);
+    height:clamp(30px , 8vw , 50px);
     border-radius: 50%;
-    background-color: red;
+    background-color: gray;
 }
 
 .ls-rs-svg{
-    width: 4.5vw;
-    stroke-width: 0.4vw;
-} */
+    width: clamp(15px , 4vw , 25px);
+    height: clamp(15px , 3vw , 25px);
+    stroke-width: 2px;
+} 
 
 .Dy-car-highLight{
     color: #FFFFFFE6;
@@ -60,9 +59,15 @@
     line-height: 28px;
     font-family: 'inter';
 }.booking-btn{
-    font-size: 16px;
-    line-height: 24px;
+    font-size: clamp(8px , 4.4vw ,16px);
+    line-height: clamp(16px , 3vw , 24px);
     font-family: 'inter';
+}.booking-btn-svg{
+    width:  clamp(15px , 3vw , 26px);
+    height: clamp(15px , 3vw , 26px);
+}
+.booking-btn-con{
+    width:clamp(120px,65vw,297px);
 }
 .dots-con{
     width: 100%;
@@ -80,9 +85,8 @@
 
 .dots-con ul li{
     background-color: #E6E2DE;
-    width: 100%;
-    max-width: 15px;
-    height: 12px;
+    width: clamp(5px , 4.5vw , 15px);
+    height: clamp(3px , 4.5vw , 12px);
     border-radius: 50%;
 }
 
