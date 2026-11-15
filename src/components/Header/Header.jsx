@@ -12,7 +12,9 @@ export const Header = memo(({headerHeight=true}) => {
   let Theme = useSelector((state)=>state.Theme.value)
   let {bodyBg , bodyTxt} = usethemeStyle()
 
-  
+  let metaDesc = document.querySelector("meta[name='description']")
+  console.log(metaDesc)
+
   return (
 
     <header className={`${headerHeight && "!h-[4.3rem]"} bg-${bodyBg}`}>
