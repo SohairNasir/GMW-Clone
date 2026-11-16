@@ -69,14 +69,22 @@ let  FeatureSec = memo (() => {
 
   return (
 <>
-    <main className={`w-full max-w-full !pr-[1rem] !pl-[1rem] h-auto bg-${bodyBg} `} >
-
-      <div className='h-[250px]'>
-        <div className='w-full  pl-[16px] pr-[16px]'>
+  <main className={`w-full max-w-full box-border h-auto bg-${bodyBg}`} >
+        
+    <div className='fetureSec-size-align !ml-[38px] !mr-[38px] !pr-[1rem] !pl-[1rem]'  >
+      
+      <div className=''>
+        
+        <div className='w-full'>
           
-          <h1 className={`text-${bodyTxt} w-full !mb-[16px] main-P-heading w-full`}>
-              Discover GWM: Innovation, Sustainability, and Quality at the Core
+          <h1 className={`text-${bodyTxt} main-P-heading`}>
+                 Discover GWM: Innovation,
+                 Sustainability,and Quality at the Core
           </h1>
+
+
+
+          {/* <h2 className="text-3xl md:text-4xl font-black mb-4 text-red-700 md:block" style={{fontFamily: 'Inter' , fontWeight: '900'}}>Discover GWM: Innovation, Sustainability, and Quality at the Core</h2> */}
           
           <p className={`main-Parah w-full max-w-[768px]`}>
               This is a belief shared by every employee and department at GWM, both locally and globally. It's a mindset that has propelled the company since its founding in 1990, pushing the limits of what a car can achieve. It's this same unwavering belief that has led GWM to specialize in crafting vehicles designed with purpose—each model meticulously engineered to meet our customers' needs in the most inspiring and innovative way.
@@ -134,7 +142,7 @@ return(
         </nav>
       </div>
 
-
+  </div>
     </main> 
   
 </>

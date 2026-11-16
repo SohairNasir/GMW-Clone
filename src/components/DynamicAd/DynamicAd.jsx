@@ -51,6 +51,7 @@ function DynamicAd() {
   ) : (
     <section className={`w-full bg-${bodyBg}`}>
       <div className="section">
+        
         <div className="con-ads-img bg-black">
           <img
             ref={ImgRef}

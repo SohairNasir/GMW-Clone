@@ -12,15 +12,13 @@ export const Header = memo(({headerHeight=true}) => {
   let Theme = useSelector((state)=>state.Theme.value)
   let {bodyBg , bodyTxt} = usethemeStyle()
 
-  let metaDesc = document.querySelector("meta[name='description']")
-  console.log(metaDesc)
 
   return (
 
     <header className={`${headerHeight && "!h-[4.3rem]"} bg-${bodyBg}`}>
 
         <nav className="fixed top-2 z-10 flex items-center
-         justify-center bg-red-900 w-dvw max-w-[99dvw]">
+         justify-center w-dvw max-w-[99dvw]">
           
           <ul style={{backgroundColor : Theme == 'black' ?
            'rgba(15, 15, 15, 0.85)' : 'white' , color : bodyTxt }}
