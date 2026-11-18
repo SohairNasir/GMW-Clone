@@ -162,8 +162,10 @@
   }
 
   .header-nav-txt{
+    height: 60px;
+    max-width: 93%;
     gap:0px;
-    padding:4px 10px;
+    padding:6px 16px;
   }
 
   .tabHeader{
@@ -175,8 +177,10 @@
   }
 
   .menu-svg{
-    width: 20px ;
-    height: 20px;
+    width: 24px ;
+    height: 24px;
+    /* padding: 8px; */
+    /* background-color: red; */
   }
 
   

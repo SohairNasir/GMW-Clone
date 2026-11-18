@@ -50,6 +50,7 @@ function DynamicAd() {
     </div>
   ) : (
     <section className={`w-full bg-${bodyBg}`}>
+
       <div className="section">
         
         <div className="con-ads-img bg-black">
@@ -63,10 +64,11 @@ function DynamicAd() {
         </div>
 
         {/* image upper layer this layer in btn carName type etc */}
-        <div className="w-full secPadding relative bottom-[267px]">
-          <div className="flex justify-center absolute bottom-53 w-full max-w-[99%]">
-            <div className="flex items-center justify-between w-full aspect-[12/2] max-h-[3.7rem] max-w-[96%] text-amber-50 ">
-              
+        <div className="w-full secPadding relative max-sm:bottom-[215px] bottom-[267px]">
+          
+          
+          <div className="flex justify-center max-sm:hidden absolute bottom-53 w-full max-w-[95%] ">
+            <div className="flex items-center justify-between w-full  aspect-[12/2] max-h-[3.7rem] max-w-[100%] text-amber-50 ">
               <button
                 onClick={() =>
                   setIndex(index == 0 ? imageSrc.length - 1 : index - 1)
@@ -112,12 +114,14 @@ function DynamicAd() {
               </button>
               {/* Right Button */}
             </div>
-          </div>{" "}
-          {/* Image Changer Buttons */}
-          <div className="w-full flex h-fit ">
-            <div className="w-full max-w-[100vw]  flex flex-col gap-[30px] ">
-              <div className=" w-full max-w[1188px] flex flex-col gap-[20px] ">
-                <div>
+
+          </div>
+
+          <div className="w-full  flex h-fit ">
+            <div className="w-full max-w-[100vw]  flex flex-col  gap-[30px] ">
+              
+              <div className=" w-full max-w[1188px] flex flex-col max-sm:gap-[5px] gap-[20px] ">
+                <span>
                   <img
                     className=" object-contain "
                     src={dynamicAds[index]?.nameimg}
@@ -125,7 +129,7 @@ function DynamicAd() {
                     loading="eager"
                     decoding="async"
                   />
-                </div>
+                </span>
 
                 <div>
                   <p className="Dy-car-highLight mt-3">
@@ -135,7 +139,7 @@ function DynamicAd() {
               </div>
 
               <div
-                className={`booking-btn-con flex justify-center gap-2 items-center  h-[48px] mt-[32px] border-2.5 border-${btnBg} bg-${btnBg}`}>
+                className={`booking-btn-con flex justify-center gap-2 items-center max-sm:h-[37px]  mt-[32px] border-2.5 border-${btnBg} bg-${btnBg}`}>
                 <p className={`booking-btn text-${btnTxt}`}>
                   Book your{" "}
                   <span className="uppercase">{dynamicAds[index]?.name}</span>
@@ -149,8 +153,9 @@ function DynamicAd() {
 
             </div>
           </div>
+
           <div className="dots-con">
-            <ul className="w-full max-w-[200px] flex gap-3">
+            <ul className= "w-full flex justify-center gap-2">
               <li className={`${index == 0 && "!bg-blue-800 scale-150"}`}></li>
               <li className={`${index == 1 && "!bg-blue-800 scale-150"}`}></li>
               <li className={`${index == 2 && "!bg-blue-800 scale-150"}`}></li>
@@ -161,7 +166,7 @@ function DynamicAd() {
               <li className={`${index == 7 && "!bg-blue-800 scale-150"}`}></li>
               <li className={`${index == 8 && "!bg-blue-800 scale-150"}`}></li>
             </ul>
-          </div>{" "}
+          </div>
           {/*Ads Dots*/}
         </div>
       </div>

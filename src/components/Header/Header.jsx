@@ -1,5 +1,6 @@
 import { memo, useContext } from "react";
 import Menu from '../../assets/menu.svg?react'
+import { FiMenu } from "react-icons/fi";
 import "./Header.css";
 import { Link } from "react-router-dom";
 import { useSelector} from "react-redux";
@@ -22,19 +23,19 @@ export const Header = memo(({headerHeight=true}) => {
           
           <ul style={{backgroundColor : Theme == 'black' ?
            'rgba(15, 15, 15, 0.85)' : 'white' , color : bodyTxt }}
-           className="header-nav-txt !max-w-[98%]">
+           className="header-nav-txt max-w-[98%]">
 
             <div className="tabHeader">
-              <li>                
-                      <Menu className='menu-svg'/>
+              <li className="!p-[8px]">                
+                      {/* <Menu className='menu-svg'/> */}
+                      <FiMenu className='menu-svg' />
               </li>
 
               <li> 
                 <img src='https://djphncgl0uau7.cloudfront.net/images/homepage_globalsettings_navbarlogo_1770037965346.webp'
-                // {bodyBg == 'black' ?'https://www.gwm.com.my/content/dam/gwm/pages/my/en/mediacenter/logos/logo-4.png' : "https://djphncgl0uau7.cloudfront.net/images/homepage_globalsettings_navbarlogo_1770037965346.webp"}
                    width={142}
                    height={24}
-                   className="header-img-res rounded-[20px]"
+                   className="rounded-[20px]"
                    alt=""/> 
               </li>
 

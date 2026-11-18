@@ -15,9 +15,9 @@ const Home = () => {
     <DynamicAd/>
     <Feature />
     <Philosophy/>
-    <Ytube />
-    <DealerBtn/>
-    <Footer/>
+    {/* <Ytube /> */}
+    {/* <DealerBtn/> */}
+    {/* <Footer/> */}
     </div>
   )
 }
