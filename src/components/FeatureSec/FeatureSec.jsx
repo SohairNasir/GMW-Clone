@@ -6,7 +6,7 @@ import usethemeStyle from '../../Hooks/themeStyle';
 let  FeatureSec = memo (() => {
   
   let Theme = useSelector((state)=>state.Theme.value)
-  let {bodyBg , bodyTxt} = usethemeStyle()
+  let {bodyTxt} = usethemeStyle()
 
  const carData = [
   {
@@ -69,7 +69,7 @@ let  FeatureSec = memo (() => {
 
   return (
 <>
-  <main className={`w-full max-w-full !pl-[16px] !pr-[16px] box-border h-auto bg-${bodyBg}`} >
+  <main className={`w-full max-w-full !pl-[16px] !pr-[16px] box-border h-auto`} >
         
     
       
@@ -104,7 +104,7 @@ let  FeatureSec = memo (() => {
 
       <div>
 
-        <nav className='flex flex-wrap items-center max-sm:gap-[12px] gap-[20px] !pr-[16px] !pl-[16px] '>
+        <nav className='flex flex-wrap items-center max-sm:gap-[20px] gap-[20px] !pr-[16px] !pl-[16px] '>
 
 
           {

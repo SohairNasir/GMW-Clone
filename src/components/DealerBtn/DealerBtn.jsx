@@ -8,15 +8,15 @@ const DealerBtn = memo( () => {
 
   return (
    
-   <nav className={`bg-${bodyBg} w-full max-w-[fill] min-h-[45vh] h-fit flex justify-center items-center`}>
+   <nav className={`max-sm:!pt-[5rem] max-sm:!pb-[5rem] flex justify-center items-center`}>
    
-      <div className="w-full max-w-[600px] flex justify-center gap-10">
+      <div className="w-full  max-sm:flex-col max-sm:gap-8 flex justify-center items-center gap-10">
         
-        <button className={`flex items-center gap-3 w-full max-w-[195px] font-bold cursor-pointer
-        !pt-[12px] !pb-[12px] !pl-[30px] !pr-[30px]  border-2 bg-${btnBg} text-${btnTxt} border-black`}>
+        <button className={`max-sm:h-[48px] max-sm:gap-1 flex items-center gap-3 w-full max-w-[195px] font-bold cursor-pointer
+        !pt-[12px] !pb-[12px] !pl-[32px] !pr-[32px]  border-2 bg-${btnBg} text-${btnTxt} border-black`}>
           <strong className="font-style">Find a Dealer</strong>
           <svg
-                  className={`down-chevro size-4 !stroke-${btnTxt}`}
+                  className={`down-chevro max-sm:!size-4  !stroke-${btnTxt}`}
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                 >
@@ -28,8 +28,7 @@ const DealerBtn = memo( () => {
                 </svg>
         </button>
 
-        <div className="w-full max-w-[300px]">
-          <button className={`flex items-center gap-1 w-full max-w-[218px] cursor-pointer !pt-[12px] !pb-[12px]
+          <button className={`flex items-center gap-1 w-full max-w-[224px] cursor-pointer !pt-[12px] !pb-[12px]
              !pl-[30px] !pr-[30px]  border-1 text-blak border-${btnBg}`}>
             <strong className={`font-style text-${btnBg} font-light`}>Book a Test Drive </strong>
                <svg
@@ -44,7 +43,7 @@ const DealerBtn = memo( () => {
                   />
                 </svg>
           </button>
-        </div>
+
       </div>
    
     </nav>

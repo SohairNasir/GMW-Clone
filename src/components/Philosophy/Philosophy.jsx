@@ -5,27 +5,29 @@ import { memo } from "react";
 import usethemeStyle from "../../Hooks/themeStyle";
 const Philosophy = memo(() => {
   let Theme = useSelector((state) => state.Theme.value);
-  let { bodyBg, bodyTxt } = usethemeStyle();
+  let { bodyTxt } = usethemeStyle();
 
   return (
-    <div
-      className={`con-philosophy w-full flex items-center justify-center bg-${bodyBg}`}
-    >
-      <div className="w-full max-w-[670px] flex flex-col gap-4 items-center justify-center ">
-        <strong className={`text-${bodyTxt} philosophy-h`}>
-          Our Philosophy{console.log(bodyTxt)}
-        </strong>
 
-        <span className="w-full text-center">
-          <p className={`philosophy-parah`}>
+
+    <article
+      className={`con-philosophy max-sm:!mb-[5rem] max-sm:!mt-[5rem] w-full !h-fit flex items-center justify-center`}
+      >
+      <div className=" w-full max-sm:!pr-[16px]   max-sm:!pl-[16px] max-w-[670px] flex flex-col items-center justify-center ">
+        
+        <strong className={`text-${bodyTxt} max-sm:!mb-[24px] max-sm:!text-2xl/8 philosophy-h`}>
+          Our Philosophy
+        </strong>
+  
+          <p className={`philosophy-parah  max-sm:!text-sm/5`}>
             There's a simple philosophy we live by here at GWM. It's what unites
             us as a company. It's also what separates us from the rest of the
             competition.
             <strong>''.'Improving little by little everyday'</strong>
           </p>
-        </span>
+  
       </div>
-    </div>
+    </article>
   );
 });
 

@@ -10,14 +10,14 @@ import Footer from '../../components/Footer/Footer'
 const Home = () => {
   
   return (
-    <div>
+    <div className='bg-black'>
     <Header headerHeight={false} />
     <DynamicAd/>
     <Feature />
     <Philosophy/>
-    {/* <Ytube /> */}
-    {/* <DealerBtn/> */}
-    {/* <Footer/> */}
+    <Ytube />
+    <DealerBtn/>
+    <Footer/>
     </div>
   )
 }

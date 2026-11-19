@@ -9,7 +9,7 @@ import { carAds } from "../../Redux/Slices/CarAds";
 function DynamicAd() {
   let [index, setIndex] = useState(0);
   let dispatch = useDispatch();
-  let { btnBg, btnTxt, bodyBg } = usethemeStyle();
+  let { btnBg, btnTxt} = usethemeStyle();
   let { data: dynamicAds, loading } = useSelector((state) => state.carModels);
   let ImgRef = useRef(null);
   let [imageSrc, setImageSrc] = useState([]);
@@ -49,7 +49,7 @@ function DynamicAd() {
       <span className="loader"></span>
     </div>
   ) : (
-    <section className={`w-full bg-${bodyBg}`}>
+    <section className="w-full">
 
       <div className="section">
         

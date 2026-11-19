@@ -120,8 +120,10 @@
  }
 
  .home-page-cards{
-    width: clamp(100px, 38vw , 222px);
-    height:clamp( 80px , 35vw , 128px);
+    /* width:36.5vw; */
+    /* height:  40vw; */
+    width: clamp(100px, 36.5vw, 222px);
+    height:clamp( 80px , 40vw , 128px);
  }
 
  .card-car-hover-text{

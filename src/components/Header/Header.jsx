@@ -16,7 +16,7 @@ export const Header = memo(({headerHeight=true}) => {
 
   return (
 
-    <header className={`${headerHeight && "!h-[4.3rem]"} bg-${bodyBg}`}>
+    <header className={`${headerHeight && "!h-[4.3rem]"}`}>
 
         <nav className="fixed top-2 z-10 flex items-center
          justify-center w-dvw max-w-[99dvw]">

@@ -5,19 +5,21 @@ import usethemeStyle from '../../Hooks/themeStyle'
 const Footer = memo (() => {
 
   let Theme = useSelector((state)=>state.Theme.value)
-  let {bodyBg , bodyTxt , btnBg , btnTxt} = usethemeStyle()   
+  let {bodyTxt , btnBg , btnTxt} = usethemeStyle()   
   
   return (
 
-    <footer className={`bg-${bodyBg} !pb-8` }>
+    <footer className={``}>
    
-   <div className="w-full mb-[50px] flex items-center justify-center h-[30vh] flex-col w-full gap-7 ">
-         <p className={`text-${bodyTxt}  w-full max-w-[49.8ch] footer-main-h`}>
+   <div className="max-sm:!pl-[16px] max-sm:!pt-[64px] max-sm:!pb-[64px] max-sm:!pr-[16px] flex flex-col items-center justify-center gap-7 ">
+         <p className={`text-${bodyTxt} max-sm:!text-[20px]/[30px] max-sm:tracking-[-0px]  max-w-[49.8ch] footer-main-h`}>
           SUBSCRIBE TO OUR NEWSLETTER FOR REGULAR UPDATES
          </p>
-     <div className={`flex justify-between items-center w-full max-w-[1020px] h-[9vh] border-2 border-${bodyTxt} `}>
-        <input className={`w-full h-[7vh] text-${bodyTxt} focus:outline-none !ml-[18px] placeholder:!text-${bodyTxt}`}  type="text" placeholder="Your Email Address" />
-        <button className={`w-full sub-btn  max-w-[160px] h-full text-${btnTxt} bg-${btnBg} `}>Subscribe</button>
+     <div className={`w-full flex justify-between items-center max-sm:flex-col max-sm:gap-2`}>
+
+        <input className={`newsLetter-inp text-${bodyTxt} focus:outline-none border-2 border-${bodyTxt} placeholder:!text-${bodyTxt}`}  type="text" placeholder="Your Email Address" />
+        <button className={`w-full max-sm:!text-[16px]/[24px] newsLetter-btn sub-btn h-full text-${btnTxt} bg-${btnBg} `}>Subscribe</button>
+    
     </div>
 </div>
 
