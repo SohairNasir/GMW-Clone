@@ -15,7 +15,7 @@ createRoot(document.getElementById('root')).render(
     <BrowserRouter>
         <ThemePorvider>
           < LocalizationProvider dateAdapter={AdapterDayjs}>
-                  <App />
+                  <App/>
           </ LocalizationProvider>
         </ThemePorvider>
     </BrowserRouter>

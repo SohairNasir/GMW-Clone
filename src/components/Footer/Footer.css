@@ -9,7 +9,7 @@
     font-size: 30px;
     line-height: 48px;
     font-weight: 900;
-    font-family: 'interVariable',sans-serif;
+    font-family: 'inter',sans-serif;
     text-align: center;    
 }
 
@@ -50,4 +50,19 @@
 .footer-bottom-txt{
     font-size: 14px;
     line-height: 20px;
+}
+
+@media screen and (max-width:425px) {
+    .newsLetter-inp{
+    height: clamp(42px ,9vw , 62px);
+    width: clamp(288px , 97% , 405px);
+    padding: 10px;
+}
+
+.newsLetter-btn{
+    height: clamp(42px ,9vw , 62px);
+    width: clamp(288px , 97% , 405px);
+}
+
+
 }

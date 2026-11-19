@@ -6,7 +6,7 @@ import usethemeStyle from '../../Hooks/themeStyle';
 let  FeatureSec = memo (() => {
   
   let Theme = useSelector((state)=>state.Theme.value)
-  let {bodyBg , bodyTxt} = usethemeStyle()
+  let {bodyTxt} = usethemeStyle()
 
  const carData = [
   {
@@ -69,27 +69,32 @@ let  FeatureSec = memo (() => {
 
   return (
 <>
-    <main className='w-full max-w-full !pr-[1rem] !pl-[1rem] h-auto' >
+  <main className={`w-full max-w-full !pl-[16px] !pr-[16px] box-border h-auto`} >
+        
+    
+      
+        
+          
+          <div className='smd-txt-con'>
+          <h2 className={`text-${bodyTxt} main-P-heading`}>
+              Discover GWM:
+          </h2>
+          <p className={`text-${bodyTxt} w-full main-p-parah`}>
+             Innovation, Sustainability,and Quality at the Core
+          </p>
+          </div>
 
-      <div className={` bg-${bodyBg} h-[250px]`}>
-        <div className='w-full  pl-[16px] pr-[16px]'>
-          
-          <h1 className={`text-${bodyTxt} w-full !mb-[16px] main-P-heading w-full`}>
-              Discover GWM: Innovation, Sustainability, and Quality at the Core
-          </h1>
-          
-          <p className={`main-Parah w-full max-w-[768px]`}>
+          <p className={`main-Parah`}>
               This is a belief shared by every employee and department at GWM, both locally and globally. It's a mindset that has propelled the company since its founding in 1990, pushing the limits of what a car can achieve. It's this same unwavering belief that has led GWM to specialize in crafting vehicles designed with purpose—each model meticulously engineered to meet our customers' needs in the most inspiring and innovative way.
           </p>
-        </div>
-      </div>  
+        
 
 
-      <div className='w-full pl-[16px] pr-[16px] h-fit'>
+      <div className='w-full h-fit'>
 
         <div className='w-full max-w-[1188px]'>
-          <h1 className={`Dic-range-h w-[full] max-w-[20ch] !pl-[16px] !pr-[16px]`}>Discover the Range</h1>
-          <h1 className={`text-${bodyTxt} !pl-[16px] !pr-[16px] gmw-offer-h w-[full] max-w-[20ch]`} >The GWM Offerings</h1>
+          <h1 className={`Dic-range-h max-w-[20ch] `}>Discover the Range</h1>
+          <h1 className={`text-${bodyTxt}  gmw-offer-h w-full max-w-[20ch]`} >The GWM Offerings</h1>
         </div>
 
       </div>
@@ -97,9 +102,9 @@ let  FeatureSec = memo (() => {
 
 
 
-      <div >
+      <div>
 
-        <nav className='flex flex-wrap items-center !pl-[16px] !pr-[16px] justify-center gap-[20px] w-full mt-[20px]'>
+        <nav className='flex flex-wrap items-center max-sm:gap-[20px] gap-[20px] !pr-[16px] !pl-[16px] '>
 
 
           {
@@ -108,9 +113,9 @@ let  FeatureSec = memo (() => {
 return(
 
     <div  key={car?.id}
-     className='animated-car-card w-full max-w-[303.5px] relative'>
+     className='animated-car-card relative'>
 
-      <div className='w-full transparent-sheet flex justify-center flex-col relative items-center'>
+      <div className='flex justify-center flex-col relative w-fit items-center'>
          
          <div className='z-40 landingP-card-txt-con absolute top-[43px] w-full'> 
             <div className=' w-full max-w-[300px] card-car-hover-text  flex flex-col items-center '>
@@ -119,11 +124,10 @@ return(
             </div>
           </div>
 
-            <img className='w-full object-cover rounded-[7px] h-[128px] ' src={car.image}  alt="" />
-      
+            <img className='home-page-cards w-full object-cover rounded-[7px] h-[128px]' src={car.image}  alt="" />
       </div>
       
-            <strong className='car-name-card absolute text-amber-50 bottom-[15px] left-1.5'>{car.name}</strong>
+            <strong className='car-name-card absolute text-amber-50 max-sm:bottom-[5px] bottom-[15px] left-1.5'>{car.name}</strong>
       
           </div>
 )
@@ -133,7 +137,6 @@ return(
                   
         </nav>
       </div>
-
 
     </main> 
   

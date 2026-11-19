@@ -1,22 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
+
+.smd-txt-con{
+    font-family: 'inter',sans-serif;
+    word-break: keep-all;
+    /* margin: 80px 0px  40px  0px; */
+}
+
 .main-P-heading{
     display: block;
     max-width: 55ch;
-    word-break: keep-all;
     font-size: 34px;
     line-height: 40px;
     font-weight: 900;
-    letter-spacing: -0.04rem;
-    font-family: 'interVariable',sans-serif;
-}.main-Parah{
+    letter-spacing: 2px;
+}
+.main-Parah{
     font-size: 16px;
-    line-height: 24px;
     max-width: 77.3ch !important;
+    line-height: 24px;
     font-family: 'inter';
     overflow-wrap:break-word ;
     word-break: keep-all;
     color: #4B5563;
 }
-
 .Dic-range-h{
     font-size: 24px;
     line-height: 36.4px;
@@ -69,4 +75,60 @@
     line-height: 20px;
     font-weight: 300;
     font-family: 'inter';
+}
+
+@media screen and (max-width: 780px ) {
+  .smd-txt-con{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+ }
+    
+ .main-P-heading{
+    max-width: 288px;
+    font-size: 30px;
+    line-height: 36px;
+    letter-spacing: 0px;
+ }   
+ .main-p-parah{
+    max-width: 100%;
+    font-weight: 800;
+    word-break: keep-all;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: 0px;
+    text-wrap: balance;
+    margin-bottom: 24px;
+ }
+
+ .main-Parah{
+    font-size: 14px;
+    line-height: 22px;
+    margin-bottom: 48px ;
+ }
+
+ .Dic-range-h{
+    font-size: 23px;
+    margin-bottom: 4px;
+ }
+
+ .gmw-offer-h{
+    font-size: 25px;
+    line-height: 37px;
+    font-weight: 700;
+    margin-bottom: 16px;
+ }
+
+ .home-page-cards{
+    /* width:36.5vw; */
+    /* height:  40vw; */
+    width: clamp(100px, 36.5vw, 222px);
+    height:clamp( 80px , 40vw , 128px);
+ }
+
+ .card-car-hover-text{
+    font-size: 12px;
+    line-height: 18px;
+ }
+
 }

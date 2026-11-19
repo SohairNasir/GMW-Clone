@@ -1,6 +1,8 @@
 @import"tailwindcss";
 
 .font-style{
+    word-break: break-all;
+    height: fit-content;
     font-size: 16px;
     line-height: 24px;
     font-family: 'inter';
