@@ -69,7 +69,7 @@ let  FeatureSec = memo (() => {
 
   return (
 <>
-  <main className={`w-full max-w-full !pl-[16px] !pr-[16px] max-sm:!mt-[80px] max-sm:!mb-[40px] box-border h-auto`} >
+  <main className={`w-full max-w-full bg-red-700 !pl-[16px] !pr-[16px] max-sm:!mt-[80px] max-sm:!mb-[40px] box-border h-auto`} >
         
     
       
