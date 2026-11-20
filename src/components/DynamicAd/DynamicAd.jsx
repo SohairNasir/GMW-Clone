@@ -49,7 +49,7 @@ function DynamicAd() {
       <span className="loader"></span>
     </div>
   ) : (
-    <section className="w-full">
+    <section>
 
       <div className="section">
         
